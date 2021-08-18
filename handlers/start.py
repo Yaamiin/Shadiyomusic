@@ -162,6 +162,7 @@ async def help_(client: Client, message: Message):
 
 
 @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@authorized_users_only
 async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
@@ -179,7 +180,7 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        "🎧 bot status:\n"
+        f"🔹 **uptime:** `{uptime}`\n"
+        f"🔹 **start time:** `{START_TIME_ISO}`"
     )

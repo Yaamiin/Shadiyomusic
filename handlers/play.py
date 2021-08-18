@@ -837,6 +837,139 @@ async def ytplay(_, message: Message):
         return await lel.delete()
 
 
+@Client.on_message(command("dplay") & filters.group & ~filters.edited)
+async def deezer(client: Client, message_: Message):
+    if message_.chat.id in DISABLED_GROUPS:
+        return
+    global que
+    lel = await message_.reply("🔁 **Sedang Memproses Lagu**")
+    administrators = await get_administrators(message_.chat)
+    chid = message_.chat.id
+    try:
+        user = await USER.get_me()
+    except:
+        user.first_name = "GeezProject"
+    usar = user
+    wew = usar.id
+    try:
+        # chatdetails = await USER.get_chat(chid)
+        await client.get_chat_member(chid, wew)
+    except:
+        for administrator in administrators:
+            if administrator == message_.from_user.id:
+                if message_.chat.title.startswith("Channel Music: "):
+                    await lel.edit(
+                        f"<b>Ingatlah untuk menambahkan {user.first_name} ke Channel Anda</b>",
+                    )
+                    pass
+                try:
+                    invitelink = await client.export_chat_invite_link(chid)
+                except:
+                    await lel.edit(
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+                    )
+                    return
+
+                try:
+                    await USER.join_chat(invitelink)
+                    await USER.send_message(
+                        message_.chat.id, "I joined this group for playing music in VC"
+                    )
+                    await lel.edit(
+                        "<b>helper userbot joined your chat</b>",
+                    )
+
+                except UserAlreadyParticipant:
+                    pass
+                except Exception:
+                    # print(e)
+                    await lel.edit(
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                    )
+    try:
+        await USER.get_chat(chid)
+        # lmoa = await client.get_chat_member(chid,wew)
+    except:
+        await lel.edit(
+            f"<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/play` untuk pertama kalinya atau tambahkan @{ASSISTANT_NAME} secara manual</i>"
+        )
+        return
+    requested_by = message_.from_user.first_name
+
+    text = message_.text.split(" ", 1)
+    queryy = text[1]
+    query = queryy
+    res = lel
+    await res.edit(f"**Sedang Mencari Lagu** `{query}` **dari deezer**")
+    try:
+        songs = await arq.deezer(query,1)
+        if not songs.ok:
+            await message_.reply_text(songs.result)
+            return
+        title = songs.result[0].title
+        url = songs.result[0].url
+        artist = songs.result[0].artist
+        duration = songs.result[0].duration
+        thumbnail = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
+
+    except:
+        await res.edit("**Tidak Ditemukan Lagu Apa Pun!**")
+        return
+    try:    
+        duuration= round(duration / 60)
+        if duuration > DURATION_LIMIT:
+            await cb.message.edit(f"**Musik lebih lama dari** `{DURATION_LIMIT}` **menit tidak diperbolehkan diputar**")
+            return
+    except:
+        pass    
+    
+    keyboard = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton(text="⛑ Channel", url="https://t.me/GeezProjects")],
+        ]
+    )
+    file_path = await convert(wget.download(url))
+    await res.edit("📥 **Generating Thumbnail**")
+    await generate_cover(requested_by, title, artist, duration, thumbnail)
+    chat_id = get_chat_id(message_.chat)
+    if chat_id in callsmusic.pytgcalls.active_calls:
+        await res.edit("adding in queue")
+        position = await queues.put(chat_id, file=file_path)
+        qeue = que.get(chat_id)
+        s_name = title
+        r_by = message_.from_user
+        loc = file_path
+        appendable = [s_name, r_by, loc]
+        qeue.append(appendable)
+        await res.edit_text(f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
+    else:
+        await res.edit_text(f"🎼️ **Playing...**")
+
+        que[chat_id] = []
+        qeue = que.get(chat_id)
+        s_name = title
+        r_by = message_.from_user
+        loc = file_path
+        appendable = [s_name, r_by, loc]
+        qeue.append(appendable)
+        try:
+            callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+        except:
+            res.edit("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
+            return
+
+    await res.delete()
+
+    m = await client.send_photo(
+        chat_id=message_.chat.id,
+        reply_markup=keyboard,
+        photo="final.png",
+        caption=f"🎼️ **Sedang Memutar Lagu** [{title}]({url}) **Via Deezer**",
+    )
+    os.remove("final.png")
+
+
 @Client.on_callback_query(filters.regex(pattern=r"plll"))
 async def lol_cb(b, cb):
     global que

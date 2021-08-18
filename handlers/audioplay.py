@@ -12,7 +12,7 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, QUE_IMG
+from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, QUE_IMG, GROUP_SUPPORT
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
@@ -31,8 +31,8 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="Developer",
-                        url=f"https://t.me/xgothboi"),
+                        text="Group",
+                        url=f"https://t.me/{GROUP_SUPPORT}"),
                     InlineKeyboardButton(
                         text="Channel​",
                         url=f"https://t.me/{UPDATES_CHANNEL}")

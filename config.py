@@ -18,7 +18,6 @@ admins = {}
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 BOT_USERNAME = getenv("BOT_USERNAME", "KennedyXRobot")
-ARQ_API_KEY = getenv("ARQ_API_KEY", "IIBLMH-YKSCWX-VSYKAP-SUSPRR-ARQ")
 ASSISTANT_NAME = getenv("ASSISTANT_NAME", "assistantmusicken")
 GROUP_SUPPORT = getenv("GROUP_SUPPORT", "kenbotsupport")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "KennedyProject")

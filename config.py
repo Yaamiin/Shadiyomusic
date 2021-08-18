@@ -24,7 +24,7 @@ GROUP_SUPPORT = getenv("GROUP_SUPPORT", "kenbotsupport")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "KennedyProject")
 OWNER_NAME = getenv("OWNER_NAME", "xgothboi") # isi dengan username kamu tanpa simbol @
 DEV_NAME = getenv("DEV_NAME", "xgothboi")
-PMPERMIT = getenv("PMPERMIT", None)
+PMPERMIT = getenv("PMPERMIT", "DISABLE")
 
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
 

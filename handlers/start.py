@@ -72,7 +72,7 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await m_reply.edit_text(
-        f"""✅ **Bot is running Successful**\n\n**Ping :**`{delta_ping * 1000:.3f} ms`"<b>🎈 **Bot uptime:**</b> `{uptime}`""",
+        f"""✅ **Bot is running Successful**\n\n⚡ **Speed :** `{delta_ping * 1000:.3f} ms`\n<b>🎈 **Bot uptime :**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

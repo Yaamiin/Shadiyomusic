@@ -63,7 +63,7 @@ async def start_(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["start") & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("Starting...")
@@ -72,7 +72,7 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await m_reply.edit_text(
-        f"""✅ **Bot is running Successful**\n\n⚡ **Speed :** `{delta_ping * 1000:.3f} ms`\n<b>🎈 **Bot uptime :**</b> `{uptime}`""",
+        f"""✅ **Bot is running Successful**\n\n⚡ **Bot speed :** `{delta_ping * 1000:.3f} ms`\n<b>🎈 **Bot uptime :**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -87,7 +87,7 @@ async def start(client: Client, message: Message):
         )
     )
 
-@Client.on_message(filters.command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["help") & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hello {message.from_user.mention()}, please tap the button below to see the help message you can read for using this bot</b>""",

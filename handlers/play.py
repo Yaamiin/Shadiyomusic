@@ -532,7 +532,7 @@ async def play(_, message: Message):
         duration = round(audio.duration / 60)
         views = "Locally added"
         requested_by = message.from_user.first_name
-        await generate_cover(requested_by, title, views, duration, thumbnail)
+        await generate_cover(chat_title, requested_by, title, views, duration, thumbnail)
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
@@ -573,7 +573,7 @@ async def play(_, message: Message):
             ]
         )
         requested_by = message.from_user.first_name
-        await generate_cover(requested_by, title, views, duration, thumbnail)
+        await generate_cover(chat_title, requested_by, title, views, duration, thumbnail)
         file_path = await converter.convert(youtube.download(url))        
     else:
         query = ""
@@ -657,7 +657,7 @@ async def play(_, message: Message):
             ]
         )
             requested_by = message.from_user.first_name
-            await generate_cover(requested_by, title, views, duration, thumbnail)
+            await generate_cover(chat_title, requested_by, title, views, duration, thumbnail)
             file_path = await converter.convert(youtube.download(url))   
     chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
@@ -799,7 +799,7 @@ async def ytplay(_, message: Message):
             ]
         )
     requested_by = message.from_user.first_name
-    await generate_cover(requested_by, title, views, duration, thumbnail)
+    await generate_cover(chat_title, requested_by, title, views, duration, thumbnail)
     file_path = await converter.convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
@@ -902,7 +902,7 @@ async def lol_cb(b, cb):
             ]
         )
     requested_by = useer_name
-    await generate_cover(requested_by, title, views, duration, thumbnail)
+    await generate_cover(chat_title, requested_by, title, views, duration, thumbnail)
     file_path = await converter.convert(youtube.download(url))  
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)

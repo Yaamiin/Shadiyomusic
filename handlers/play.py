@@ -130,6 +130,14 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Atas permintaan {usr}\n"
     await message.reply_text(msg)
+            [
+                [
+                    InlineKeyboardButton(
+                        "Group Support", url=f"https://t.me/kenbotsupport"
+                ]
+            ]
+        )
+   )
 
 # ============================= Settings =========================================
 
@@ -250,7 +258,7 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("**nothing is playing ❗**")
+            await cb.message.edit("**❌ nothing is playing**")
         temp = []
         for t in queue:
             temp.append(t)
@@ -269,6 +277,15 @@ async def p_cb(b, cb):
                 msg += f"\n• {name}"
                 msg += f"\n• Req by {usr}\n"
         await cb.message.edit(msg)
+      reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Group Support", url=f"https://t.me/kenbotsupport"
+                ]
+            ]
+        )
+   )
 
 
 @Client.on_callback_query(

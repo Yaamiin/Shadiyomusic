@@ -278,15 +278,15 @@ async def p_cb(b, cb):
                 msg += f"\n• {name}"
                 msg += f"\n• Req by {usr}\n"
         await cb.message.edit(msg)
-      reply_markup=InlineKeyboardMarkup(
-            [
+          reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(
-                        "Group Support", url=f"https://t.me/kenbotsupport"
+                    [
+                        InlineKeyboardButton(
+                            "Group Support", url=f"https://t.me/kenbotsupport"
+                    ]
                 ]
-            ]
-        )
-   )
+            )
+       )
 
 
 @Client.on_callback_query(

@@ -120,6 +120,7 @@ async def playlist(client, message):
     msg = "**Lagu Yang Sedang dimainkan** di {}".format(message.chat.title)
     msg += "\n• "+ now_playing
     msg += "\n• Atas permintaan "+by
+    keyboard = InlineKeyboardButton
     temp.pop(0)
     if temp:
         msg += "\n\n"

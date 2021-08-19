@@ -173,7 +173,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(command(["player", f"player@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["menu", f"menu@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -509,8 +509,8 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton("PlayList", "playlist"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
         )
@@ -554,10 +554,9 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton("PlayList", "playlist"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", "cls")
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -634,10 +633,9 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton("PlayList", "playlist"),
+                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                     InlineKeyboardButton("🗑 Close", "cls")
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
             )
             requested_by = message.from_user.first_name
@@ -736,10 +734,9 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton("PlayList", "playlist"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", "cls")
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
     )
     requested_by = useer_name

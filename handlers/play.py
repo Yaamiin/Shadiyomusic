@@ -557,6 +557,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("Menu", callback_data="menu"),
                     InlineKeyboardButton("PlayList", "playlist"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -636,6 +637,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("Menu", callback_data="menu"),
                     InlineKeyboardButton("PlayList", "playlist"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
             )
             requested_by = message.from_user.first_name
@@ -652,8 +654,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
-                   +f"🔹 **At Position:** » `{position}` «",
+            caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+                   +f"🎧 **Request by:** {message.from_user.mention}",
             reply_markup=keyboard
         )
     else:
@@ -683,17 +685,19 @@ async def play(_, message: Message):
 @Client.on_callback_query(filters.regex(pattern=r"plll"))
 async def lol_cb(b, cb):
     global que
+
     cbd = cb.data.strip()
     chat_id = cb.message.chat.id
     typed_=cbd.split(None, 1)[1]
+    #useer_id = cb.message.reply_to_message.from_user.id
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ song not found")
+        await cb.message.edit("❌ Lagu Tidak ditemukan")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("you are not people who requested this song!", show_alert=True)
+        await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
     await cb.message.edit("**Connecting to VCG...**")
     x=int(x)
@@ -701,13 +705,15 @@ async def lol_cb(b, cb):
         useer_name = cb.message.reply_to_message.from_user.first_name
     except:
         useer_name = cb.message.from_user.first_name
-    results = YoutubeSearch(query, max_results=6).to_dict()
+    
+    results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
     title=results[x]["title"][:25]
     thumbnail=results[x]["thumbnails"][0]
     duration=results[x]["duration"]
     views=results[x]["views"]
-    url = f"https://www.youtube.com{resultss}"
+    url = f"https://youtube.com{resultss}"
+    
     try:    
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr)-1, -1, -1):
@@ -719,20 +725,21 @@ async def lol_cb(b, cb):
     except:
         pass
     try:
-        thumb_name = f"thumb-{title}kennedymsc.jpg"
+        thumb_name = f"thumb{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
     except Exception as e:
         print(e)
         return
     dlurl=url
-    dlurl=dlurl.replace("youtube", "youtubepp")
+    dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton("Menu", callback_data="menu"),
                     InlineKeyboardButton("PlayList", "playlist"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
     )
     requested_by = useer_name
@@ -750,14 +757,14 @@ async def lol_cb(b, cb):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await cb.message.delete()
-        await b.send_photo(
-        chat_id,
-        photo="final.png",
-        caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n" \
-               +f"🔹 **At Position:** » `{position}` «",
-        reply_markup=keyboard,
+        await b.send_photo(chat_id,
+            photo="final.png",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
+                    + f"🎧 **Request Dari:** {r_by.mention}",
+                   reply_markup=keyboard,
         )
         os.remove("final.png")
+        
     else:
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -769,13 +776,13 @@ async def lol_cb(b, cb):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
+
         callsmusic.pytgcalls.join_group_call(chat_id, file_path)
         await cb.message.delete()
-        await b.send_photo(
-        chat_id,
-        photo="final.png",
-        caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-               +f"🎧 **Request by:** {r_by.mention}",
-        reply_markup=keyboard,
+        await b.send_photo(chat_id,
+            photo="final.png",
+            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
+                    + f"🎧 **Request Dari:** {r_by.mention}",
+                    reply_markup=keyboard,
         )
         os.remove("final.png")

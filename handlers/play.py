@@ -504,7 +504,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ **lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak dapat diputar!**"
+                f"❎ **lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak dapat diputar!**"
             )
         keyboard = InlineKeyboardMarkup(
             [
@@ -545,7 +545,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "**❌ song not found.** please give a valid song name."
+                "**❎ song not found.** please give a valid song name."
             )
             print(str(e))
             return
@@ -580,7 +580,7 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:20]}](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:30]}](https://youtube.com{results[j]['url_suffix']})...\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by {BOT_NAME} A.I__\n\n"
                 j += 1            
@@ -624,7 +624,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❌ song not found.** please give a valid song name."
+                "**❎ song not found.** please give a valid song name."
             )
                 print(str(e))
                 return
@@ -691,7 +691,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ Lagu Tidak ditemukan")
+        await cb.message.edit("❎ Lagu Tidak ditemukan")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -718,7 +718,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"❌ Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar.")
+             await cb.message.edit(f"❎ Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar.")
              return
     except:
         pass

@@ -130,7 +130,10 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Atas permintaan {usr}\n"
     await message.reply_text(msg)
-
+        keyboard = InlineKeyboardMarkup(
+            [
+                InlineKeyboardButton("Menu", callback_data="menu")
+            ]
 
 # ============================= Settings =========================================
 

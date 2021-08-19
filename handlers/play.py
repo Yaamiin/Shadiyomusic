@@ -610,7 +610,9 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
-                        InlineKeyboardButton("🔹Channel🔹", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    ],
+                    [
+                        InlineKeyboardButton("🔁Channel🔁", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]

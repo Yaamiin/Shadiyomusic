@@ -161,7 +161,6 @@ def r_ply(type_):
                 InlineKeyboardButton("⏸", "pause"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
-                InlineKeyboardButton("Support", url=f"https://t.me/{GROUP_SUPPORT}"),
             ],
             [InlineKeyboardButton("🗑 Close", "cls")],
         ]
@@ -376,7 +375,6 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏸", "pause"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip")
-                    InlineKeyboardButton("Support", url=f"https://t.me/{GROUP_SUPPORT}"),
                 ],
                 [       
                     InlineKeyboardButton("🗑 Close", "cls")

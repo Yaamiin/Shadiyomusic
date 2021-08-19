@@ -130,12 +130,6 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Atas permintaan {usr}\n"
     await message.reply_text(msg)
-      reply_markup=InlineKeyboardMarkup(
-            [
-                InlineKeyboardButton("Group Support", url=f"https://t.me/kenbotsupport"
-            ]
-        )
-   )
 
 # ============================= Settings =========================================
 
@@ -167,6 +161,7 @@ def r_ply(type_):
                 InlineKeyboardButton("⏸", "pause"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
+                InlineKeyboardButton("Support", url=f"https://t.me/{GROUP_SUPPORT}"),
             ],
             [InlineKeyboardButton("🗑 Close", "cls")],
         ]
@@ -275,15 +270,6 @@ async def p_cb(b, cb):
                 msg += f"\n• {name}"
                 msg += f"\n• Req by {usr}\n"
         await cb.message.edit(msg)
-          reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            "Group Support", url=f"https://t.me/kenbotsupport"
-                    ]
-                ]
-            )
-       )
 
 
 @Client.on_callback_query(
@@ -390,6 +376,7 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏸", "pause"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip")
+                InlineKeyboardButton("Support", url=f"https://t.me/{GROUP_SUPPORT}"),
                 ],
                 [       
                     InlineKeyboardButton("🗑 Close", "cls")

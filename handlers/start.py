@@ -65,10 +65,13 @@ async def start_(client: Client, message: Message):
 
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
+    start = time()
+    m_reply = await message.reply_text("Starting...")
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    await message.reply_text(
+    delta_ping = time() - start
+    await m_reply.edit_text(
         f"""✅ **Bot is running Successful**\n\n**Ping :**`{delta_ping * 1000:.3f} ms`"<b>🎈 **Bot uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [

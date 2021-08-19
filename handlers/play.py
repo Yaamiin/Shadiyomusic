@@ -132,10 +132,7 @@ async def playlist(client, message):
     await message.reply_text(msg)
       reply_markup=InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton(
-                        "Group Support", url=f"https://t.me/kenbotsupport"
-                ]
+                InlineKeyboardButton("Group Support", url=f"https://t.me/kenbotsupport"
             ]
         )
    )

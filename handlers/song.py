@@ -1,62 +1,64 @@
 from __future__ import unicode_literals
+
 import asyncio
 import math
 import os
 import time
+from random import randint
+from urllib.parse import urlparse
+
 import aiofiles
 import aiohttp
 import requests
 import wget
 import youtube_dl
-from random import randint
-from urllib.parse import urlparse
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-from helpers.filters import command
-from config import DURATION_LIMIT, BOT_USERNAME
+
+from config import DURATION_LIMIT, BOT_USERNAME as bn
 
 
-@Client.on_message(command(["song", f"song@{BOT_USERNAME}"]) & ~filters.channel)
+@Client.on_message(filters.command("song") & ~filters.channel)
 def song(client, message):
+
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    query = "".join(" " + str(i) for i in message.command[1:])
+
+    query = ""
+    for i in message.command[1:]:
+        query += " " + str(i)
     print(query)
-    m = message.reply("**Searching Song...**")
+    m = message.reply("🔎 finding song...")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://www.youtube.com{results[0]['url_suffix']}"
+        link = f"https://youtube.com{results[0]['url_suffix']}"
         # print(results)
         title = results[0]["title"][:40]
         thumbnail = results[0]["thumbnails"][0]
         thumb_name = f"thumb{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
+
         duration = results[0]["duration"]
         results[0]["url_suffix"]
         results[0]["views"]
+
     except Exception as e:
-        m.edit("❌ **Song not found**")
+        m.edit("❌ song not found.\n\nplease give a valid song name.")
         print(str(e))
         return
-    m.edit("📥 **Sedang Mendownload Lagu**")
+    m.edit("📥 downloading...")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"""
-**🏷 Nama Lagu:** [{title}]({link})
-**⏱️ Durasi Lagu:** {duration}
-**👁️‍🗨️ Dilihat Oleh:** {results[0]['views']}
-**🤖 Diunggah Oleh:** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-**🎧 Permintaan Dari:** {rpk}
-"""
+        rep = f"**🎧 Uploader @{bn}**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -71,8 +73,9 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ **Error**")
+        m.edit("❌ error, wait for dev to fix")
         print(e)
+
     try:
         os.remove(audio_file)
         os.remove(thumb_name)
@@ -84,11 +87,12 @@ def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
         return None
-    if " " not in text_to_return:
-        return None
-    try:
-        return message.text.split(None, 1)[1]
-    except IndexError:
+    if " " in text_to_return:
+        try:
+            return message.text.split(None, 1)[1]
+        except IndexError:
+            return None
+    else:
         return None
 
 
@@ -116,11 +120,10 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join("🔴" for i in range(math.floor(percentage / 10))),
-            "".join("🔘" for i in range(10 - math.floor(percentage / 10))),
+            "".join(["🔴" for i in range(math.floor(percentage / 10))]),
+            "".join(["🔘" for i in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2),
         )
-
         tmp = progress_str + "{0} of {1}\nETA: {2}".format(
             humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
         )
@@ -143,12 +146,15 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
 
 
 def get_user(message: Message, text: str) -> [int, str, None]:
-    asplit = None if text is None else text.split(" ", 1)
+    if text is None:
+        asplit = None
+    else:
+        asplit = text.split(" ", 1)
     user_s = None
     reason_ = None
     if message.reply_to_message:
         user_s = message.reply_to_message.from_user.id
-        reason_ = text or None
+        reason_ = text if text else None
     elif asplit is None:
         return None, None
     elif len(asplit[0]) > 0:
@@ -163,19 +169,26 @@ def get_readable_time(seconds: int) -> int:
     ping_time = ""
     time_list = []
     time_suffix_list = ["s", "m", "h", "days"]
+
     while count < 4:
         count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if count < 3:
+            remainder, result = divmod(seconds, 60)
+        else:
+            remainder, result = divmod(seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
         seconds = int(remainder)
+
     for x in range(len(time_list)):
         time_list[x] = str(time_list[x]) + time_suffix_list[x]
     if len(time_list) == 4:
         ping_time += time_list.pop() + ", "
+
     time_list.reverse()
     ping_time += ":".join(time_list)
+
     return ping_time
 
 
@@ -233,94 +246,22 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@Client.on_message(command(["saavn", f"saavn@{BOT_USERNAME}"]) & ~filters.edited)
-async def jssong(_, message):
-    global is_downloading
-    if len(message.command) < 2:
-        await message.reply_text("**/saavn masukan judul lagu.**")
-        return
-    if is_downloading:
-        await message.reply_text(
-            "**Downloadan yang lain sedang berlangsung, coba lagi nanti**"
-        )
-        return
-    is_downloading = True
-    text = message.text.split(None, 1)[1]
-    query = text.replace(" ", "%20")
-    m = await message.reply_text("🔎 **Sedang Mencari Lagu**")
-    try:
-        songs = await arq.saavn(query)
-        if not songs.ok:
-            await message.reply_text(songs.result)
-            return
-        sname = songs.result[0].song
-        slink = songs.result[0].media_url
-        ssingers = songs.result[0].singers
-        await m.edit("Downloading")
-        song = await download_song(slink)
-        await m.edit("Uploading")
-        await message.reply_audio(audio=song, title=sname, performer=ssingers)
-        os.remove(song)
-        await m.delete()
-    except Exception as e:
-        is_downloading = False
-        await m.edit(str(e))
-        return
-    is_downloading = False
-
-
-@Client.on_message(command(["deezer", f"deezer@{BOT_USERNAME}"]) & ~filters.edited)
-async def deezsong(_, message):
-    global is_downloading
-    if len(message.command) < 2:
-        await message.reply_text("**/deezer masukan judul lagu**")
-        return
-    if is_downloading:
-        await message.reply_text(
-            "**Downloadan yang lain sedang berlangsung, coba lagi nanti**"
-        )
-        return
-    is_downloading = True
-    text = message.text.split(None, 1)[1]
-    query = text.replace(" ", "%20")
-    m = await message.reply_text("🔎 **Sedang Mencari Lagu**")
-    try:
-        songs = await arq.deezer(query, 1)
-        if not songs.ok:
-            await message.reply_text(songs.result)
-            return
-        title = songs.result[0].title
-        url = songs.result[0].url
-        artist = songs.result[0].artist
-        await m.edit("Downloading")
-        song = await download_song(url)
-        await m.edit("Uploading")
-        await message.reply_audio(audio=song, title=title, performer=artist)
-        os.remove(song)
-        await m.delete()
-    except Exception as e:
-        is_downloading = False
-        await m.edit(str(e))
-        return
-    is_downloading = False
-
-
-@Client.on_message(command(["video", f"video@{BOT_USERNAME}"]))
+@Client.on_message(filters.command(["vsong", "video"]))
 async def ytmusic(client, message: Message):
     global is_downloading
     if is_downloading:
         await message.reply_text(
-            "**Downloadan yang lain sedang berlangsung, coba lagi nanti**"
+            "another download is in progress, try again after sometime."
         )
         return
 
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**Mendapatkan** `{urlissed}` **Dari Youtube. Tunggu Sebentar.**"
+        message.chat.id, f"**getting {urlissed} from youtube servers, please wait...**"
     )
     if not urlissed:
-        await pablo.edit("**Sintaks Perintah Tidak Valid** Silakan ketik `/help` Untuk Mengetahui Lebih Lanjut!")
+        await pablo.edit("invalid command syntax, please check help menu to know more!")
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -354,7 +295,7 @@ async def ytmusic(client, message: Message):
 
             if duration > DURATION_LIMIT:
                 await pablo.edit(
-                    f"❌ **Video berdurasi lebih dari {DURATION_LIMIT} menit tidak diperbolehkan, video yang ingin kamu download {duration} menit**"
+                    f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)"
                 )
                 is_downloading = False
                 return
@@ -367,7 +308,7 @@ async def ytmusic(client, message: Message):
 
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"**Nama Video ➠** `{thum}` \n**Permintaan Dari :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
+    capy = f"✨ **video name :** __{thum}__ \n💭 **request by:** __{urlissed}__ \n📣 **channel :** __{thums}__ \n📌 **link :** [click here]({mo})"
     await client.send_video(
         message.chat.id,
         video=open(file_stark, "rb"),
@@ -380,7 +321,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"**Mengupload Lagu** `{urlissed}` **Dari YouTube Music!**",
+            f"`uploading {urlissed} song from youtube music!`",
             file_stark,
         ),
     )

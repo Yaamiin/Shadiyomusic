@@ -509,7 +509,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                  InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
@@ -554,7 +554,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                  InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
@@ -633,7 +633,7 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                  InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
@@ -697,7 +697,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("**Connecting to VCG...**")
+    await cb.message.edit("🔁 **Connecting to VCG...**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -734,7 +734,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                  InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]

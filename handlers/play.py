@@ -158,7 +158,7 @@ def r_ply(type_):
         [
             [
                 InlineKeyboardButton("⏹", "leave"),
-                InlineKeyboardButton("⏸", "puse"),
+                InlineKeyboardButton("⏸", "pause"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip")
             ],
@@ -267,7 +267,7 @@ async def p_cb(b, cb):
 
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
+    filters.regex(pattern=r"^(play|pause|skip|leave|pause|resume|menu|cls)$")
 )
 @cb_admin_check
 async def m_cb(b, cb):
@@ -367,7 +367,7 @@ async def m_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("⏸", "pause"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip")
                 
@@ -508,9 +508,8 @@ async def play(_, message: Message):
             )
         keyboard = InlineKeyboardMarkup(
             [
-                [
+                [InlineKeyboardButton("🗑 Close", "cls")
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                 InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
         )
@@ -553,9 +552,8 @@ async def play(_, message: Message):
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
             [
-                [
+                [InlineKeyboardButton("🗑 Close", "cls")
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                 InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
         )
@@ -632,9 +630,8 @@ async def play(_, message: Message):
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
             [
-                [
+                [InlineKeyboardButton("🗑 Close", "cls")
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                 InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
             )
@@ -733,9 +730,8 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [
+                [InlineKeyboardButton("🗑 Close", "cls")
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                 InlineKeyboardButton("🗑 Close", "cls")
                 ],
             ]
     )

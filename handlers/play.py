@@ -509,8 +509,8 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [       
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                 InlineKeyboardButton("🕹️ Menu", callback_data="menu")
+                 InlineKeyboardButton("🗑 Close", "cls"),
                 ],
             ]
         )
@@ -553,9 +553,9 @@ async def play(_, message: Message):
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
             [
-                [
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                [       
+                 InlineKeyboardButton("🕹️ Menu", callback_data="menu")
+                 InlineKeyboardButton("🗑 Close", "cls"),
                 ],
             ]
         )
@@ -733,12 +733,12 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
+                [       
+                 InlineKeyboardButton("🕹️ Menu", callback_data="menu")
+                 InlineKeyboardButton("🗑 Close", "cls"),
                 ],
             ]
-    )
+        )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await converter.convert(youtube.download(url))  

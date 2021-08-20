@@ -510,8 +510,7 @@ async def play(_, message: Message):
             [
                 [       
                         InlineKeyboardButton("🗑 Close", "cls")
-                        InlineKeyboardButton(
-                            "🕹️ Menu", callback_data="menu"),
+                        InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
             ]
         )
@@ -556,8 +555,7 @@ async def play(_, message: Message):
             [
                 [
                         InlineKeyboardButton("🗑 Close", "cls")
-                        InlineKeyboardButton(
-                            "🕹️ Menu", callback_data="menu"),
+                        InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
             ]
         )
@@ -636,8 +634,7 @@ async def play(_, message: Message):
             [
                 [
                         InlineKeyboardButton("🗑 Close", "cls")
-                        InlineKeyboardButton(
-                            "🕹️ Menu", callback_data="menu"),
+                        InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
             ]
             )
@@ -738,8 +735,7 @@ async def lol_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("🗑 Close", "cls")
-                    InlineKeyboardButton(
-                        "🕹️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
             ]
     )

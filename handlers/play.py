@@ -508,8 +508,10 @@ async def play(_, message: Message):
             )
         keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", "menu"),
+                [       
+                        InlineKeyboardButton("🗑 Close", "cls")
+                        InlineKeyboardButton(
+                            "🕹️ Menu", callback_data="menu"),
                 ],
             ]
         )
@@ -552,8 +554,10 @@ async def play(_, message: Message):
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", "menu"),
+                [
+                        InlineKeyboardButton("🗑 Close", "cls")
+                        InlineKeyboardButton(
+                            "🕹️ Menu", callback_data="menu"),
                 ],
             ]
         )
@@ -630,8 +634,10 @@ async def play(_, message: Message):
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", "menu"),
+                [
+                        InlineKeyboardButton("🗑 Close", "cls")
+                        InlineKeyboardButton(
+                            "🕹️ Menu", callback_data="menu"),
                 ],
             ]
             )
@@ -730,8 +736,10 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", "menu"),
+                [
+                    InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton(
+                        "🕹️ Menu", callback_data="menu"),
                 ],
             ]
     )

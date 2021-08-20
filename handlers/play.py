@@ -509,9 +509,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("📚 Playlist", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="🗑️ Close", callback_data="cls"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -554,9 +555,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("📚 Playlist", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="🗑️ Close", callback_data"cls"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -633,11 +635,12 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("📚 Playlist", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="🗑️ Close", callback_data="cls"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
-            )
+        )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file_path = await converter.convert(youtube.download(url))   
@@ -734,11 +737,12 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("📚 Playlist", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="🗑️ Close", callback_data="cls"),
                 ],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
             ]
-    )
+        )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await converter.convert(youtube.download(url))  

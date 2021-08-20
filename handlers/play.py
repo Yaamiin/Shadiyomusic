@@ -508,10 +508,8 @@ async def play(_, message: Message):
             )
         keyboard = InlineKeyboardMarkup(
             [
-                [       
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                ],
+                [InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu")],
             ]
         )
         file_name = get_file_name(audio)
@@ -553,10 +551,8 @@ async def play(_, message: Message):
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
             [
-                [
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                ],
+                [InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -632,10 +628,8 @@ async def play(_, message: Message):
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
             [
-                [
-                        InlineKeyboardButton("🗑 Close", "cls")
-                        InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                ],
+                [InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu")],
             ]
             )
             requested_by = message.from_user.first_name
@@ -733,10 +727,8 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [
-                 InlineKeyboardButton("🗑 Close", "cls")
-                 InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
-                ],
+                [InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton("🕹️ Menu", callback_data="menu")],
             ]
     )
     requested_by = useer_name

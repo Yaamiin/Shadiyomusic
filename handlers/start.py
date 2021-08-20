@@ -108,7 +108,7 @@ async def help_(client: Client, message: Message):
         f"""<b>Holla Welcome to help menu ✨
 \n📌BAGAIMANA CARA MENGGUNAKAN SAYA ?
 \n1. pertama tambahkan saya ke grup mu.
-2. promote me as admin and give all permission.
+2. jadikan saya admin dengan semua izin.
 3. kemudian, tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik /userbotjoin.
 3. nyalakan dulu VCG sebelum memutar musik.
 \n📌**perintan untuk semua anggota grup:**
@@ -142,7 +142,7 @@ async def help_(client: Client, message: Message):
 \n/userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan siaran
 \n📌 **commands for fun:**
-\n/lyric - (judul lagu) melihat lirik
+\n/lirik - (judul lagu) melihat lirik
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [

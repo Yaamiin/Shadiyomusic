@@ -582,8 +582,8 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:35]}](https://youtube.com{results[j]['url_suffix']})...\n"
-                toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:30]}](https://youtube.com{results[j]['url_suffix']})...\n"
+                toxxt += f" ├ ⏱ **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ 👁 **Views** {results[j]['views']}\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
@@ -655,8 +655,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-                   +f"🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Status:** `Playing`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+                   +f"🎧 **Request by:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
     else:
@@ -675,8 +675,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-                   +f"🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Status:** `Playing`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+                   +f"🎧 **Request by:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -760,8 +760,8 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"💡 **Status:** Antrian Ke `{position}`\n\n🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n" \
-                    + f"🎧 **Request Dari:** {r_by.mention} \n",
+            caption = f"💡 **Status :** Added to queue\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
+                    + f"🎧 **Request by:** {r_by.mention} \n",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -782,8 +782,8 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
-                    + f"🎧 **Request Dari:** {r_by.mention}",
+            caption = f"💡 **Status :** Playing\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
+                    + f"🎧 **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard,
         )
         os.remove("final.png")

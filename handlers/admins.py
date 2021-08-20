@@ -50,7 +50,7 @@ async def pause(_, message: Message):
         await message.reply_text("❎ nothing is playing!")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ music paused!")
+        await message.reply_text("▶️ **music paused!**\n\n• For resume the song, use **command »** /resume")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -64,7 +64,7 @@ async def resume(_, message: Message):
         await message.reply_text("❎ nothing is paused!")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ music resumed!")
+        await message.reply_text("⏸ **music resumed!**\n\n• For resume the song, use **command »** /pause")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -81,7 +81,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **__Assistant has been disconnected from voice call group__**")
+        await message.reply_text("✅ **streaming ended!**\n• **__Assistant has been disconnected from voice call group__**")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -107,7 +107,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⏭ **You Skipped To The Next Song**")
+    await message.reply_text(f"⏭ **You've skipped to the next song**")
 
 
 @Client.on_message(command("cache"))

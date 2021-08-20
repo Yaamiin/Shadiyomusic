@@ -24,19 +24,6 @@ async def update_admin(client, message: Message):
         ],
     )
     await message.reply_text("""✅ Bot **reloaded correctly !**\n\n**• Admin list** has been **updated !**""",
-      reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Group Support", url=f"https://t.me/kenbotsupport"
-                    ),
-                    InlineKeyboardButton(
-                        "Created By", url=f"https://t.me/xgothboi"
-                    )
-                ]
-            ]
-        )
-   )
 
 
 @Client.on_message(command("pause") & other_filters)

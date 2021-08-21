@@ -17,15 +17,15 @@ QUE_IMG = getenv("QUE_IMG", "https://telegra.ph/file/d7a2a816ff3a90eeb511f.jpg")
 admins = {}
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
-BOT_USERNAME = getenv("BOT_USERNAME", "KennedyXRobot")
-ASSISTANT_NAME = getenv("ASSISTANT_NAME", "assistantmusicken")
+BOT_USERNAME = getenv("BOT_USERNAME", "KenzxMusicBot")
+ASSISTANT_NAME = getenv("ASSISTANT_NAME", "kennedyassistant")
 GROUP_SUPPORT = getenv("GROUP_SUPPORT", "kenbotsupport")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "KennedyProject")
 OWNER_NAME = getenv("OWNER_NAME", "xgothboi") # isi dengan username kamu tanpa simbol @
 DEV_NAME = getenv("DEV_NAME", "xgothboi")
 PMPERMIT = getenv("PMPERMIT", "DISABLE")
 
-DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
+DURATION_LIMIT = int(getenv("DURATION_LIMIT", "30"))
 
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 

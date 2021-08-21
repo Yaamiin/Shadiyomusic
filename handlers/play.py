@@ -163,7 +163,7 @@ def r_ply(type_):
                 InlineKeyboardButton("⏭", "skip")
             ],
             [
-                InlineKeyboardButton("📖 PlayList", "playlist"),
+                InlineKeyboardButton("📚 PlayList", "playlist"),
             ],
             [       
                 InlineKeyboardButton("🗑 Close", "cls")
@@ -373,7 +373,7 @@ async def m_cb(b, cb):
                 
                 ],
                 [
-                    InlineKeyboardButton("📖 PlayList", "playlist"),
+                    InlineKeyboardButton("📚 PlayList", "playlist"),
                 
                 ],
                 [       
@@ -655,7 +655,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Status:** `Playing`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+            caption=f"💡 **Playing here now**`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
                    +f"🎧 **Request by:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
@@ -675,7 +675,7 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Status:** `Playing`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+            caption=f"💡 **Playing here now**\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n" \
                    +f"🎧 **Request by:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
@@ -760,7 +760,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"💡 **Status :** Added to queue\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
+            caption = f"💡 **Track added at position** » `{position}`\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
                    reply_markup=keyboard,
         )
@@ -782,7 +782,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"💡 **Status :** Playing\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
+            caption = f"💡 **Playing here now**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard,
         )

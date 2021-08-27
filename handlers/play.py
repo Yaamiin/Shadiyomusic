@@ -512,7 +512,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📚 Daftar putar", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -546,7 +546,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "**❎ lagu tidak ditemukan**\n\n mohon tulis judul dengan benar.\nContoh : `/play happier olivia rodrigo`"
+                "**❎ lagu tidak ditemukan**\n\n• mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`"
             )
             print(str(e))
             return
@@ -558,7 +558,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📚 Daftar putar", "playlist"),
                     InlineKeyboardButton("🕹️ Menu", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -626,7 +626,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❎ lagu tidak ditemukan**\n\n mohon tulis judul dengan benar.\nContoh : `/play happier olivia rodrigo`"
+                "**❎ lagu tidak ditemukan**\n\n• mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`"
             )
                 print(str(e))
                 return

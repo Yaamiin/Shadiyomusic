@@ -90,12 +90,14 @@ async def start(client: Client, message: Message):
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hello {message.from_user.mention()}, Silakan ketuk tombol di bawah ini untuk melihat pesan bantuan yang dapat Anda baca untuk menggunakan bot ini</b>""",
+        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
+**Please press the button below to read the explanation and see the list of available commands !**
+⚡ __Powered by {BOT_NAME} A.I""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="**BAGAIMANA CARA MENGGUNAKAN SAYA ?**", url="https://telegra.ph/HOW-TO-USE-KENNEDY-X-MUSIC-08-16"
+                        text="❔ HOW TO USE ME", callback_data=f"cbguide"
                     )
                 ]
             ]
@@ -105,63 +107,50 @@ async def help(client: Client, message: Message):
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>Holla Welcome to help menu ✨
-\n📌BAGAIMANA CARA MENGGUNAKAN SAYA ?
-\n1. pertama tambahkan saya ke grup mu.
-2. jadikan saya admin dengan semua izin.
-3. kemudian, tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik /userbotjoin.
-3. nyalakan dulu VCG sebelum memutar musik.
-\n📌**perintan untuk semua anggota grup:**
-\n/play (judul lagu) - memutar musik melalui youtube
-/stream (balas ke audio) - memutar musik melalui balas audio
-/playlist - kenunjukan daftar putar
-/current - menunjukan yang sedang diputar saat ini
-/song (judul lagu) - mengunduh musik melalui youtube
-/search (nama video) - mencari video dari youtube secara rinci
-/vsong (nama video) - mengunduh video dari youtube secara rinci
-/vk (judul lagu) - unduh melalui mode inline
-\n📌 **perintah untuk admin:**
-\n/player - membuka panel oengaturan musik
-/pause - jeda pemutaran musik
-/resume - melanjutkan pemutaran musik
-/skip - melompati lagu yang sedang diputar
-/end - menghentikan musik
-/userbotjoin - mengundang assisten ke grup anda
-/reload - untuk memperbarui daftar admin
-/cache - untuk membersihkan cache admin
-/musicplayer (on / off) - mematikan/menghidupkan pemutar musik di grupmu
-\n🎧 channel streaming commands:
-\n/cplay - mendengarkan musik lewat channel
-/cplayer - melihat daftar putar
-/cpause - jeda pemutar musik
-/cresume - melajutkan musik yang di jeda
-/cskip - melompati lagu yang sedang diputar
-/cend - menghentikan lagu
-/admincache - memperbarui cache admin
-\n🧙‍♂️ perintah untuk pengguna sudo:
-\n/userbotleaveall - mengeluarkan asisten dari semua grup
-/gcast - mengirim pesan siaran
-\n📌 **perintah untuk kesenangan:**
-\n/asupan - untuk mencari video penyegaran time line
-\n/wibu - random video atau foto anime
-\n/chika - mendapatkan video chika secara random
-\n/lirik - (judul lagu) melihat lirik
-</b>""",
+        f"""<b>💡 Hello {message.from_user.mention} welcome to the help menu !</b>
+
+**in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
+
+⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "GROUP", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "📚 Basic Cmd", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
-                        "CHANNEL", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📕 Advanced Cmd", callback_data="cbadvanced"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "DEVELOPER", url=f"https://t.me/xgothboi"
+                        "📘 Admin Cmd", callback_data="cbadmin"
+                    ),
+                    InlineKeyboardButton(
+                        "📗 Sudo Cmd", callback_data="cbsudo"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📙 Owner Cmd", callback_data="cbowner"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📔 Fun Cmd", callback_data="cbfun"
                     )
                 ]
             ]
         )
+    )
+
+
+@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+async def ping_pong(client: Client, message: Message):
+    start = time()
+    m_reply = await message.reply_text("pinging...")
+    delta_ping = time() - start
+    await m_reply.edit_text(
+        "🏓 **PONG!!**\n"
+        f" `{delta_ping * 1000:.3f} ms`"
     )

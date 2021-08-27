@@ -39,24 +39,24 @@ async def start_(client: Client, message: Message):
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Tsmbahkan saya ke grup ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "📚 Commands", url="https://telegra.ph/HOW-TO-USE-KENNEDY-X-MUSIC-08-16"
+                         "📚 Bantuan", url="https://telegra.ph/HOW-TO-USE-KENNEDY-X-MUSIC-08-16"
                     ),
                     InlineKeyboardButton(
-                        "♥️ Donate", url=f"https://t.me/{OWNER_NAME}")
+                        "♥️ Donasi", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Grup support", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "📣 Channel update", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
                         "🤴 Developer", url="https://t.me/xgothboi"
                     )
-                ]
+                ] 
             ]
         ),
      disable_web_page_preview=True
@@ -72,7 +72,7 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await m_reply.edit_text(
-        f"""✅ **Bot is running Successful**\n\n⚡ **Bot speed :** `{delta_ping * 1000:.3f} ms`\n<b>🎈 **Bot uptime :**</b> `{uptime}`""",
+        f"""✅ **Bot sedang aktif**\n\n🔹 **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>🔹 **Uptime bot :**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -90,12 +90,12 @@ async def start(client: Client, message: Message):
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hello {message.from_user.mention()}, please tap the button below to see the help message you can read for using this bot</b>""",
+        f"""<b>👋🏻 Hello {message.from_user.mention()}, Silakan ketuk tombol di bawah ini untuk melihat pesan bantuan yang dapat Anda baca untuk menggunakan bot ini</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="❔ HOW TO USE ME ❔", url="https://telegra.ph/HOW-TO-USE-KENNEDY-X-MUSIC-08-16"
+                        text="**BAGAIMANA CARA MENGGUNAKAN SAYA ?**", url="https://telegra.ph/HOW-TO-USE-KENNEDY-X-MUSIC-08-16"
                     )
                 ]
             ]
@@ -138,10 +138,13 @@ async def help_(client: Client, message: Message):
 /cskip - melompati lagu yang sedang diputar
 /cend - menghentikan lagu
 /admincache - memperbarui cache admin
-\n🧙‍♂️ command for sudo users:
+\n🧙‍♂️ perintah untuk pengguna sudo:
 \n/userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan siaran
-\n📌 **commands for fun:**
+\n📌 **perintah untuk kesenangan:**
+\n/asupan - untuk mencari video penyegaran time line
+\n/wibu - random video atau foto anime
+\n/chika - mendapatkan video chika secara random
 \n/lirik - (judul lagu) melihat lirik
 </b>""",
         reply_markup=InlineKeyboardMarkup(

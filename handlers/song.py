@@ -82,7 +82,7 @@ def song(client, message):
     except Exception as e:
         print(e)
 
-
+        
 def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
@@ -226,7 +226,6 @@ def get_file_extension_from_url(url):
     return basename.split(".")[-1]
 
 
-# Funtion To Download Song
 async def download_song(url):
     song_name = f"{randint(6969, 6999)}.mp3"
     async with aiohttp.ClientSession() as session:
@@ -251,14 +250,14 @@ async def ytmusic(client, message: Message):
     global is_downloading
     if is_downloading:
         await message.reply_text(
-            "another download is in progress, try again after sometime."
+            "❗ another download is in progress, try again after sometime."
         )
         return
 
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**getting {urlissed} from youtube servers, please wait...**"
+        message.chat.id, f"💡 __Getting {urlissed} from youtube server, please wait...__"
     )
     if not urlissed:
         await pablo.edit("invalid command syntax, please check help menu to know more!")
@@ -321,7 +320,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"`uploading {urlissed} song from youtube music!`",
+            f"`📤 Uploading {urlissed} song from youtube music!`",
             file_stark,
         ),
     )

@@ -789,7 +789,7 @@ async def lol_cb(b, cb):
         os.remove("final.png")
 
 
-@Client.on_message(command("ytplay") & filters.group & ~filters.edited)
+@Client.on_message(command("yt") & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -890,7 +890,7 @@ async def ytplay(_, message: Message):
         )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file_path = await convert(youtube.download(url))
+    file_path = await converter.convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)

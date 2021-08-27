@@ -610,9 +610,6 @@ async def play(_, message: Message):
             # veez project
             return
             # veez project
-        except:
-            await lel.edit("__tidak ada hasil untuk dipilih, memulai pemutaran...__")
-                        
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"

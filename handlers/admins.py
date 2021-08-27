@@ -23,7 +23,7 @@ async def update_admin(client, message: Message):
             for member in await message.chat.get_members(filter="administrators")
         ],
     )
-    await message.send_message("""✅ Bot **reloaded correctly !**\n\n**• Admin list** has been **updated !**""")
+    await message.reply_text("""✅ Bot **reloaded correctly !**\n\n**• Admin list** has been **updated !**""")
 
 
 @Client.on_message(command("pause") & other_filters)
@@ -68,7 +68,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.send_message("✅ **streaming ended!**\n\n• **Assistant has been disconnected from voice chat group**")
+        await message.reply_text("✅ **streaming ended!**\n\n• **Assistant has been disconnected from voice chat group**")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -94,7 +94,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.send_text(f"⏭ **You've skipped to the next song**")
+    await message.reply_text(f"⏭ **You've skipped to the next song**")
 
 
 @Client.on_message(command("cache"))
@@ -108,4 +108,4 @@ async def admincache(client, message: Message):
             for member in await message.chat.get_members(filter="administrators")
         ],
     )
-    await message.send_message("✅ **admin cache cleared!**")
+    await message.reply_text("✅ **admin cache cleared!**")

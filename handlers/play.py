@@ -448,7 +448,7 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>make me as admin first.</b>",
+                        "<b>💡 Untuk menggunakan saya, saya harus menjadi admin dengan **izin** :\n\n» ❌ __Menghapus pesan__\n» ❌ __Memblokir pengguna__\n» ❌ __Menambahkan anggota__\n» ❌ __Mengatur obrolan suara__\n» ❌ __Tambahkan admin baru__\n\nKemudian ketik /reload</b>",
                     )
                     return
                 try:

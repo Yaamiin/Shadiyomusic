@@ -26,20 +26,20 @@ async def addchannel(client, message):
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "🤖: i'm joined here for playing music on voice chat")
+        await USER.send_message(message.chat.id, "🤖: Saya telah bergabung untuk memutar musik di VCG anda!")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>✅ **assistant telah ada di grup**</b>",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add Asisstant to your Group and try again</b>",
+            f"<b>🛑 Flood Wait Error 🛑 \n {user.first_name} tidak bisa bergabung karena terlalu banyak permintaan bergabung kepada userbot! Pastikan assistant tidak terbanned di grup."
+            "\n\nAtau tambahkan assistant secara manual dan coba lagi!</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
+        "<b>**✅ Assistant bergabung ke grup**\n\n**• Jika ada masalah bisa laporkan ke** @kenbotsupport</b>",
     )
 
 
@@ -50,8 +50,8 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            f"<b>User couldn't leave your group! May be floodwaits."
-            "\n\nOr manually kick me from to your Group</b>",
+            f"<b>assistant tidak bisa keluar dari grup karena floodwait."
+            "\n\nAnda bisa menggunakan kick manual dan coba lagi</b>",
         )
         return
     

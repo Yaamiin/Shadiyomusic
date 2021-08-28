@@ -789,7 +789,7 @@ async def lol_cb(b, cb):
         os.remove("final.png")
 
 
-@Client.on_message(command("yt") & filters.group & ~filters.edited)
+@Client.on_message(command("ytp") & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:

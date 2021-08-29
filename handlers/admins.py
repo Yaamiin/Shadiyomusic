@@ -147,66 +147,6 @@ async def skip(_, message: Message):
     await message.reply_text(f"⏭️ melewati : **{skip[0]}**\n▶️ sedang memutar : **{qeue[0][0]}**")
 
 
-@Client.on_message(command("auth") & other_filters)
-@authorized_users_only
-async def authenticate(client, message):
-    global admins
-    if not message.reply_to_message:
-        await message.reply("❎ Balas ke pengguna!")
-        return
-    if message.reply_to_message.from_user.id not in admins[message.chat.id]:
-        new_admins = admins[message.chat.id]
-        new_admins.append(message.reply_to_message.from_user.id)
-        admins[message.chat.id] = new_admins
-        await message.reply("🟢 pengguna di authorized.\n\nsekarang, pengguna dapat menggunakan perintah admin.")
-    else:
-        await message.reply("✅ pengguna telah di authorized!")
-
-
-@Client.on_message(command("unauth") & other_filters)
-@authorized_users_only
-async def deautenticate(client, message):
-    global admins
-    if not message.reply_to_message:
-        await message.reply("❎ Balas ke pengguna!")
-        return
-    if message.reply_to_message.from_user.id in admins[message.chat.id]:
-        new_admins = admins[message.chat.id]
-        new_admins.remove(message.reply_to_message.from_user.id)
-        admins[message.chat.id] = new_admins
-        await message.reply("🔴 user dihapus dari authorized.\n\nsekarang, pengguna tidak dapat menjalankan perintah admin.")
-    else:
-        await message.reply("✅ pengguna sudah di hapus dari authorized!")
-
-
-# this is a anti cmd feature
-@Client.on_message(command(["delcmd", f"delcmd@{BOT_USERNAME}"]) & ~filters.private)
-@authorized_users_only
-async def delcmdc(_, message: Message):
-    if len(message.command) != 2:
-        await message.reply_text("baca /help untuk mengetahui bagaimana cara menggunakan perintah ini")
-        return
-    status = message.text.split(None, 1)[1].strip()
-    status = status.lower()
-    chat_id = message.chat.id
-    if status == "on":
-        if await delcmd_is_on(message.chat.id):
-            await message.reply_text("✅ sudah diaktifkan")
-            return
-        else:
-            await delcmd_on(chat_id)
-            await message.reply_text(
-                "🟢 Berhasil diaktifkan"
-            )
-    elif status == "off":
-        await delcmd_off(chat_id)
-        await message.reply_text("🔴 Berhasil dinonaktifkan")
-    else:
-        await message.reply_text(
-            "baca /help untuk mengetahui cara menggunakan perintah ini"
-        )
-
-
 # music player callbacks (control by buttons feature)
 
 @Client.on_callback_query(filters.regex("cbpause"))

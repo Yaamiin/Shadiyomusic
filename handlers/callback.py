@@ -22,7 +22,7 @@ async def cbstart(_, query: CallbackQuery):
                         "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse")
+                        "❓ How to use Me", callback_data="cbhowtouse"
                     ),
                     InlineKeyboardButton(
                         "✨ Donate", url=f"https://t.me/{OWNER_NAME}")

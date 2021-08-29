@@ -63,6 +63,7 @@ async def cbbasic(_, query: CallbackQuery):
 /cend - memberhentikan musik
 /admincache - menyegarkan cache admin
 /ubjoinc - mengundang assisten join ke channel
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -84,6 +85,7 @@ async def cbadvanced(_, query: CallbackQuery):
 /reload - memperbarui bot dan menyegarkan daftar admin
 /cache - memperbatui cache admin
 /ping - cek ping bot
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -109,6 +111,7 @@ async def cbadmin(_, query: CallbackQuery):
 /userbotjoin - mengundang assistant untuk bergabung ke grup
 /control - membuka panel pengatur musik
 /musicplayer (on / off) - mematikan / menghidupkan pemutar musik di grupmu
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -128,7 +131,7 @@ async def cbsudo(_, query: CallbackQuery):
         f"""<b>🕊️ command untuk sudo</b>
 /userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
-/stats - melihat statistik bot
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -151,6 +154,7 @@ async def cbfun(_, query: CallbackQuery):
 /asupan - cek sendiri
 /truth - cek sendiri
 /dare - cek sendiri
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -172,6 +176,7 @@ async def cbguide(_, query: CallbackQuery):
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -236,6 +241,7 @@ async def cbguides(_, query: CallbackQuery):
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
+
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [

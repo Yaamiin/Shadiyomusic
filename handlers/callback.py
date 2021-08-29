@@ -21,7 +21,7 @@ async def cbstart(_, query: CallbackQuery):
                         "➕ tambahkan saya ke grup ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "📚 Perintah", callback_data="cbguide"
+                         "📚 Perintah", callback_data="cbhowtouse"
                     ),
                     InlineKeyboardButton(
                         "❤️ Donasi", url=f"https://t.me/{OWNER_NAME}")
@@ -57,7 +57,7 @@ async def cbbasic(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbguide"
+                        "◀️", callback_data="cbhowtouse"
                     ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbchannel"
@@ -202,7 +202,7 @@ async def cbfun(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbguide"))
+@Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
         f""" CARA MENGGUNAKAN BOT:

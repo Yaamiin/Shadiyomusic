@@ -57,7 +57,7 @@ async def cbbasic(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbguide"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbchannel"
                     )
@@ -86,7 +86,7 @@ async def cbbasic(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbgroup"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbadvanced"
                     )
@@ -111,7 +111,7 @@ async def cbadvanced(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbchannel"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbadmin"
                     )
@@ -143,7 +143,7 @@ async def cbadmin(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbadmin"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbsudo"
                     )
@@ -167,7 +167,7 @@ async def cbsudo(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbadmin"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbfun"
                     )
@@ -190,7 +190,7 @@ async def cbfun(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbsudo"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "🗑️", callback_data="close"
                     )
@@ -216,9 +216,7 @@ async def cbguide(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbhelp"
-                    )
-                ],
-                [
+                    ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbstart"
                     )
@@ -248,7 +246,7 @@ async def cbguides(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "▶️", callback_data="cbhelp"
-                    )
+                    ),
                     InlineKeyboardButton(
                         "◀️", callback_data="cbstart"
                     )

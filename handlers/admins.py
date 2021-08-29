@@ -14,10 +14,6 @@ from callsmusic.queues import queues
 from config import BOT_USERNAME
 
 
-# Back Button
-BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("◀️ BACK", callback_data="cbback")]])
-
-
 @Client.on_message(command("reload"))
 async def update_admin(client, message):
     global admins

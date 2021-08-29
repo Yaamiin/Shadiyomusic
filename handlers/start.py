@@ -32,7 +32,7 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>💡 **Hallo, saya {query.message.from_user.mention}** \n
+        f"""<b>💡 **Hallo, saya {message.from_user.mention}** \n
 💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) adalah bot pemutar musik di obrolan suara telegram untuk grup !**
   **Temukan cara penggunaan dengan menekan tombol » 📚 Perintah !**
   **untuk info lebih bisa gunakan perintah /help**
@@ -79,7 +79,7 @@ async def start(client: Client, message: Message):
                         "Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "Bantuan", url="cbguide"
+                        "Bantuan", callback_data="cbguide"
                     )
                 ]
             ]
@@ -97,7 +97,7 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="❔ HOW TO USE ME", callback_data=f"cbguide"
+                        text=" HOW TO USE ME", callback_data=f"cbguide"
                     )
                 ]
             ]

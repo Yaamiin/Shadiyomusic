@@ -43,7 +43,7 @@ async def cbstart(_, query: CallbackQuery):
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>💡 ini adalah perintah dasar</b>
-📌 [ COMMAND DI GRUP ]
+🕊️ [ COMMAND DI GRUP ]
 /play (song name) - memutar lagu melalui youtube
 /yt (song name) - memainkan lagu secara langsung 
 /stream (reply to audio) - memutar lagu dengan cara membalas ke pesan audio
@@ -51,7 +51,8 @@ async def cbbasic(_, query: CallbackQuery):
 /song (song name) - mengunduh lagu dari youtube
 /search (video name) - mencari video dari youtube
 /lirik - (song name) untuk melihat lirik
-<b>""",
+
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -70,7 +71,8 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbchannel"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-🎧 [ COMMAND DI CHANNEL ]
+        f"""<b>💡 ini adalah perintah dasar</b>
+🕊️ [ COMMAND DI CHANNEL ]
 /cplay - Streaming Musik pada saluran suara saluran
 /cplayer - tunjukkan lagu dalam streaming
 /cpause - Jeda musik streaming

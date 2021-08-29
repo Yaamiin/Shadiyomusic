@@ -15,7 +15,7 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>make me as admin first !</b>",
+            "<b>**Jadikan saya admin terlebih dahulu !**</b>",
         )
         return
 
@@ -26,10 +26,10 @@ async def addchannel(client, message):
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "🤖: i'm joined here for playing music on voice chat")
+        await USER.send_message(message.chat.id, "__**Saya bergabung ke grup untuk memutar musik**__")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>Userbot sudah berada didalam chat</b>",
         )
     except Exception as e:
         print(e)
@@ -39,7 +39,7 @@ async def addchannel(client, message):
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
+        "<b>🕊️ **Assistant bergabung ke grup**</b>",
     )
 
 

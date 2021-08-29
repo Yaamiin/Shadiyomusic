@@ -11,7 +11,7 @@ from helpers.decorators import authorized_users_only, errors
 from helpers.filters import command, other_filters
 from callsmusic import callsmusic
 from callsmusic.queues import queues
-from config import LOG_CHANNEL, OWNER_ID, BOT_USERNAME
+from config import BOT_USERNAME
 from helpers.database import db, dcmdb, Database
 from helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
 

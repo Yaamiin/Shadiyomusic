@@ -50,7 +50,7 @@ async def cbbasic(_, query: CallbackQuery):
 /playlist - melihat daftar putar
 /song (song name) - mengunduh lagu dari youtube
 /search (video name) - mencari video dari youtube
-/lirik - (song name) untuk melihat lirik
+/lirik - (song name) untuk melihat lirik"""
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -248,8 +248,6 @@ async def cbguides(_, query: CallbackQuery):
                     InlineKeyboardButton(
                         "▶️", callback_data="cbhelp"
                     )
-                ],
-                [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbstart"
                     )

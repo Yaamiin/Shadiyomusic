@@ -202,7 +202,7 @@ async def cbfun(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbhowtouse"))
+@Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
         f""" CARA MENGGUNAKAN BOT:
@@ -247,10 +247,10 @@ async def cbguides(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbhelp"
+                        "◀️", callback_data="cbstart"
                     ),
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbstart"
+                        "▶️", callback_data="cbhelp"
                     )
                 ]
             ]

@@ -35,28 +35,28 @@ async def update_admin(client, message):
 @authorized_users_only
 async def controlset(_, message: Message):
     await message.reply_text(
-        "**🤖 menu panel pemutar musik dibuka !**",
+        "**🕊️ Here is the control menu of bot:**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⏸ jeda musik", callback_data="cbpause"
+                        "⏸ pause", callback_data="cbpause"
                     ),
                     InlineKeyboardButton(
-                        "▶️ lanjutkan musik", callback_data="cbresume"
+                        "▶️ resume", callback_data="cbresume"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "⏩ lewati musik", callback_data="cbskip"
+                        "⏩ skip", callback_data="cbskip"
                     ),
                     InlineKeyboardButton(
-                        "⏹ memberhentikan musik", callback_data="cbend"
+                        "⏹ end", callback_data="cbend"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 close", callback_data="close"
+                        "🗑 Close", callback_data="close"
                     )
                 ]
             ]

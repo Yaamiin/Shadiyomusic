@@ -24,26 +24,6 @@
             "required": true,
             "value": "KenzxMusicBot"
         },
-        "OWNER_ID": {
-            "description": "fill with your telegram id as the owner of the bot",
-            "required": true,
-            "value": ""
-        },
-        "DATABASE_URL": {
-            "description": "fill with the mongodb url get from cloud.mongodb.com",
-            "required": true,
-            "value": ""
-        },
-        "LOG_CHANNEL": {
-            "description": "create a private channel and get the channel id, add your bot as admin to the channel too",
-            "required": true,
-            "value": ""
-        },
-        "BROADCAST_AS_COPY": {
-            "description": "choose one between False and True, if you don't know what this is, ask to @VeezSupportGroup on telegram",
-            "required": false,
-            "value": "False"
-        },
         "ASSISTANT_NAME": {
             "description": "fill with the assistant username without @",
             "required": true,

@@ -200,39 +200,6 @@ async def close(_, query: CallbackQuery):
     await query.message.delete()
 
 
-@Client.on_callback_query(filters.regex("cbback"))
-@cb_admin_check
-async def cbback(_, query: CallbackQuery):
-    await query.edit_message_text(
-        "**🕊️ Here is the control menu of bot:**",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "⏸ pause", callback_data="cbpause"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️ resume", callback_data="cbresume"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⏩ skip", callback_data="cbskip"
-                    ),
-                    InlineKeyboardButton(
-                        "⏹ end", callback_data="cbend"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🗑 Close", callback_data="close"
-                    )
-                ]
-            ]
-        )
-    )
-
-
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(

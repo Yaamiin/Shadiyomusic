@@ -32,22 +32,22 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>💡 **Hallo, saya {message.from_user.mention}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) adalah bot pemutar musik di obrolan suara telegram untuk grup !**
-  **Temukan cara penggunaan dengan menekan tombol » 📚 Perintah !**
-  **untuk info lebih bisa gunakan perintah /help**
+        f"""<b>🕊️ **Hallo, saya {query.message.from_user.mention}** \n
+💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !**
+💡 **Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !**
+❓ **Atau info lebih lanjut bisa mengetik /help**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ tambahkan saya ke grup ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "📚 Perintah", callback_data="cbguide"
+                        "❓ How to use Me", callback_data="cbhowtouse")
                     ),
                     InlineKeyboardButton(
-                        "❤️ Donasi", url=f"https://t.me/{OWNER_NAME}")
+                        "✨ Donate", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
                         "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"

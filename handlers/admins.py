@@ -12,8 +12,6 @@ from helpers.filters import command, other_filters
 from callsmusic import callsmusic
 from callsmusic.queues import queues
 from config import BOT_USERNAME
-from helpers.database import db, dcmdb, Database
-from helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
 
 
 @Client.on_message()
@@ -21,7 +19,7 @@ async def _(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
 
 # Back Button
-BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("🏡 BACK", callback_data="cbback")]])
+BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("◀️ BACK", callback_data="cbback")]])
 
 @Client.on_message(filters.text & ~filters.private)
 async def delcmd(_, message: Message):

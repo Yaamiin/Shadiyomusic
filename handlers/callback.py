@@ -215,14 +215,9 @@ async def cbguide(_, query: CallbackQuery):
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
-                [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbhelp"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️", callback_data="cbstart"
+                        "▶️", callback_data="cbgroup"
                     )
-                ]
             ]
         )
     )
@@ -247,10 +242,10 @@ async def cbguides(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbstart"
+                        "◀️", callback_data="cbhelp"
                     ),
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbhelp"
+                        "▶️", callback_data="cbgroup"
                     )
                 ]
             ]

@@ -29,41 +29,6 @@ async def update_admin(client, message):
     await message.reply_text("✅ Bot **berhasil dimuat ulang !**\n✅ **Daftar admin** telah **diperbarui !**")
 
 
-# Control Menu Of Player
-@Client.on_message(command(["control", f"control@{BOT_USERNAME}"]))
-@errors
-@authorized_users_only
-async def controlset(_, message: Message):
-    await message.reply_text(
-        "**🕊️ Here is the control menu of bot:**",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "⏸ pause", callback_data="cbpause"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️ resume", callback_data="cbresume"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⏩ skip", callback_data="cbskip"
-                    ),
-                    InlineKeyboardButton(
-                        "⏹ end", callback_data="cbend"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🗑 Close", callback_data="close"
-                    )
-                ]
-            ]
-        )
-    )
-
-
 @Client.on_message(command("pause") & other_filters)
 @errors
 @authorized_users_only
@@ -133,59 +98,3 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"⏭️ melewati : **{skip[0]}**\n▶️ sedang memutar : **{qeue[0][0]}**")
-
-
-# music player callbacks (control by buttons feature)
-
-@Client.on_callback_query(filters.regex("cbpause"))
-@authorized_users_only
-async def cbpause(_, query: CallbackQuery):
-    if (
-        query.message.chat.id not in callsmusic.pytgcalls.active_calls
-            ) or (
-                callsmusic.pytgcalls.active_calls[query.message.chat.id] == "paused"
-            ):
-        await query.edit_message_text("❎ sedang tidak memutar lagu", reply_markup=BACK_BUTTON)
-    else:
-        callsmusic.pytgcalls.pause_stream(query.message.chat.id)
-        await query.edit_message_text("⏸ musik dijeda", reply_markup=BACK_BUTTON)
-
-@Client.on_callback_query(filters.regex("cbresume"))
-async def cbresume(_, query: CallbackQuery):
-    if callsmusic.resume(query.message.chat.id):
-        await query.edit_message_text("▶ musik dilanjutkan", reply_markup=BACK_BUTTON)
-    else:
-        await query.edit_message_text("❎ tidak ada yang dijeda", reply_markup=BACK_BUTTON)
-
-@Client.on_callback_query(filters.regex("cbend"))
-@authorized_users_only
-async def cbend(_, query: CallbackQuery):
-    if query.message.chat.id not in callsmusic.active_chats:
-        await query.edit_message_text("❎ Sedang tidak memutar lagu", reply_markup=BACK_BUTTON)
-    else:
-        try:
-            queues.clear(query.message.chat.id)
-        except QueueEmpty:
-            pass
-
-        await callsmusic.stop(query.message.chat.id)
-        await query.edit_message_text("✅ menghapus antrian dan meninggalkan obrolan suara!", reply_markup=BACK_BUTTON)
-
-@Client.on_callback_query(filters.regex("cbskip"))
-@authorized_users_only
-async def cbskip(_, query: CallbackQuery):
-     if query.message.chat.id not in callsmusic.active_chats:
-        await query.edit_message_text("❎ Sedang tidak memutar lagu", reply_markup=BACK_BUTTON)
-     else:
-        queues.task_done(query.message.chat.id)
-        
-        if queues.is_empty(query.message.chat.id):
-            await callsmusic.stop(query.message.chat.id)
-        else:
-            await callsmusic.set_stream(
-                query.message.chat.id, queues.get(query.message.chat.id)["file"]
-            )
-
-        await query.edit_message_text("⏭ melompat ke antrian berikutnya", reply_markup=BACK_BUTTON)
-
-# (C) supun-maduraga for his project on call-music-plus

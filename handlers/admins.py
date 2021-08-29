@@ -68,7 +68,7 @@ async def controlset(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 del cmd", callback_data="cbdelcmds"
+                        "🗑 close", callback_data="close"
                     )
                 ]
             ]

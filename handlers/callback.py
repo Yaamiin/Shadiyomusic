@@ -50,10 +50,7 @@ async def cbbasic(_, query: CallbackQuery):
 /stream (balas ke audio) - memutar kusik melalui balas ke audio
 /playlist - melihat daftar antrian
 /song (judul) - mengunduh musik dari youtube
-/search (judul) - mencari musik dari youtube secara detail
-/vsong (judul) - mengunduh musik dari youtube secara detail
 /lirik - (judul) mencari lirik
-/vk (judul) - mengunduh musik melalui mode pesan sebaris
 💡 [ SETTING CHANNEL ]
 /cplay - memutar musik melalui channel
 /cplayer - melihat daftar antrian
@@ -81,6 +78,7 @@ async def cbbasic(_, query: CallbackQuery):
 async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command lanjutan</b>
+
 /start (di grup) - melihat alive bot
 /reload - memperbarui bot dan menyegarkan daftar admin
 /cache - memperbatui cache admin
@@ -103,6 +101,7 @@ async def cbadvanced(_, query: CallbackQuery):
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk admin grup</b>
+
 /player - melihat status pemutaran
 /pause - jeda musik yang diputar
 /resume - melanjutkan musik yang di jeda
@@ -129,6 +128,7 @@ async def cbadmin(_, query: CallbackQuery):
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk sudo</b>
+
 /userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
 
@@ -149,6 +149,7 @@ async def cbsudo(_, query: CallbackQuery):
 async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ Command fun</b>
+
 /chika - cek sendiri
 /wibu - cek sendiri
 /asupan - cek sendiri
@@ -172,6 +173,7 @@ async def cbfun(_, query: CallbackQuery):
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""CARA MENGGUNAKAN BOT INI :
+
 1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
@@ -204,6 +206,7 @@ async def close(_, query: CallbackQuery):
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🕊️ CARA MENGGUNAKAN BOT 🕊️ :
+
 1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.

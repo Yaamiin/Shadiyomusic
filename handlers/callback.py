@@ -39,7 +39,7 @@ async def cbstart(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbgroup"))
+@Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>💡 ini adalah perintah dasar</b>
@@ -51,27 +51,6 @@ async def cbbasic(_, query: CallbackQuery):
 /song (song name) - mengunduh lagu dari youtube
 /search (video name) - mencari video dari youtube
 /lirik - (song name) untuk melihat lirik
-
-💡 Bot by @{UPDATES_CHANNEL}""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "◀️", callback_data="cbhowtouse"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️", callback_data="cbchannel"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_callback_query(filters.regex("cbchannel"))
-async def cbbasic(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""<b>💡 ini adalah perintah dasar</b>
 🕊️ [ COMMAND DI CHANNEL ]
 /cplay - Streaming Musik pada saluran suara saluran
 /cplayer - tunjukkan lagu dalam streaming
@@ -87,7 +66,7 @@ async def cbbasic(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbgroup"
+                        "◀️", callback_data="cbhelp"
                     ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbadvanced"
@@ -144,7 +123,7 @@ async def cbadmin(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbadmin"
+                        "◀️", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
                         "▶️", callback_data="cbsudo"
@@ -192,9 +171,6 @@ async def cbfun(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "◀️", callback_data="cbsudo"
-                    ),
-                    InlineKeyboardButton(
-                        "🗑️", callback_data="close"
                     )
                 ]
             ]
@@ -216,7 +192,7 @@ async def cbguide(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbgroup"
+                        "▶️", callback_data="cbbasic"
                     )
             ]
         )
@@ -275,10 +251,10 @@ async def cbguides(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️", callback_data="cbhelp"
+                        "◀️", callback_data="cbstart"
                     ),
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbgroup"
+                        "▶️", callback_data="cbbasic"
                     )
                 ]
             ]

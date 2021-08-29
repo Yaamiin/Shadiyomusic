@@ -50,7 +50,8 @@ async def cbbasic(_, query: CallbackQuery):
 /playlist - melihat daftar putar
 /song (song name) - mengunduh lagu dari youtube
 /search (video name) - mencari video dari youtube
-/lirik - (song name) untuk melihat lirik"""
+/lirik - (song name) untuk melihat lirik
+<b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

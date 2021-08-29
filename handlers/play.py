@@ -173,7 +173,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(command(["menu", f"menu@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["player", f"player@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None

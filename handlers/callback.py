@@ -66,6 +66,9 @@ async def cbbasic(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
+                        "◀️ Back", callback_data="cbguide"
+                    ),
+                    InlineKeyboardButton(
                         "▶️ Next", callback_data="cbadvanced"
                     )
                 ]
@@ -88,6 +91,9 @@ async def cbadvanced(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton(
+                        "◀️ Back", callback_data="cbbasic"
+                    ),
                     InlineKeyboardButton(
                         "▶️ Next", callback_data="cbadmin"
                     )
@@ -116,6 +122,9 @@ async def cbadmin(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
+                        "◀️ Back", callback_data="cbadvanced"
+                    ),
+                    InlineKeyboardButton(
                         "▶️ Next", callback_data="cbsudo"
                     )
                 ]
@@ -136,6 +145,9 @@ async def cbsudo(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton(
+                        "◀️ Back", callback_data="cbadmin"
+                    ),
                     InlineKeyboardButton(
                         "▶️ Next", callback_data="cbfun"
                     )
@@ -161,7 +173,10 @@ async def cbfun(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbguide"
+                        "◀️ Back", callback_data="cbsudo"
+                    ),
+                    InlineKeyboardButton(
+                        "🗑️ Close", callback_data="close"
                     )
                 ]
             ]

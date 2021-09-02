@@ -14,7 +14,7 @@ from callsmusic.queues import queues
 from config import BOT_USERNAME
 
 
-@Client.on_message(command("reload"))
+@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]))
 async def update_admin(client, message):
     global admins
     new_admins = []
@@ -25,7 +25,7 @@ async def update_admin(client, message):
     await client.send_message(message.chat.id, "✅ Bot **berhasil dimuat ulang !**\n✅ **Daftar admin** telah **diperbarui !**")
 
 
-@Client.on_message(command("pause") & other_filters)
+@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -36,10 +36,10 @@ async def pause(_, message: Message):
         await message.reply_text("❎ Sedang tidak memutar lagu")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ musik dijeda!")
+        await message.reply_text("▶️ musik dijeda!\n\n• Untuk melanjutkan musik gunakan perintah » /resume")
 
 
-@Client.on_message(command("resume") & other_filters)
+@Client.on_message(command(["resume", f"{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -50,7 +50,7 @@ async def resume(_, message: Message):
         await message.reply_text("❎ Tidak ada musik yang dijeda!")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ musik dilanjutkan!")
+        await message.reply_text("⏸ musik dilanjutkan!\n\n• Untuk melakukan jeda gunakan perintah » /pause")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -67,7 +67,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("⏹ streaming dihentikan!")
+        await message.reply_text("✅ **__Userbot terputus dari obrolan suara__**")
 
 
 @Client.on_message(command("skip") & other_filters)

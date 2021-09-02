@@ -15,6 +15,7 @@ from config import BOT_USERNAME
 
 
 @Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]))
+@authorized_users_only
 async def update_admin(client, message):
     global admins
     new_admins = []

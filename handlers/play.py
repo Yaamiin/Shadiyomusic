@@ -509,7 +509,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Channel", url="https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("💡 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -546,7 +546,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
+                f"**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
             )
             print(str(e))
             return
@@ -555,7 +555,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Channel", url="https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("💡 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -626,7 +626,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
+                f"**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
             )
                 print(str(e))
                 return
@@ -635,7 +635,7 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Channel", url="https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("💡 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -737,7 +737,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Channel", url="https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("💡 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -873,7 +873,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
+            f"**❎ mohon tulis judul dengan benar\n**Contoh :** `/play happier olivia rodrigo`\n\n💡 Updates » @{UPDATES_CHANNEL}"
         )
         print(str(e))
         return
@@ -882,7 +882,7 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Channel", url="https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("💡 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],

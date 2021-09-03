@@ -655,7 +655,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Sedang memutar**`\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** `{duration}`\n" \
+            caption=f"💡 **Sedang memutar**`\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** `{duration}`\n" \
                    +f"🎧 **Permintaan:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
@@ -675,7 +675,7 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Sedang memutar**\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** `{duration}`\n" \
+            caption=f"💡 **Sedang memutar**\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** `{duration}`\n" \
                    +f"🎧 **Permintaan:** {message.from_user.mention} \n",
             reply_markup=keyboard
         )
@@ -760,7 +760,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"💡 **Lagu ditambahkan di antrian** » `{position}`\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** {duration}\n" \
+            caption = f"💡 **Lagu ditambahkan di antrian** » `{position}`\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** {duration}\n" \
                     + f"🎧 **Permintaan:** {r_by.mention} \n",
                    reply_markup=keyboard,
         )
@@ -782,7 +782,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"💡 **Sedang memutar**\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** {duration}\n" \
+            caption = f"💡 **Sedang memutar**\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** {duration}\n" \
                     + f"🎧 **Permintaan:** {r_by.mention} \n",
                     reply_markup=keyboard,
         )
@@ -902,7 +902,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Lagu ditambahkan di antrian** » `{position}`\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** {duration}\n" \
+            caption = f"💡 **Lagu ditambahkan di antrian** » `{position}`\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** {duration}\n" \
                     + f"🎧 **Permintaan:** {r_by.mention} \n",
                    reply_markup=keyboard,
         )
@@ -924,7 +924,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Sedang memutar**\n\n🏷 **Judul:** [{title}]({url})\n⏱ **Durasi:** {duration}\n" \
+            caption = f"💡 **Sedang memutar**\n\n🏷 **Judul:** {title})\n⏱ **Durasi:** {duration}\n" \
                     + f"🎧 **Permintaan:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")

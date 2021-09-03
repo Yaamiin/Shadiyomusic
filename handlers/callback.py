@@ -114,7 +114,6 @@ async def cbadmin(_, query: CallbackQuery):
 /skip - melewati ke lagu berikutnya
 /end - mematikan musik
 /userbotjoin - mengundang assistant untuk bergabung ke grup
-/control - membuka panel pengatur musik
 /musicplayer (on / off) - mematikan / menghidupkan pemutar musik di grupmu
 
 💡 Bot by @{UPDATES_CHANNEL}""",

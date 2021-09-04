@@ -42,6 +42,8 @@
 - `/pmpermit on | off` turn on/off the assistant pmpermit
 - `/userbotleaveall` - order the assistant to leave all groups
 - `/gcast` - send a broadcast message
+- `/rmd` - remove all downloaded file
+- `/clear` - remove all raw file 
 
 ### pm-permit 💬
 - `.yes` - approve user for sending message to assistant

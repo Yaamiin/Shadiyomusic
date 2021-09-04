@@ -23,7 +23,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await client.send_message(message.chat.id, "✅ Bot **berhasil dimuat ulang !**\n✅ **Daftar admin** telah **diperbarui !**")
+    await client.send_message(message.chat.id, "✅ Bot **berhasil dimuat ulang !**\n\n• **Daftar admin** telah **diperbarui !**")
 
 
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
@@ -40,7 +40,7 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ musik dijeda!\n\n• Untuk melanjutkan musik gunakan perintah » /resume")
 
 
-@Client.on_message(command(["resume", f"{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -94,4 +94,4 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⏭️ melewati : **{skip[0]}**\n▶️ sedang memutar : **{qeue[0][0]}**")
+    await message.reply_text(f"⏭️ melewati ke lagu berikutnya**")

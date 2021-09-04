@@ -11,7 +11,6 @@ SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_NAME = getenv("BOT_NAME", "Kennedy Music")
 BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/18d25616d9883400af112.png")
-THUMB_IMG = getenv("THUMB_IMG", "https://telegra.ph/file/0be47d373adcd48cff2fb.jpg")
 AUD_IMG = getenv("AUD_IMG", "https://telegra.ph/file/91f096ffdf3a67424065c.jpg")
 QUE_IMG = getenv("QUE_IMG", "https://telegra.ph/file/d7a2a816ff3a90eeb511f.jpg")
 admins = {}

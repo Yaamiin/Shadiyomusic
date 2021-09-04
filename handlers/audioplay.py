@@ -12,7 +12,7 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, QUE_IMG, GROUP_SUPPORT
+from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, GROUP_SUPPORT, OWNER_NAME
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
@@ -31,11 +31,16 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="Group",
+                        text="💡 Group",
                         url=f"https://t.me/{GROUP_SUPPORT}"),
                     InlineKeyboardButton(
-                        text="Channel​",
+                        text="🕊️ Channel​",
                         url=f"https://t.me/{UPDATES_CHANNEL}")
+                 ],
+                 [
+                    InlineKeyboardButton(
+                        text="👩‍💻 Bot by​",
+                        url=f"https://t.me/{OWNER_NAME}")
                 ]
             ]
         )
@@ -62,7 +67,7 @@ async def stream(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo=f"{QUE_IMG}",
+        photo=f"{AUD_IMG}",
         reply_markup=keyboard,
         caption=f"💡  lagu anda ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
         return await lel.delete()
@@ -72,6 +77,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"🎧 **sedang memutar** sebuah lagu\n\n🎧 Atas permintaan {costumer}!"
+        caption=f"💡 **sedang memutar** sebuah lagu\n\n🎧 Atas permintaan {costumer}!"
         )
         return await lel.delete()

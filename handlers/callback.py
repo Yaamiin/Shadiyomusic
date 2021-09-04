@@ -31,7 +31,10 @@ async def cbstart(_, query: CallbackQuery):
                         "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],[
+                    InlineKeyboardButton(
+                        "🧪 Source Code 🧪", url="https://github.com/KennedyProject/KennedyXMusic"
                     )
                 ]
             ]
@@ -139,6 +142,8 @@ async def cbsudo(_, query: CallbackQuery):
 
 /userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
+/rmd - menghapus semua file yang didownload
+/clean - menghapus semua file raw yang terdownload
 
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(

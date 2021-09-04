@@ -509,7 +509,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Daftar putar", "playlist"),
+                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -555,7 +555,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Daftar putar", "playlist"),
+                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -629,7 +629,7 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Daftar putar", "playlist"),
+                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -731,7 +731,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Daftar putar", "playlist"),
+                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
@@ -876,7 +876,7 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Daftar putar", "playlist"),
+                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
                 ],
                 [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],

@@ -95,7 +95,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 65)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 62)
     draw.text((30, 535), f"Playing here", (0, 0, 0), font=font)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 80)
     draw.text((30, 615),
@@ -472,7 +472,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>{user.first_name} telah terblokir dari grup, minta admin untuk `/unban @{ASSISTANT_NAME}` atau bisa lakukan`/userbotjoin`</i>"
+            f"<i>{user.first_name} telah terblokir dari grup, minta admin untuk /unban @{ASSISTANT_NAME} atau bisa lakukan /userbotjoin</i>"
         )
         return
     text_links=None
@@ -577,7 +577,7 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "🔎 **__Silahkan pilih lagu untuk diputar__**\n\n"
+            toxxt = "🕊️ **__Silahkan pilih lagu untuk diputar__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]

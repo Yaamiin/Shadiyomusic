@@ -95,10 +95,10 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 55)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 50)
     draw.text((30, 555), f"Playing here", (0, 0, 0), font=font)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
-    draw.text((30, 610),
+    draw.text((30, 613),
         f"{title[:20]} . . .",
         (0, 0, 0),
         font=font,
@@ -577,14 +577,14 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "🕊️ **__Select the song you want to play__**\n\n"
+            toxxt = "🔎 **__Silahkan pilih lagu untuk diputar__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})...\n"
-                toxxt += f" ├ ⏰ **Durasi** - {results[j]['duration']}\n"
-                toxxt += f" └ 👁 **Dilihat** {results[j]['views']}\n\n"
+                toxxt += f" ├ ⏰ **Duration** - {results[j]['duration']}\n"
+                toxxt += f" └ 👁 **Viewer** - {results[j]['views']}\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [

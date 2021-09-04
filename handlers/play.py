@@ -604,6 +604,8 @@ async def play(_, message: Message):
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # KONTOOOOOLLLLLLLLLLL
+        except:
+            await lel.edit("__no more results to choose, starting to playing...__")
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"

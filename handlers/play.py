@@ -95,10 +95,10 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 50)
-    draw.text((30, 555), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
-    draw.text((30, 613),
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 60)
+    draw.text((30, 540), f"Playing here", (0, 0, 0), font=font)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 80)
+    draw.text((30, 615),
         f"{title[:20]} . . .",
         (0, 0, 0),
         font=font,

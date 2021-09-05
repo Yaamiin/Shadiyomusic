@@ -11,9 +11,9 @@ from handlers.play import cb_admin_check
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ **Hallo, saya {query.message.from_user.mention}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !**
-💡 **Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !**
-❓ **Atau info lebih lanjut bisa mengetik /help**
+**__[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !__**
+**__Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !__**
+**__Atau info lebih lanjut bisa mengetik /help__**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -47,7 +47,7 @@ async def cbstart(_, query: CallbackQuery):
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command dasar untuk bot</b>
-💡 [ SETTING GRUP ]
+💡 **[ SETTING GRUP ]
 /play (judul) - memutar musik melalui YouTube
 /ytp (judul) - memutar musik secara langsung 
 /stream (balas ke audio) - memutar kusik melalui balas ke audio
@@ -65,7 +65,7 @@ async def cbbasic(_, query: CallbackQuery):
 /admincache - menyegarkan cache admin
 /ubjoinc - mengundang assisten join ke channel
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -86,12 +86,12 @@ async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command lanjutan</b>
 
-/start (di grup) - melihat alive bot
+**/start (di grup) - melihat alive bot
 /reload - memperbarui bot dan menyegarkan daftar admin
 /cache - memperbatui cache admin
 /ping - cek ping bot
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -112,7 +112,7 @@ async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk admin grup</b>
 
-/player - melihat status pemutaran
+**/player - melihat status pemutaran
 /pause - jeda musik yang diputar
 /resume - melanjutkan musik yang di jeda
 /skip - melewati ke lagu berikutnya
@@ -120,7 +120,7 @@ async def cbadmin(_, query: CallbackQuery):
 /userbotjoin - mengundang assistant untuk bergabung ke grup
 /musicplayer (on / off) - mematikan / menghidupkan pemutar musik di grupmu
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -141,12 +141,12 @@ async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk sudo</b>
 
-/userbotleaveall - mengeluarkan asisten dari semua grup
+**/userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
 /rmd - menghapus semua file yang didownload
 /clean - menghapus semua file raw yang terdownload
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -167,13 +167,13 @@ async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ Command fun</b>
 
-/chika - cek sendiri
+**/chika - cek sendiri
 /wibu - cek sendiri
 /asupan - cek sendiri
 /truth - cek sendiri
 /dare - cek sendiri
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -194,12 +194,12 @@ async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""CARA MENGGUNAKAN BOT INI :
 
-1.) Pertama, tambahkan ke grupmu.
+**1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -227,12 +227,12 @@ async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🕊️ CARA MENGGUNAKAN BOT 🕊️ :
 
-1.) Pertama, tambahkan ke grupmu.
+**1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

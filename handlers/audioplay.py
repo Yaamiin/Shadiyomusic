@@ -67,17 +67,19 @@ async def stream(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         costumer = message.from_user.mention
+        flname = file_name
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"💡  lagu anda ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
+        caption=f"💡  lagu anda ditambahkan ke **antrian!**\n\n🏷 Nama file : {flname} \n🎧 Atas permintaan {costumer}")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         costumer = message.from_user.mention
+        flname = file_name
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"💡 **sedang memutar** sebuah lagu\n\n🎧 Atas permintaan {costumer}!"
+        caption=f"💡 **sedang memutar**\n\n🏷 Nama file : {flname} \n🎧 Atas permintaan {costumer}!"
         )
         return await lel.delete()

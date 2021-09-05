@@ -34,10 +34,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❎ Sedang tidak memutar lagu")
+        await message.reply_text("❎ **Sedang tidak memutar lagu!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ musik dijeda!\n\n• Untuk melanjutkan musik gunakan perintah » /resume")
+        await message.reply_text("▶️ **Musik dijeda!**\n\n• Untuk melanjutkan musik gunakan **perintah » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
@@ -48,10 +48,10 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
-        await message.reply_text("❎ Tidak ada musik yang dijeda!")
+        await message.reply_text("❎ **Tidak ada musik yang dijeda!**")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ musik dilanjutkan!\n\n• Untuk melakukan jeda gunakan perintah » /pause")
+        await message.reply_text("⏸ **Musik dilanjutkan!**\n\n• Untuk melakukan jeda gunakan **perintah » /pause**")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -60,7 +60,7 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❎ Sedang tidak memutar lagu!")
+        await message.reply_text("❎ **Sedang tidak memutar lagu!**")
     else:
         try:
             queues.clear(chat_id)
@@ -68,7 +68,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **__Userbot terputus dari obrolan suara__**")
+        await message.reply_text("🔴 **Musik dihentikan!**\n\n• **Userbot telah terputus dari obrolan suara**")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -78,7 +78,7 @@ async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❎ Sedang tidak memutar lagu!")
+        await message.reply_text("❎ **Sedang tidak memutar lagu!**")
     else:
         queues.task_done(chat_id)
 
@@ -94,4 +94,4 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⏭️ melewati ke lagu berikutnya**")
+    await message.reply_text(f"⏭️ **__Melewati lagu ke antrian berikutnya__**")

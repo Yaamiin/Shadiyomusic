@@ -605,7 +605,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            await lel.delete()
+            await lel.edit()
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"

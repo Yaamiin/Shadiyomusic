@@ -34,7 +34,7 @@ async def cbstart(_, query: CallbackQuery):
                         "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
-                        "🧪 Source Code 🧪", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"
                     )
                 ]
             ]
@@ -48,11 +48,12 @@ async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command dasar untuk bot</b>
 💡 [ SETTING GRUP ]
-/play (judul) - memutar musik melalui youtube
+/play (judul) - memutar musik melalui YouTube
 /ytp (judul) - memutar musik secara langsung 
 /stream (balas ke audio) - memutar kusik melalui balas ke audio
 /playlist - melihat daftar antrian
-/song (judul) - mengunduh musik dari youtube
+/song (judul) - mengunduh musik dari YouTube
+/video (judul) - mengunduh video dari YouTube
 /lirik - (judul) mencari lirik
 💡 [ SETTING CHANNEL ]
 /cplay - memutar musik melalui channel

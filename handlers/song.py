@@ -28,7 +28,7 @@ def song(client, message):
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     query = "".join(" " + str(i) for i in message.command[1:])
     print(query)
-    m = message.reply("🔎 **Sedang Mencari Lagu**")
+    m = message.reply("🔎 **Sedang Mencari Lagu** 🔎")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -43,7 +43,7 @@ def song(client, message):
         results[0]["url_suffix"]
         results[0]["views"]
     except Exception as e:
-        m.edit("❌ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**")
+        m.edit("❎ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**")
         print(str(e))
         return
     m.edit("📥 **Sedang Mendownload Lagu**")
@@ -73,7 +73,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ **Error**")
+        m.edit("❎ **Error**")
         print(e)
     try:
         os.remove(audio_file)
@@ -250,7 +250,7 @@ async def ytmusic(client, message: Message):
         message.chat.id, f"**Mendapatkan** `{urlissed}` **Dari Youtube. Tunggu Sebentar.**"
     )
     if not urlissed:
-        await pablo.edit("**Sintaks Perintah Tidak Valid** Silakan ketik `/help` Untuk Mengetahui Lebih Lanjut!")
+        await pablo.edit("**Syntax Perintah Tidak Valid** Silakan ketik `/help` Untuk Mengetahui Lebih Lanjut!")
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -284,7 +284,7 @@ async def ytmusic(client, message: Message):
 
             if duration > DURATION_LIMIT:
                 await pablo.edit(
-                    f"❌ **Video berdurasi lebih dari {DURATION_LIMIT} menit tidak diperbolehkan, video yang ingin kamu download {duration} menit**"
+                    f"❎ **Video berdurasi lebih dari {DURATION_LIMIT} menit tidak diperbolehkan, video yang ingin kamu download {duration} menit**"
                 )
                 is_downloading = False
                 return
@@ -297,7 +297,7 @@ async def ytmusic(client, message: Message):
 
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"**Nama Video ➠** `{thum}` \n**Permintaan Dari :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
+    capy = f"**Judul ➠** `{thum}` \n**By ➠ :** `{urlissed}` \n**Channel ➠** `{thums}` \n**Link ➠** {mo}"
     await client.send_video(
         message.chat.id,
         video=open(file_stark, "rb"),

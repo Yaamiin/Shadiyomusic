@@ -54,10 +54,10 @@ def song(client, message):
             ydl.process_info(info_dict)
         rep = f"""
 **🏷 Nama Lagu:** [{title}]({link})
-**⏱️ Durasi Lagu:** {duration}
-**👁️‍🗨️ Dilihat Oleh:** {results[0]['views']}
+**⏰ Durasi Lagu:** {duration}
+**👁 Dilihat Oleh:** {results[0]['views']}
 **🤖 Diunggah Oleh:** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-**🎧 Permintaan Dari:** {rpk}
+**👤 Permintaan Dari:** {rpk}
 """
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -164,7 +164,7 @@ def get_readable_time(seconds: int) -> int:
     count = 0
     ping_time = ""
     time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
+    time_suffix_list = ["d", "m", "j", "hari"]
     while count < 4:
         count += 1
         remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
@@ -291,7 +291,7 @@ async def ytmusic(client, message: Message):
             ytdl_data = ytdl.extract_info(url, download=True)
 
     except Exception:
-        # await pablo.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
+        await pablo.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
         is_downloading = False
         return
 

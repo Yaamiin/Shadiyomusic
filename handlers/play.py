@@ -605,7 +605,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            await lel.edit("**❎ lagu tidak ditemukan**, mohon tulis judul dengan benar\n\n» **Contoh :** `/play happier olivia rodrigo`")
+            await lel.edit("**❎ Emrorrr...**")
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"

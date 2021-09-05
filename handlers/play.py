@@ -95,9 +95,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 62)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 57)
     draw.text((30, 535), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 80)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
     draw.text((30, 615),
         f"{title[:20]} . . .",
         (0, 0, 0),
@@ -424,7 +424,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 **memproses lagu...**")
+    lel = await message.reply("🔁 **__Memproses lagu__**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -530,7 +530,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔎 **mencari lagu** 🔎")
+        await lel.edit("🔎 **Mencari lagu** 🔎")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -582,8 +582,8 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})...\n"
-                toxxt += f" ├ ⏱️ **Duration** - {results[j]['duration']}\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:23]}](https://youtube.com{results[j]['url_suffix']})...\n"
+                toxxt += f" ├ ⏰ **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ 👁 **Viewer** - {results[j]['views']}\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
@@ -693,7 +693,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("🔁 **Menghubungkan...**")
+    await cb.message.edit("🔁 **__Menghubungkan__**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -787,7 +787,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔁 **memproses...**")
+    lel = await message.reply("🔁 **__Memproses__**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -849,7 +849,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **Menghubungkan...**")
+    await lel.edit("🔁 **__Menghubungkan__**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

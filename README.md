@@ -22,7 +22,7 @@
 - `/current` - Show now playing
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
-- `/vsong <song name>` - download videos you want quickly
+- `/video <song name>` - download videos you want quickly
 
 #### Admins Only 👷‍♂️
 - `/player` - open music player settings panel
@@ -56,7 +56,7 @@ The easy way to host this bot, deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KennedyProject/KennedyXMusic)
 
-### Credits ✨
+### Credits 🕊️
 - [Kennedy](https://github.com/KennedyProject) Developer
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Levina](https://github.com/levina-lab) Veez Project

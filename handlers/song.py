@@ -54,7 +54,7 @@ def song(client, message):
             ydl.process_info(info_dict)
         rep = f"""
 **🏷 Nama Lagu:** [{title}]({link})
-**⏰ Durasi Lagu:** {duration}
+**⏱️ Durasi Lagu:** {duration}
 **👁 Dilihat Oleh:** {results[0]['views']}
 **🤖 Diunggah Oleh:** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
 **👤 Permintaan Dari:** {rpk}
@@ -291,7 +291,7 @@ async def ytmusic(client, message: Message):
             ytdl_data = ytdl.extract_info(url, download=True)
 
     except Exception:
-        await pablo.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
+        # await pablo.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
         is_downloading = False
         return
 

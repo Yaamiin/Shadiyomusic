@@ -66,6 +66,7 @@ async def stream(_, message: Message):
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
+        costumer = message.from_user.mention
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,

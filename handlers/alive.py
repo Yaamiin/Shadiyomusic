@@ -1,6 +1,8 @@
 # KennedyProject 2021
 # @xgothboi
 
+from os import path
+
 from config import BOT_IMG, BOT_USERNAME, BOT_NAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL
 from helpers.filters import command
 from pyrogram import Client, filters

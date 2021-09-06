@@ -9,7 +9,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 
-@Client.on_message(filters.command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & filters.private)
+@Client.on_message(filters.command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def alive(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMG}",

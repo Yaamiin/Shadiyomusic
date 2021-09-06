@@ -7,42 +7,6 @@ from config import BOT_NAME, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CH
 from handlers.play import cb_admin_check
 
 
-@Client.on_callback_query(filters.regex("cbstart"))
-async def cbstart(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""<b>🕊️ **Hallo, saya {query.message.from_user.mention}** \n
-**__[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !__**
-**__Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !__**
-**__Atau info lebih lanjut bisa mengetik /help__**
-</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-                    InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
-                ],[
-                    InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse"
-                    ),
-                    InlineKeyboardButton(
-                        "✨ Donate", url=f"https://t.me/{OWNER_NAME}")
-                ],[
-                    InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ],[
-                    InlineKeyboardButton(
-                        "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"
-                    )
-                ]
-            ]
-        ),
-     disable_web_page_preview=True
-    )
-
-
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -220,26 +184,3 @@ async def cbguide(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("close"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
-
-
-@Client.on_callback_query(filters.regex("cbhowtouse"))
-async def cbguides(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🕊️ CARA MENGGUNAKAN BOT 🕊️ :
-
-**1.) Pertama, tambahkan ke grupmu.
-2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
-3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
-4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "🔻 BACK", callback_data="cbstart"
-                    )
-                ]
-            ]
-        )
-    )

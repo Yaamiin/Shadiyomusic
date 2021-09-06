@@ -1,3 +1,6 @@
+# KennedyProject 2021
+# @xgothboi
+
 from config import BOT_USERNAME, BOT_NAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL
 from helpers.filters import command
 from pyrogram import Client, filters
@@ -21,10 +24,10 @@ async def alive(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
                         "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"

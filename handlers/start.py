@@ -35,8 +35,7 @@ async def start_(client: Client, message: Message):
         photo=f"{BOT_IMG}",
         caption=f"""<b>🕊️ **Hallo {message.from_user.mention}** \n
 **__[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !__**
-**__Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !__**
-**__Atau info lebih lanjut bisa mengetik /help__**
+**__Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » /help__**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 

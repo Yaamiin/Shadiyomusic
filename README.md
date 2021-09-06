@@ -1,4 +1,4 @@
-<h2 align="centre">🕊️ Kennedy X Music 🕊️/h2>
+<h2 align="centre">🕊️ Kennedy X Music 🕊️
 
 ### Music bot for playing music on telegram voice chat group.
 <p align="center"><a href="https://t.me/KennedyXMusic"><img src="https://telegra.ph/file/f09189fdd97a3764a1f7a.jpg" width="300"></a></p>

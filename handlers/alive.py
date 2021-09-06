@@ -15,9 +15,9 @@ async def alive(client: Client, message: Message):
 
 🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
 🔴 **Im working properly**
-🔴 **Bot ver:** `3.0` Latest
+🔴 **Bot ver :** `3.0` Latest
 🔴 **Python Ver :** `3.9.7`
-🔴 **My Master : [Kennedy](https://t.me/{OWNER_NAME})**
+🔴 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 
 **Thanks For adding me to your groups 🕊️**""",
         reply_markup=InlineKeyboardMarkup(

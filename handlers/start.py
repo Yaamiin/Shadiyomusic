@@ -60,22 +60,19 @@ async def start_(client: Client, message: Message):
 
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("Starting...")
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        f"""✅ **Bot sedang aktif**\n\n• **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>• **Uptime bot :**</b> `{uptime}`""",
+    await message.reply_text(
+        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
+
+💡 Untuk mengetahui cara menggunakan saya, klik pada tombol » 📚 Perintah dan lihat semua perintah bot dan bagaimana mereka bekerja!
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
+                        "👥 Support", url=f"https://t.me/{GROUP_SUPPORT}")
+                ],
+                [
                     InlineKeyboardButton(
-                        "Bantuan", callback_data="cbguide"
+                        "📚 Perintah", callback_data="cbguide"
                     )
                 ]
             ]
@@ -118,4 +115,20 @@ async def help_(client: Client, message: Message):
                 ]
             ]
         )
+    )
+
+
+@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@authorized_users_only
+async def ping_pong(client: Client, message: Message):
+    start = time()
+    m_reply = await message.reply_text("pinging...")
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    delta_ping = time() - start
+    await m_reply.edit_text(
+        f"🏓 **PONG!!** {delta_ping * 1000:.3f} ms"
+        f"• **uptime:** `{uptime}`\n"
+        f"• **start time:** `{START_TIME_ISO}`"
     )

@@ -8,14 +8,14 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 async def alive_(client: Client, message: Message):
     await message.reply_photo(
         photo="https://telegra.ph/file/75b9fe99ad2877eb2e45d.jpg"
-        caption=f"""<b>Heyyo I'm alive<b>
+        caption=f"""<b>Heyyo I'm alive
 🔴 **[BOT_NAME](https://t.me/{BOT_USERNAME}) for playing music**
 🔴 **Py version  : 3.9.7**
 🔴 **Bot version : 3.0 Latest**
 🔴 **Source code : [KennedyProject](https://github.com/KennedyProject/KennedyXMusic)**
 🔴 **Im working properly**
 
-**Thanks For adding me to your groups ✨**""",
+**Thanks For adding me to your groups ✨**<b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

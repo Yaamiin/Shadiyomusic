@@ -19,11 +19,6 @@
             "required": false,
             "value": ""
         },
-        "BOT_IMAGE": {
-            "description": "link telegraph untuk gambar di perintah /alive.",
-            "required": false,
-            "value": "https://telegra.ph/file/75b9fe99ad2877eb2e45d.jpg"
-        },
         "BOT_USERNAME": {
             "description": "isi dengan username bot musikmu tanpa menggunakan @",
             "required": true,

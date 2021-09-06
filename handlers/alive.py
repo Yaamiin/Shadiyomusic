@@ -26,10 +26,7 @@ async def alive(client: Client, message: Message):
                         "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ],[
-                    InlineKeyboardButton(
-                        "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]

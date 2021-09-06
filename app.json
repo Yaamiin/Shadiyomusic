@@ -7,48 +7,53 @@
     "stack": "container",
     "env": {
         "SESSION_NAME": {
-            "description": "fill with the pyrogram session string",
+            "description": "isi dengan string Pyrogram (P)",
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "your bot token from @BotFather",
+            "description": "bot tokenmu dari @BotFather",
             "required": true
         },
         "BOT_NAME": {
-            "description": "your music bot name.",
+            "description": "nama bot musik mu.",
             "required": false,
             "value": ""
         },
+        "BOT_IMAGE": {
+            "description": "link telegraph untuk gambar di perintah /alive.",
+            "required": false,
+            "value": "https://telegra.ph/file/75b9fe99ad2877eb2e45d.jpg"
+        },
         "BOT_USERNAME": {
-            "description": "fill with your bot username without @",
+            "description": "isi dengan username bot musikmu tanpa menggunakan @",
             "required": true,
             "value": "KenzxMusicBot"
         },
         "ASSISTANT_NAME": {
-            "description": "fill with the assistant username without @",
+            "description": "isi dengan username asistenmu tanpa menggunakan @",
             "required": true,
             "value": "kennedyassistant"
         },
         "BG_IMAGE": {
-            "description": "fill with your link costum background image",
+            "description": "isi dengan link telegraph background mu",
             "required": false,
             "value": "https://telegra.ph/file/18d25616d9883400af112.png"
         },
         "OWNER_NAME": {
-            "description": "fill with your username without @",
+            "description": "isi dengan username mu tanpa menggunakan @",
             "required": false,
             "value": "xgothboi"
         },
         "API_ID": {
-            "description": "your App ID from my.telegram.org/apps",
+            "description": "APP ID mu dari my.telegram.org",
             "required": true
         },
         "API_HASH": {
-            "description": "your Api hash from my.telegram.org/apps",
+            "description": "API HASH dari my.telegram.org",
             "required": true
         },
         "SUDO_USERS": {
-            "description": "list id untuk daftar anggota sudo (pisahkan dengan spasi).",
+            "description": "id untuk daftar anggota sudo (pisahkan dengan spasi).",
             "required": true
         },
         "DURATION_LIMIT": {
@@ -57,7 +62,7 @@
             "value": "15"
         },
         "PMPERMIT": {
-            "description": "pm-permit for assistant.",
+            "description": "pm-permit untuk asisten.",
             "required": false,
             "value": "ENABLE"
         },

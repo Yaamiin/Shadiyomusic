@@ -1,3 +1,6 @@
+# KennedyProject 
+# yahaha wahyoe
+
 from config import BOT_IMG, BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from helpers.filters import command
 from pyrogram import Client, filters

@@ -56,6 +56,32 @@ async def start_(client: Client, message: Message):
                 ]
             ]
         )
+    )
+
+
+@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+async def start(client: Client, message: Message):
+    start = time()
+    m_reply = await message.reply_text("Starting...")
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    delta_ping = time() - start
+    await m_reply.edit_text(
+        f"""✅ **Bot sedang aktif**\n\n• **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>• **Uptime bot :**</b> `{uptime}`""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                    ),
+                    InlineKeyboardButton(
+                        "Bantuan", callback_data="cbguide"
+                    )
+                ]
+            ]
+        )
+    )
 
 
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
@@ -89,35 +115,6 @@ async def help_(client: Client, message: Message):
                 [
                     InlineKeyboardButton(
                         "▶️", callback_data="cbguide"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_message(filters.command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
-async def alive(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"{BOT_IMG}",
-        caption=f"""**Heyyo I'm alive Sir**
-🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
-🔴 **Im working properly**
-🔴 **Bot ver :** `5.0` Latest
-🔴 **Python Ver :** `3.9.7`
-🔴 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
-**Thanks For Using me 🕊️**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ],[
-                    InlineKeyboardButton(
-                        "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"
                     )
                 ]
             ]

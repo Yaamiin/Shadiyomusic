@@ -10,6 +10,7 @@ que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_NAME = getenv("BOT_NAME", "Kennedy Music")
+BOT_IMAGE = getenv("BOT_NAME", "https://telegra.ph/file/75b9fe99ad2877eb2e45d.jpg")
 BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png")
 AUD_IMG = getenv("AUD_IMG", "https://telegra.ph/file/f09189fdd97a3764a1f7a.jpg")
 admins = {}

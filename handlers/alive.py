@@ -1,4 +1,4 @@
-from config import BOT_USERNAME, BOT_NAME, BOT_IMAGE, OWNER_NAME, GROUP_SUPPORT
+from config import BOT_USERNAME, BOT_NAME, BOT_IMAGE, OWNER_NAME, GROUP_SUPPORT, UPDATES CHANNEL
 from helpers.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton

@@ -1,4 +1,4 @@
-from config import BOT_USERNAME, BOT_NAME, BOT_IMAGE, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL
+from config import BOT_USERNAME, BOT_IMAGE, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL
 from helpers.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -10,7 +10,7 @@ async def alive(client: Client, message: Message):
         photo=f"{BOT_IMAGE}",
         caption=f"""**Heyyo I'm alive Sir**
 
-🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
+🔴 **[This bot](https://t.me/{BOT_USERNAME}) Is online**
 🔴 **Im working properly**
 🔴 **Bot ver:** `3.0` Latest
 🔴 **Python Ver :** `3.9.7`

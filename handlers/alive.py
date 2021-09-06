@@ -15,11 +15,42 @@ async def alive(client: Client, message: Message):
 
 🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
 🔴 **Im working properly**
-🔴 **Bot ver :** `3.0` Latest
+🔴 **Bot ver :** `5.0` Latest
 🔴 **Python Ver :** `3.9.7`
 🔴 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 
-**Thanks For adding me to your groups 🕊️**""",
+**Thanks For Using me 🕊️**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                    ),
+                    InlineKeyboardButton(
+                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],[
+                    InlineKeyboardButton(
+                        "⚙️ Source Code ⚙️", url="https://github.com/KennedyProject/KennedyXMusic"
+                    )
+                ]
+            ]
+        )
+    )
+
+
+@Client.on_message(filters.command("alive") & filters.private & ~filters.edited)
+async def alive_(client: Client, message: Message):
+    await message.reply_photo(
+        photo=f"{BOT_IMG}",
+        caption=f"""**Heyyo I'm alive Sir**
+
+🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
+🔴 **Im working properly**
+🔴 **Bot ver :** `5.0` Latest
+🔴 **Python Ver :** `3.9.7`
+🔴 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
+
+**Thanks For Using me 🕊️**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

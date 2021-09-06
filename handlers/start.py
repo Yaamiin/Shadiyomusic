@@ -64,6 +64,8 @@ async def start(client: Client, message: Message):
         f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
 
 💡 Untuk mengetahui cara menggunakan saya, klik pada tombol » 📚 Perintah dan lihat semua perintah bot dan bagaimana mereka bekerja!
+
+⚡ Bot By @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

@@ -58,30 +58,6 @@ async def start_(client: Client, message: Message):
         )
 
 
-@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
-async def start(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("Starting...")
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        f"""✅ **Bot sedang aktif**\n\n• **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>• **Uptime bot :**</b> `{uptime}`""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ]
-            ]
-        )
-    )
-
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(

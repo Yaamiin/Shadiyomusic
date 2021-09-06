@@ -6,8 +6,8 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.command(["alive", f"alive@{BOT_USERNAME}"]))
 async def alive(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"{BOT_IMG}",
+        await client.send_file(message.chat.id,
+        file=f"{BOT_IMG}",
         caption=f"""**Holla I'm [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
 🔴 **Im Working Properly**

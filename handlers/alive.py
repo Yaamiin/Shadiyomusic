@@ -8,12 +8,16 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 async def alive(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMG}",
-        caption=f"""**Heyyo I'm alive Sir**
-🔴 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is online**
-🔴 **Im working properly**
-🔴 **Bot ver :** `5.0` Latest
-🔴 **Python Ver :** `3.9.7`
+        caption=f"""**Holla I'm [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
+
+🔴 **Im Working Properly**
+
+🔴 **Bot :** `5.0` Latest
+
+🔴 **Python :** `3.9.7`
+
 🔴 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
+
 **Thanks For Using me 🕊️**""",
         reply_markup=InlineKeyboardMarkup(
             [

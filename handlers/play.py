@@ -27,10 +27,11 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 from cache.admins import admins as a
 from PIL import Image, ImageFont, ImageDraw
 
+
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
-DISABLED_GROUPS = []
 useer ="NaN"
+DISABLED_GROUPS = []
 
 
 def cb_admin_check(func: Callable) -> Callable:

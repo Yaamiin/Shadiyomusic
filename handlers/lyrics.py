@@ -31,6 +31,6 @@ async def hilih(_, message):
         kuntul = message.text.split(None, 1)[1]
         resp = requests.get(f"https://api-tede.herokuapp.com/api/hilih?kata={kuntul}").json()
         result = f"{resp['data']}"
-        await rep.edit(result)
+        await message.reply_text(result)
     except Exception:
         await message.reply_text("`404 Emrorr not found:v`")

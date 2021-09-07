@@ -37,11 +37,12 @@ async def cbstart(_, query: CallbackQuery):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await query.edit_message_text(
-        f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
+        f"""<b>👋🏻 **Hallo, saya {query.message.from_user.mention}!**</b>
 
 ✅ **Saya aktif dan siap memutar musik!
 • Start time: `{START_TIME_ISO}`
 • Klik pada tombol » 📚 Perintah dan lihat semua perintah bot!
+
 💡 Bot By @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [

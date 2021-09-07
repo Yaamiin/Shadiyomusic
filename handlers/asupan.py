@@ -54,13 +54,3 @@ async def chika(client, message):
         return await client.send_video(message.chat.id, video=results)
     except Exception:
         await message.reply_text("`404 chika videos not found`")
-
-
-@Client.on_message(command(["hilih", f"asupan@{BOT_USERNAME}"]))
-async def hilih(client, message):
-    try:
-        resp = requests.get(f"https://tede-api.herokuapp.com/api/hilih?kata={kuntul}").json()
-        hilihnya = f"{resp['result']}"
-        return await message.reply_text(hilihnya)
-    except Exception:
-        await message.reply_text("Something went wrong LOL...")

@@ -60,12 +60,15 @@ async def start_(client: Client, message: Message):
 
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
+    uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
+        f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
-💡 Untuk mengetahui cara menggunakan saya, klik pada tombol » 📚 Perintah dan lihat semua perintah bot dan bagaimana mereka bekerja!
+✅ **Saya aktif dan siap memutar musik!
+• **Uptime :** `{uptime}`
+• Klik pada tombol » 📚 **Perintah** dan lihat semua perintah bot!
 
-⚡ Bot By @{UPDATES_CHANNEL}""",
+💡 Bot By @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -74,7 +77,7 @@ async def start(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Perintah", callback_data="cbbasic"
+                        "📚 Perintah", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -112,7 +115,7 @@ async def help_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbguide"
+                        "HELP", callback_data="cbhowtouse"
                     )
                 ]
             ]

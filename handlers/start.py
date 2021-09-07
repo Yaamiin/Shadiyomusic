@@ -130,7 +130,7 @@ async def ping_pong(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await m_reply.edit_text(
-        f"🏓 **PONG!!** {delta_ping * 1000:.3f} ms"
+        f"🏓 **PONG!!** {delta_ping * 1000:.3f} ms\n"
         f"• **uptime:** `{uptime}`\n"
         f"• **start time:** `{START_TIME_ISO}`"
     )

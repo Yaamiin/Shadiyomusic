@@ -33,6 +33,8 @@ async def _human_time_duration(seconds):
 
 @Client.on_callback_query(filters.regex("cbstart")& filters.group & ~filters.edited)
 async def cbstart(_, query: CallbackQuery):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await query.edit_message_text(
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>

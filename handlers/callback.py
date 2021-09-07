@@ -191,13 +191,14 @@ async def cbadmin(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ command untuk sudo</b>
-/userbotleaveall - mengeluarkan asisten dari semua grup
+        f"""<b>🕊️ **command untuk sudo**</b>
+
+**/userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
-/stats - melihat statistik bot
 /rmd - menghapus file downloadan
 /rmr - menghapus file raw terdownload
-💡 Bot by @{UPDATES_CHANNEL}""",
+
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -213,13 +214,15 @@ async def cbsudo(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbfun"))
 async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ Command fun</b>
-/chika - cek sendiri
+        f"""<b>🕊️ **Command fun**</b>
+
+**/chika - cek sendiri
 /wibu - cek sendiri
 /asupan - cek sendiri
 /truth - cek sendiri
 /dare - cek sendiri
-💡 Bot by @{UPDATES_CHANNEL}""",
+
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -235,12 +238,14 @@ async def cbfun(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""CARA MENGGUNAKAN BOT INI :
-1.) Pertama, tambahkan ke grupmu.
+        f"""**CARA MENGGUNAKAN BOT INI :**
+
+**1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
-💡 Bot by @{UPDATES_CHANNEL}""",
+
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

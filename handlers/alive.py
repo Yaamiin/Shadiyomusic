@@ -1,6 +1,8 @@
 # KennedyProject 
 # yahaha wahyoe
 
+from os import path
+
 from time import time
 from datetime import datetime
 from config import BOT_IMG, BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT

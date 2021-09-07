@@ -25,7 +25,7 @@ async def lirik(_, message):
 @Client.on_message(command(["hilih", f"hilih@{BOT_USERNAME}"]))
 async def hilih(_, message):
     try:
-        if len(message.command) < 1:
+        if len(message.command) < 2:
             await message.reply_text("**Contoh : /hilih (teksnya)**")
             return
         kuntul = message.text.split(None, 1)[1]
@@ -34,3 +34,18 @@ async def hilih(_, message):
         await message.reply_text(result)
     except Exception:
         await message.reply_text("`404 Emrorr not found:v`")
+
+
+@Client.on_message(command(["hilih", f"hilih@{BOT_USERNAME}"]))
+async def hilih(_, message):
+    try:
+        if len(message.command) < 2:
+            await message.reply_text("**mau hilihin apa anj**")
+            return
+        kuntul = message.text.split(None, 1)[1]
+        rep = await message.reply_text("**Bentar nyet!**")
+        resp = requests.get(f"https://api-tede.herokuapp.com/api/hilih?kata={kuntul}").json()
+        result = f"{resp['data']}"
+        await rep.edit(result)
+    except Exception:
+        await rep.edit("`404 Emrorr not found :v`")

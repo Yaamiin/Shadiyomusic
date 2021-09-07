@@ -425,7 +425,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 **__Memproses lagu__**")
+    lel = await message.reply("🔎 **Mencari Lagu** 🔎")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -531,7 +531,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔎 **Mencari lagu** 🔎")
+        await lel.edit("🔎 **Mencari Lagu** 🔎")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -620,8 +620,8 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❎ lagu tidak ditemukan**, mohon tulis judul dengan benar\n\n» **Contoh :** `/play happier olivia rodrigo`"
-            )
+                    "**❎ lagu tidak ditemukan**, mohon tulis judul dengan benar\n\n» **Contoh :** `/play happier olivia rodrigo`"
+                )
                 print(str(e))
                 return
             dlurl=url
@@ -694,7 +694,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("🔁 **__Menghubungkan__**")
+    await cb.message.edit("🔁 **Menghubungkan Ke VCG**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -788,7 +788,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔁 **__Memproses__**")
+    lel = await message.reply("🔎 **Mencari Lagu** 🔎")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -841,7 +841,7 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
         )
         return
-    await lel.edit("🔎 **mencari lagu** 🔎")
+    await lel.edit("🔎 **Mencari Lagu** 🔎")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -850,7 +850,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **__Menghubungkan__**")
+    await lel.edit("🔁 **Menghubungkan Ke VCG**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

@@ -67,7 +67,7 @@ async def start(client: Client, message: Message):
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
 ✅ **Saya aktif dan siap memutar musik!
-• Start time: {START_TIME_ISO}
+• Start time: `{START_TIME_ISO}`
 • Klik pada tombol » 📚 **Perintah** dan lihat semua perintah bot!
 
 💡 Bot By @{UPDATES_CHANNEL}**""",

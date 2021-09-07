@@ -168,7 +168,7 @@ async def cbguide(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🕊️ Daftar perintah", callback_data="cbbasic"
+                        "📚 Perintah", callback_data="cbbasic"
                     )
                 ],
                 [

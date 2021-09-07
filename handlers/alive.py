@@ -3,11 +3,13 @@
 
 from os import path
 
+from pyrogram import Client
+from pyrogram.types import Message
+
 from time import time
 from datetime import datetime
 from config import BOT_IMG, BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
-from helpers.filters import command
-from pyrogram import Client, filters
+from helpers.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 

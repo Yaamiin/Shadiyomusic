@@ -79,7 +79,7 @@ async def start(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Perintah", callback_data="cbhelp"
+                        "📚 Perintah", callback_data="cbcmds"
                     )
                 ]
             ]

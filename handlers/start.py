@@ -74,7 +74,7 @@ async def start(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Perintah", callback_data="cbguide"
+                        "📚 Perintah", callback_data="cbbasic"
                     )
                 ]
             ]

@@ -34,9 +34,6 @@ async def cbbasic(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbguide"
-                    ),
-                    InlineKeyboardButton(
                         "▶️ Next", callback_data="cbadvanced"
                     )
                 ]

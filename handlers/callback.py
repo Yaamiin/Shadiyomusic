@@ -7,17 +7,60 @@ from config import BOT_NAME, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CH
 from handlers.play import cb_admin_check
 
 
+@Client.on_callback_query(filters.regex("cbhelp"))
+async def cbhelp(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""<b>🕊️ Berikut ini adalah menu bantuan !</b>
+
+**Dalam menu ini Anda dapat membuka beberapa menu perintah yang tersedia, di setiap menu perintah ada juga penjelasan singkat dari setiap perintah**
+
+💡 Bot by @{UPDATES_CHANNEL}""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📚 Basic Cmd", callback_data="cbbasic"
+                    ),
+                    InlineKeyboardButton(
+                        "📕 Advanced Cmd", callback_data="cbadvanced"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📘 Admin Cmd", callback_data="cbadmin"
+                    ),
+                    InlineKeyboardButton(
+                        "📗 Sudo Cmd", callback_data="cbsudo"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📔 Fun Cmd", callback_data="cbfun"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🔻", callback_data="cbguide"
+                    )
+                ]
+            ]
+        )
+    )
+
+
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command dasar untuk bot</b>
-💡 **[ SETTING GRUP ]
-/play (judul) - memutar musik melalui YouTube
+
+💡 [ SETTING GRUP ]
+/play (judul) - memutar musik melalui youtube
 /ytp (judul) - memutar musik secara langsung 
 /stream (balas ke audio) - memutar kusik melalui balas ke audio
 /playlist - melihat daftar antrian
-/song (judul) - mengunduh musik dari YouTube
-/video (judul) - mengunduh video dari YouTube
+/song (judul) - mengunduh musik dari youtube
+/search (judul) - mencari musik dari youtube secara detail
+/video (judul) - mengunduh musik dari youtube secara detail
 /lirik - (judul) mencari lirik
 💡 [ SETTING CHANNEL ]
 /cplay - memutar musik melalui channel
@@ -29,12 +72,12 @@ async def cbbasic(_, query: CallbackQuery):
 /admincache - menyegarkan cache admin
 /ubjoinc - mengundang assisten join ke channel
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "▶️ Next", callback_data="cbadvanced"
+                        "BACK", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -47,20 +90,17 @@ async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command lanjutan</b>
 
-**/start (di grup) - info
+/start (di grup) - melihat status bot
 /reload - memperbarui bot dan menyegarkan daftar admin
-/alive - melihat alive bot
+/alive - melihat status alive bot
 /ping - cek ping bot
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbbasic"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️ Next", callback_data="cbadmin"
+                        "BACK", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -73,7 +113,7 @@ async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk admin grup</b>
 
-**/player - melihat status pemutaran
+/player - melihat status pemutaran
 /pause - jeda musik yang diputar
 /resume - melanjutkan musik yang di jeda
 /skip - melewati ke lagu berikutnya
@@ -81,15 +121,12 @@ async def cbadmin(_, query: CallbackQuery):
 /userbotjoin - mengundang assistant untuk bergabung ke grup
 /musicplayer (on / off) - mematikan / menghidupkan pemutar musik di grupmu
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbadvanced"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️ Next", callback_data="cbsudo"
+                        "BACK", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -101,21 +138,17 @@ async def cbadmin(_, query: CallbackQuery):
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command untuk sudo</b>
-
-**/userbotleaveall - mengeluarkan asisten dari semua grup
+/userbotleaveall - mengeluarkan asisten dari semua grup
 /gcast - mengirim pesan global melalui asisten
-/rmd - menghapus semua file yang didownload
-/clean - menghapus semua file raw yang terdownload
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
+/stats - melihat statistik bot
+/rmd - menghapus file downloadan
+/rmr - menghapus file raw terdownload
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbadmin"
-                    ),
-                    InlineKeyboardButton(
-                        "▶️ Next", callback_data="cbfun"
+                        "BACK", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -127,22 +160,17 @@ async def cbsudo(_, query: CallbackQuery):
 async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ Command fun</b>
-
-**/chika - cek sendiri
+/chika - cek sendiri
 /wibu - cek sendiri
 /asupan - cek sendiri
 /truth - cek sendiri
 /dare - cek sendiri
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "◀️ Back", callback_data="cbsudo"
-                    ),
-                    InlineKeyboardButton(
-                        "🗑️ Close", callback_data="close"
+                        "BACK", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -154,18 +182,16 @@ async def cbfun(_, query: CallbackQuery):
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""CARA MENGGUNAKAN BOT INI :
-
-**1.) Pertama, tambahkan ke grupmu.
+1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Perintah", callback_data="cbbasic"
+                        "📚 Command List", callback_data="cbhelp"
                     )
                 ],
                 [
@@ -181,3 +207,67 @@ async def cbguide(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("close"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
+
+
+@Client.on_callback_query(filters.regex("cbcmds"))
+async def cbhelps(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""<b>🕊️ Hallo ini adalah menu bantuan !</b>
+
+**Dalam menu ini Anda dapat membuka beberapa menu perintah yang tersedia, di setiap menu perintah ada juga penjelasan singkat dari setiap perintah**
+
+💡 Bot by @{UPDATES_CHANNEL}""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📚 Basic Cmd", callback_data="cbbasic"
+                    ),
+                    InlineKeyboardButton(
+                        "📕 Advanced Cmd", callback_data="cbadvanced"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📘 Admin Cmd", callback_data="cbadmin"
+                    ),
+                    InlineKeyboardButton(
+                        "📗 Sudo Cmd", callback_data="cbsudo"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "♥️ Fun Cmd", callback_data="cbfun"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "BACK", callback_data="cbstart"
+                    )
+                ]
+            ]
+        )
+    )
+
+
+@Client.on_callback_query(filters.regex("cbhowtouse"))
+async def cbguides(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🕊️ CARA MENGGUNAKAN BOT 🕊️ :
+
+1.) Pertama, tambahkan ke grupmu.
+2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
+3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
+4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
+
+💡 Bot by @{UPDATES_CHANNEL}""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "BACK", callback_data="cbstart"
+                    )
+                ]
+            ]
+        )
+    )

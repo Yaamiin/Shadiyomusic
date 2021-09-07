@@ -47,9 +47,9 @@ async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>🕊️ command lanjutan</b>
 
-**/start (di grup) - melihat alive bot
+**/start (di grup) - info
 /reload - memperbarui bot dan menyegarkan daftar admin
-/cache - memperbatui cache admin
+/alive - melihat alive bot
 /ping - cek ping bot
 
 💡 Bot by @{UPDATES_CHANNEL}**""",

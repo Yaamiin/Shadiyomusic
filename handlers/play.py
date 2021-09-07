@@ -135,19 +135,6 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Atas permintaan {usr}\n"
     await message.reply_text(msg)
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "ᴄʟᴏsᴇ", callback_data="cls"
-                    )
-                ]
-            ]
-        )
-    )
 
 # ============================= Settings =========================================
 def updated_stats(chat, queue, vol=100):

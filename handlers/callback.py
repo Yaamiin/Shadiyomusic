@@ -31,7 +31,7 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 
-@Client.on_callback_query(filters.regex("cbstart")& filters.group & ~filters.edited)
+@Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
@@ -39,10 +39,9 @@ async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
-✅ **Saya aktif dan siap memutar musik!**
-• **Uptime :** `{uptime}`
-• Klik pada tombol » 📚 **Perintah** dan lihat semua perintah bot!
-
+✅ **Saya aktif dan siap memutar musik!
+• Start time: `{START_TIME_ISO}`
+• Klik pada tombol » 📚 Perintah dan lihat semua perintah bot!
 💡 Bot By @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -89,12 +88,12 @@ async def cbhelp(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        "♥️ Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🔻", callback_data="cbguide"
+                        "BACK", callback_data="cbguide"
                     )
                 ]
             ]
@@ -271,11 +270,11 @@ async def close(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbcmds"))
 async def cbhelps(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ Hallo ini adalah menu bantuan !</b>
+        f"""<b>🕊️ **Hallo ini adalah menu bantuan !**</b>
 
-**Dalam menu ini Anda dapat membuka beberapa menu perintah yang tersedia, di setiap menu perintah ada juga penjelasan singkat dari setiap perintah**
+**Dalam menu ini Anda dapat membuka beberapa menu perintah yang tersedia, di setiap menu perintah ada juga penjelasan singkat dari setiap perintah
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -312,14 +311,14 @@ async def cbhelps(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🕊️ CARA MENGGUNAKAN BOT 🕊️ :
+        f"""🕊️** CARA MENGGUNAKAN BOT 🕊️ :
 
 1.) Pertama, tambahkan ke grupmu.
 2.) Kemudian jadikan admin dengan semua izin kecuali admin anonim.
 3.) Tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik `/userbotjoin` untuk mengundang assistant.
 4.) Nyalakan obrolan suara terlebih dahulu sebelum memutar musik.
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

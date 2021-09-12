@@ -8,7 +8,7 @@ from pyrogram.types import Message
 
 from time import time
 from datetime import datetime
-from config import BOT_IMG, BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
+from config import BOT_NAME as bn, BOT_USERNAME, BOT_IMG, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from helpers.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -42,7 +42,7 @@ async def alive(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_photo(
         photo=f"{BOT_IMG}",
-        caption=f"""**➮ Holla I'm [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
+        caption=f"""**➮ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
 
 ➮ **I'm Working Properly**
 

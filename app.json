@@ -32,7 +32,7 @@
         "BG_IMAGE": {
             "description": "isi dengan link telegraph background mu",
             "required": false,
-            "value": "https://telegra.ph/file/18d25616d9883400af112.png"
+            "value": "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png"
         },
         "OWNER_NAME": {
             "description": "isi dengan username mu tanpa menggunakan @",

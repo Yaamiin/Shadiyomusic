@@ -24,6 +24,11 @@
             "required": true,
             "value": "KenzxMusicBot"
         },
+        "BOT_IMG": {
+            "description": "Photo untuk alive.",
+            "required": false,
+            "value": "https://telegra.ph/file/5f5f8e412644c47cc836a.jpg"
+        },
         "ASSISTANT_NAME": {
             "description": "isi dengan username asistenmu tanpa menggunakan @",
             "required": true,

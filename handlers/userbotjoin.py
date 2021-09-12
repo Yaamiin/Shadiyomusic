@@ -54,6 +54,7 @@ async def rem(client, message):
             "\n\nOr manually kick me from to your Group</b>",
         )
         return
+
     
 @Client.on_message(filters.command(["userbotleaveall"]))
 async def bye(client, message):

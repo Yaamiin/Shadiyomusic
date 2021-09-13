@@ -1,5 +1,7 @@
-# KennedyProject 
-# yahaha wahyoe
+# © KennedyProject 2021
+# Sena (@xgothboi)
+# Kalo ngedit jangan hapus credit ya meki
+# YAHAHA WAHYOE
 
 from os import path
 

@@ -63,14 +63,15 @@ async def start(client: Client, message: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
+    delta_ping = time() - start
     await message.reply_text(
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
 ✅ **Saya aktif dan siap memutar musik!
+• Speed : {delta_ping * 1000:.3f} ms
 • Start time: `{START_TIME_ISO}`
 • Klik pada tombol » 📚 **Perintah** dan lihat semua perintah bot!
-
-💡 Bot By @{UPDATES_CHANNEL}**""",
+""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

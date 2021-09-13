@@ -7,7 +7,7 @@
 
 - FFmpeg
 - NodeJS [nodesource.com](https://nodesource.com/)
-- Python 3.8+ or 3.7
+- Python 3.8+ or Higher
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 
 🧪 Get STRING_SESSION from here:
@@ -58,6 +58,8 @@ The easy way to host this bot, deploy to Heroku
 
 ## Railway Deployment 🖤
 For deployment on railway you can see the full of [Necessary Variables Here](https://github.com/KennedyProject/KennedyXMusic/blob/main/example.env), make sure you fill all of it.
+
+[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/KennedyProject/KennedyXMusic&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,BOT_IMG,GROUP_SUPPORT,ASSISTANT_NAME,OWNER_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,API_HASH,PMPERMIT,SUDO_USERS,DURATION_LIMIT)
 
 ## Deploy On VPS 💙
 

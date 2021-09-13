@@ -51,12 +51,15 @@
 
 ## 🔎 Support Inline Search
 
-## Heroku Deployment 
+## Heroku Deployment 💜
 The easy way to host this bot, deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KennedyProject/KennedyXMusic)
 
-## Deploy On VPS 💜
+## Railway Deployment 🖤
+For deployment on railway you can see the full of [Necessary Variables Here](https://github.com/KennedyProject/KennedyXMusic/blob/main/example.env), make sure you fill all of it.
+
+## Deploy On VPS 💙
 
 - `sudo apt update && apt upgrade -y`
 - `sudo apt install git curl python3-pip ffmpeg -y`

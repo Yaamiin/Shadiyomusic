@@ -1,4 +1,4 @@
-<h2 align="centre">🕊️ Kennedy X Music 🕊️
+<h2 align="centre">🎵 Kennedy X Music 🎵
 
 ### Music bot for playing music on telegram voice chat group.
 <p align="center"><a href="https://t.me/KennedyXMusic"><img src="https://telegra.ph/file/f09189fdd97a3764a1f7a.jpg" width="300"></a></p>
@@ -56,11 +56,6 @@ The easy way to host this bot, deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KennedyProject/KennedyXMusic)
 
-## Railway Deployment 🖤
-For deployment on railway you can see the full of [Necessary Variables Here](https://github.com/KennedyProject/KennedyXMusic/blob/main/example.env), make sure you fill all of it.
-
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/KennedyProject/KennedyXMusic&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,BOT_IMG,GROUP_SUPPORT,ASSISTANT_NAME,OWNER_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,API_HASH,PMPERMIT,SUDO_USERS,DURATION_LIMIT)
-
 ## Deploy On VPS 💙
 
 - `sudo apt update && apt upgrade -y`
@@ -81,5 +76,5 @@ For deployment on railway you can see the full of [Necessary Variables Here](htt
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Levina](https://github.com/levina-lab) Veez Project
 
-### Support & Updates ✨
+### Support & Updates 🛵
 <a href="https://t.me/kenbotsupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/KennedyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>

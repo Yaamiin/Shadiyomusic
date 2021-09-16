@@ -174,6 +174,18 @@ def r_ply(type_):
     return mar
 
 
+@Client.on_callback_query(
+    filters.regex(pattern=r"^(closed)$")
+)
+@cb_admin_check
+async def bt_cls(b, cb):
+    type_ = cb.matches[0].group(1)
+    cb.message.chat.id
+    if type_ == "closed":
+        await cb.answer("CLOSE")
+        await cb.message.delete()
+
+
 @Client.on_message(command(["player", f"player@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
@@ -417,6 +429,18 @@ async def m_cb(b, cb):
             await cb.message.edit("✅ **__Assistant telah terputus dari obrolan suara__**")
         else:
             await cb.answer("assistant is not connected to voice chat!", show_alert=True)
+
+
+@Client.on_callback_query(
+    filters.regex(pattern=r"^(mnu)$")
+)
+@cb_admin_check
+async def m_cb(b, cb):
+    type_ = cb.matches[0].group(1)
+    cb.message.chat.id
+    if type_ == "mnu":
+        await cb.answer("Menu opened")
+        await cb.message.edit()
 
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)

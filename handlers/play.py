@@ -193,7 +193,7 @@ async def settings(client, message):
 
 
 @Client.on_message(
-    command("musicplayer") & ~filters.edited & ~filters.bot & ~filters.private
+    command(["musicplayer", f"musicplayer@{BOT_USERNAME}"]) & ~filters.edited & ~filters.bot & ~filters.private
 )
 @authorized_users_only
 async def hfmm(_, message):
@@ -419,7 +419,7 @@ async def m_cb(b, cb):
             await cb.answer("assistant is not connected to voice chat!", show_alert=True)
 
 
-@Client.on_message(command(["play", "p"]) & other_filters)
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(_, message: Message):
     global que
     global useer
@@ -510,10 +510,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
+                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -556,10 +556,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
+                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -629,10 +629,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
+                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
             requested_by = message.from_user.first_name
@@ -731,10 +731,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
+                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
     requested_by = useer_name
@@ -783,7 +783,7 @@ async def lol_cb(b, cb):
         os.remove("final.png")
 
 
-@Client.on_message(command("ytp") & filters.group & ~filters.edited)
+@Client.on_message(command(["ytp", f"ytp@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -795,7 +795,7 @@ async def ytplay(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "music assistant"
+        user.first_name = "helper"
     usar = user
     wew = usar.id
     try:
@@ -876,10 +876,10 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Update", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("⚙️ Menu", callback_data="menu"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
+                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
     requested_by = message.from_user.first_name

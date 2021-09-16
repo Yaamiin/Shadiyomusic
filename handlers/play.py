@@ -182,7 +182,7 @@ async def bt_cls(b, cb):
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
     if type_ == "closed":
-        await cb.answer("CLOSE")
+        await cb.answer("Closed Thumbnail")
         await cb.message.delete()
 
 
@@ -535,9 +535,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
                 ],
-                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -581,9 +580,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
                 ],
-                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -654,9 +652,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
                 ],
-                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
             requested_by = message.from_user.first_name
@@ -756,9 +753,8 @@ async def lol_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
                 ],
-                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
     requested_by = useer_name
@@ -901,9 +897,8 @@ async def ytplay(_, message: Message):
             [
                 [
                     InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
                 ],
-                [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="cls")],
             ]
         )
     requested_by = message.from_user.first_name

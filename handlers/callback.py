@@ -1,4 +1,5 @@
 # (C) supun-maduraga my best friend for his project on call-music-plus
+# (C) Sena aka Kennedy github.com/KennedyProject
 
 from time import time
 from datetime import datetime
@@ -48,7 +49,7 @@ async def cbalive(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "ᴀʙᴏᴜᴛ​", callback_data="cbabout
+                        "ᴀʙᴏᴜᴛ​", callback_data="cbabout"
                     ),
                     InlineKeyboardButton(
                         "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
@@ -106,7 +107,11 @@ __{BOT_NAME} licensed under the GNU General Public License v.3.0__
 • Assistant @{ASSISTANT_NAME}
 • Here is my [Owner](https://t.me/{OWNER_NAME})**""",
         reply_markup=InlineKeyboardMarkup(
+            [
                 [
+                    InlineKeyboardButton(
+                        "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                    ),
                     InlineKeyboardButton(
                         "ʙᴀᴄᴋ​", callback_data="cbalive"
                     )

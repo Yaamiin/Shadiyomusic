@@ -7,11 +7,11 @@ from pyrogram import Client
 from helpers.filters import command
 
 
-@Client.on_message(command(["lirik", f"lirik@{BOT_USERNAME}"]))
+@Client.on_message(command(["lyric", f"lyric@{BOT_USERNAME}"]))
 async def lirik(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("`Kasih judul lagunya lah blok!!!`")
+            await message.reply_text("`Give me the title of the song!!!`")
             return
         query = message.text.split(None, 1)[1]
         rep = await message.reply_text("`Searching lyrics...`")
@@ -19,4 +19,4 @@ async def lirik(_, message):
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("`Lirik tidak ditemukan !`\n\n• `Coba cari dengan judul lagu yang lebih jelas`")
+        await rep.edit("`Lyrics not found !\n\n• Try searching with a clearer song title`")

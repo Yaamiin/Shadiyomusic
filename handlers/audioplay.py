@@ -24,7 +24,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def stream(_, message: Message):
 
-    lel = await message.reply("🔁 **memproses** musik...")
+    lel = await message.reply("🔁 **Processing**")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -52,7 +52,7 @@ async def stream(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❎ Tidak dapat memutar lagu lebih dari {DURATION_LIMIT}!"
+                f"❌ Cannot play songs more than {DURATION_LIMIT} minutes!"
             )
 
         file_name = get_file_name(audio)
@@ -63,7 +63,7 @@ async def stream(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await lel.edit_text("❎ anda tidak memberikan saya musik atau link YouTube untuk diputar!")
+        return await lel.edit_text("❌ you didn't give me any music or YouTube links to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
@@ -72,7 +72,7 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"💡  lagu anda ditambahkan ke **antrian!**\n\n🏷 Nama : {flname} \n🎧 Atas permintaan {costumer}")
+        caption=f"💡  your song is added to **queue!**\n\n🏷 Name : {flname} \n🎧 Requested by {costumer}")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
@@ -81,6 +81,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"💡 **sedang memutar**\n\n🏷 Nama : {flname} \n🎧 Atas permintaan {costumer}!"
+        caption=f"💡 **playing**\n\n🏷 Name : {flname} \n🎧 Requested by {costumer}!"
         )
         return await lel.delete()

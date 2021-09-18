@@ -549,7 +549,7 @@ async def play(_, message: Message):
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
             # print(results)
-            title = results[0]["title"][:25]
+            title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
             thumb_name = f"thumb-{title}-kenmusic.jpg"
             thumb = requests.get(thumbnail, allow_redirects=True)
@@ -621,7 +621,7 @@ async def play(_, message: Message):
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
-                title = results[0]["title"][:25]
+                title = results[0]["title"]
                 thumbnail = results[0]["thumbnails"][0]
                 thumb_name = f"thumb-{title}-kenmusic.jpg"
                 thumb = requests.get(thumbnail, allow_redirects=True)
@@ -709,7 +709,7 @@ async def lol_cb(b, cb):
         useer_name = cb.message.from_user.first_name
     results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
-    title=results[x]["title"][:25]
+    title=results[x]["title"]
     thumbnail=results[x]["thumbnails"][0]
     duration=results[x]["duration"]
     views=results[x]["views"]

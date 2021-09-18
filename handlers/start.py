@@ -32,9 +32,9 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>🕊️ **Hallo {message.from_user.mention}** \n
-**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bottle designed to play music in voice chat !**
-**To see some commands in using bots, click » /help**
+        f"""<b>👋 **Hello {message.from_user.mention}** ❗ \n
+**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bot designed to play music in your voice chat groups!**
+**To see some commands for using this bot, click » /help**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -43,13 +43,13 @@ async def start_(client: Client, message: Message):
                         "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "ʀᴇᴘᴏ​​", url="https://github.com/KennedyProject/KennedyXMusic"
                     ),
                     InlineKeyboardButton(
-                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbcmds"
                     )
                 ]
             ]
@@ -66,7 +66,7 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await message.reply_text(
-        f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
+        f"""<b>👋 **Hello {message.from_user.mention()}** ❗</b>
 
 ✅ **I'm active and ready to play music!
 • Start time: `{START_TIME_ISO}`
@@ -92,7 +92,7 @@ async def start(client: Client, message: Message):
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
+        f"""<b>👋 **Hello** {message.from_user.mention()}</b>
 **Please press the button below to read the explanation and see the list of available commands !**
 
 💡 Bot by @{UPDATES_CHANNEL}""",
@@ -110,7 +110,7 @@ async def help(client: Client, message: Message):
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>💡 **Hello {message.from_user.mention} welcome to the help menu !**</b>
+        f"""<b>👋 **Hello {message.from_user.mention} welcome to the help menu !**</b>
 
 **__In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command__**
 

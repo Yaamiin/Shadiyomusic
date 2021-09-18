@@ -846,7 +846,7 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
         )
         return
-    await lel.edit("🔎 **Finding**")
+    await lel.edit("🔄 **Processing**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      

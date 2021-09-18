@@ -33,8 +33,8 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>🕊️ **Hallo {message.from_user.mention}** \n
-**__[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !__**
-**__Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » /help__**
+**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bottle designed to play music in voice chat !**
+**To see some commands in using bots, click » /help**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -67,10 +67,10 @@ async def start(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
-✅ **Saya aktif dan siap memutar musik!
+✅ **I'm active and ready to play music!
 • Speed : {delta_ping * 1000:.3f} ms
 • Start time: `{START_TIME_ISO}`
-• Klik pada tombol » 📚 **Perintah** dan lihat semua perintah bot!
+• Click on button » 📚 **Command** and see all bot commands!
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -80,7 +80,7 @@ async def start(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Perintah", callback_data="cbcmds"
+                        "📚 Command", callback_data="cbcmds"
                     )
                 ]
             ]

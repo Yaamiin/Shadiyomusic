@@ -1,4 +1,3 @@
-# (C) supun-maduraga my best friend for his project on call-music-plus
 # (C) Sena aka Kennedy github.com/KennedyProject
 
 from time import time
@@ -64,13 +63,15 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbabout"))
 async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**<b> 
+        f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**</b> 
 
-➠ **I'm a powerfull bot for playing music in your groups!
+➠ **A powerfull bot for playing music in your groups!
 
-➠ I can playing music via YouTube
+➠ Working with pyrogram
 
-➠ I can download music and videos from YouTube
+➠ Using Python 3.9.7
+
+➠ I can playing music and download videos from YouTube
 
 ➠ I can make you happy :v
 
@@ -121,7 +122,7 @@ async def cbhelp(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "♥️ Fun Cmd", callback_data="cbfun"
+                        "📔 Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [
@@ -177,7 +178,7 @@ async def cbadvanced(_, query: CallbackQuery):
 
 ༄ **I'm Working Properly**
 
-༄ **Bot : 6.5 LATEST**
+༄ **Bot : 6.0 LATEST**
 
 ༄ **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 

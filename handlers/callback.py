@@ -5,7 +5,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from helpers.decorators import authorized_users_only
-from config import BOT_NAME, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
+from config import BOT_IMG, BOT_NAME, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
 from handlers.play import cb_admin_check
 
 
@@ -59,6 +59,34 @@ async def cbstart(_, query: CallbackQuery):
         )
     )
 
+
+@Client.on_callback_query(filters.regex("cbabout"))
+async def cbabout(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""❓ **About  [{BOT_NAME}](https://t.me/{BOT_USERNAME}) 
+
+➠ I'm a powerfull bot for playing music in your groups!
+
+➠ I can playing music via YouTube
+
+➠ I can download music and videos from YouTube
+
+__{BOT_NAME} licensed under the GNU General Public License v.3.0__
+
+• Updates channel @{UPDATES_CHANNEL}
+• Group Support @{SUPPORT_GROUP}
+• Assistant @{ASSISTANT_NAME}
+• Here is my [Owner](https://t.me/{OWNER_NAME})**""",
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    InlineKeyboardButton(
+                        "ʙᴀᴄᴋ​", callback_data="cbalive"
+                    )
+                ]
+            ]
+        ),
+     disable_web_page_preview=True
+    )
 
 
 @Client.on_callback_query(filters.regex("cbhelp"))

@@ -617,7 +617,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            await lel.edit("**❎ Emrorrr...**")
+            await lel.edit("❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**")
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -630,7 +630,7 @@ async def play(_, message: Message):
                 results[0]["url_suffix"]
                 views = results[0]["views"]
             except Exception as e:
-                await lel.edit(
+                # await lel.edit(
                     "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
                 )
                 print(str(e))
@@ -793,7 +793,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔎 **Finding**")
+    lel = await message.reply("🔎 **Please wait...**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -855,7 +855,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **Connecting**")
+    # await lel.edit("🔁 **Connecting**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

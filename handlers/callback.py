@@ -6,7 +6,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from helpers.decorators import authorized_users_only
-from config import BOT_NAME as bn, BOT_IMG, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
+from config import BOT_NAME as bn, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
 from handlers.play import cb_admin_check
 
 
@@ -30,34 +30,6 @@ async def _human_time_duration(seconds):
             parts.append('{} {}{}'
                          .format(amount, unit, "" if amount == 1 else "s"))
     return ', '.join(parts)
-
-
-@Client.on_callback_query(filters.regex("cbalive"))
-async def cbalive(_, query: CallbackQuery):
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    await message.reply_photo(
-        photo=f"{BOT_IMG}",
-        caption=f"""**༄ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
-༄ **I'm Working Properly**
-༄ **Bot : 6.0 LATEST**
-༄ **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
-༄ **Service Uptime : `{uptime}`**
-**Thanks For Using Me ♥️**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ᴀʙᴏᴜᴛ​", callback_data="cbabout"
-                    ),
-                    InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ]
-            ]
-        )
-    )
 
 
 @Client.on_callback_query(filters.regex("cbstart"))

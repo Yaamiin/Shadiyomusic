@@ -217,7 +217,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been activated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"✅ **music player has been activated in this chat.**\n\n༄ `{message.chat.id}`"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
@@ -228,7 +228,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been deactivated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"✅ **music player has been deactivated in this chat.**\n\n༄ `{message.chat.id}`"
         )
     else:
         await message.reply_text(
@@ -549,7 +549,7 @@ async def play(_, message: Message):
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
             # print(results)
-            title = results[0]["title"][:25]
+            title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
             thumb_name = f"thumb-{title}-kenmusic.jpg"
             thumb = requests.get(thumbnail, allow_redirects=True)
@@ -594,7 +594,7 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ • **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ • **Viewer** - {results[j]['views']}\n\n"
                 j += 1            
@@ -621,7 +621,7 @@ async def play(_, message: Message):
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
-                title = results[0]["title"][:25]
+                title = results[0]["title"]
                 thumbnail = results[0]["thumbnails"][0]
                 thumb_name = f"thumb-{title}-kenmusic.jpg"
                 thumb = requests.get(thumbnail, allow_redirects=True)
@@ -709,7 +709,7 @@ async def lol_cb(b, cb):
         useer_name = cb.message.from_user.first_name
     results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
-    title=results[x]["title"][:25]
+    title=results[x]["title"]
     thumbnail=results[x]["thumbnails"][0]
     duration=results[x]["duration"]
     views=results[x]["views"]

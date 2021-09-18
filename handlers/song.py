@@ -247,10 +247,10 @@ async def ytmusic(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**Mendapatkan** `{urlissed}` **Dari Youtube. Tunggu Sebentar.**"
+        message.chat.id, f"`Getting {urlissed} From YouTube. Please wait!`"
     )
     if not urlissed:
-        await pablo.edit("**Syntax Perintah Tidak Valid** Silakan ketik `/help` Untuk Mengetahui Lebih Lanjut!")
+        await pablo.edit("**Syntax error** type /help for more info!`")
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)

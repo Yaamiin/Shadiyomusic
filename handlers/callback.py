@@ -6,7 +6,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from helpers.decorators import authorized_users_only
-from config import BOT_NAME as bn, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
+from config import BOT_NAME as bn, BOT_IMG, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
 from handlers.play import cb_admin_check
 
 
@@ -72,6 +72,8 @@ async def cbabout(_, query: CallbackQuery):
 
 ➠ I can download music and videos from YouTube
 
+➠ I can make you happy :v
+
 __{bn} licensed under the GNU General Public License v.3.0__
 
 • Updates channel @{UPDATES_CHANNEL}
@@ -85,7 +87,7 @@ __{bn} licensed under the GNU General Public License v.3.0__
                         "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
                     ),
                     InlineKeyboardButton(
-                        "ʙᴀᴄᴋ​", callback_data="cbalive"
+                        "ʙᴀᴄᴋ​", callback_data="cbadvanced"
                     )
                 ]
             ]
@@ -107,9 +109,6 @@ async def cbhelp(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "📚 Basic Cmd", callback_data="cbbasic"
-                    ),
-                    InlineKeyboardButton(
-                        "📕 Advanced Cmd", callback_data="cbadvanced"
                     )
                 ],
                 [
@@ -169,34 +168,34 @@ async def cbbasic(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("cbadvanced"))
 async def cbadvanced(_, query: CallbackQuery):
-    await query.edit_message_text(
-                f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**<b> 
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await message.reply_photo(
+        photo=f"{BOT_IMG}",
+        caption=f"""**༄ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
 
-➠ **I'm a powerfull bot for playing music in your groups!
+༄ **I'm Working Properly**
 
-➠ I can playing music via YouTube
+༄ **Bot : 6.5 LATEST**
 
-➠ I can download music and videos from YouTube
+༄ **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 
-__{bn} licensed under the GNU General Public License v.3.0__
+༄ **Service Uptime : `{uptime}`**
 
-• Updates channel @{UPDATES_CHANNEL}
-• Group Support @{GROUP_SUPPORT}
-• Assistant @{ASSISTANT_NAME}
-• Here is my [Owner](https://t.me/{OWNER_NAME})**""",
+**Thanks For Using Me ♥️**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "ᴀʙᴏᴜᴛ", callback_data="cbabout"
                     ),
                     InlineKeyboardButton(
-                        "ᴄʟᴏsᴇ​​", callback_data="close"
+                        "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
-        ),
-     disable_web_page_preview=True
+        )
     )
 
 

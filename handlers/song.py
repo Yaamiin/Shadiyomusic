@@ -28,7 +28,7 @@ def song(client, message):
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     query = "".join(" " + str(i) for i in message.command[1:])
     print(query)
-    m = message.reply("🔎 **Sedang Mencari Lagu** 🔎")
+    m = message.reply("🔎 **Searching**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -43,21 +43,21 @@ def song(client, message):
         results[0]["url_suffix"]
         results[0]["views"]
     except Exception as e:
-        m.edit("❎ **Lagu Tidak ditemukan.**\n\n**Coba Masukan Judul lagu yang lebih jelas.**")
+        m.edit("❌ **Song Not found.**\n\n**Try Entering a clearer song title.**")
         print(str(e))
         return
-    m.edit("📥 **Sedang Mendownload Lagu**")
+    m.edit("📥 **Downloading**")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
         rep = f"""
-**🏷 Nama Lagu:** [{title}]({link})
-**⏱️ Durasi Lagu:** {duration}
-**👁 Dilihat Oleh:** {results[0]['views']}
-**🤖 Diunggah Oleh:** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-**👤 Permintaan Dari:** {rpk}
+**🏷 Title :** [{title}]({link})
+**⏱️ Duration :** {duration}
+**👁 Viewer :** {results[0]['views']}
+**🤖 Uploader :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
+**👤 Requested by :** {rpk}
 """
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -73,7 +73,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❎ **Error**")
+        m.edit("❌ **Error**")
         print(e)
     try:
         os.remove(audio_file)
@@ -284,7 +284,7 @@ async def ytmusic(client, message: Message):
 
             if duration > DURATION_LIMIT:
                 await pablo.edit(
-                    f"❎ **Video berdurasi lebih dari {DURATION_LIMIT} menit tidak diperbolehkan, video yang ingin kamu download {duration} menit**"
+                    f"❌ **Videos longer than {DURATION_LIMIT} minutes are not allowed, videos you want to download are {duration} minutes**"
                 )
                 is_downloading = False
                 return
@@ -297,7 +297,7 @@ async def ytmusic(client, message: Message):
 
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"**Judul ➠** [{thum}]({mo}) \n**Channel ➠ ** {thums} \n**Permintaan ➠** {urlissed} "
+    capy = f"**Title ➠** [{thum}]({mo}) \n**Channel ➠ ** {thums} \n**Requested for ➠** {urlissed} "
     await client.send_video(
         message.chat.id,
         video=open(file_stark, "rb"),
@@ -310,7 +310,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"**Mengupload Lagu** `{urlissed}` **Dari YouTube Music!**",
+            f"**Uploading** `{urlissed}` **From YouTube Music!**",
             file_stark,
         ),
     )

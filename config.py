@@ -9,22 +9,22 @@ load_dotenv()
 que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
-BOT_NAME = getenv("BOT_NAME", "Kennedy Music")
+BOT_NAME = getenv("BOT_NAME", "Kennedy Robot")
 BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png")
 AUD_IMG = getenv("AUD_IMG", "https://telegra.ph/file/f09189fdd97a3764a1f7a.jpg")
 BOT_IMG = getenv("BOT_IMG", "https://telegra.ph/file/fbffad50c0cff6c9001cf.jpg")
 admins = {}
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
-BOT_USERNAME = getenv("BOT_USERNAME", "KenzxMusicBot")
-ASSISTANT_NAME = getenv("ASSISTANT_NAME", "kennedyassistant")
+BOT_USERNAME = getenv("BOT_USERNAME", "KennedyXRobot")
+ASSISTANT_NAME = getenv("ASSISTANT_NAME", "exkennedyhelper")
 GROUP_SUPPORT = getenv("GROUP_SUPPORT", "kenbotsupport")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "KennedyProject")
 OWNER_NAME = getenv("OWNER_NAME", "xgothboi") # isi dengan username kamu tanpa simbol @
 DEV_NAME = getenv("DEV_NAME", "xgothboi")
 PMPERMIT = getenv("PMPERMIT", "ENABLE")
 
-DURATION_LIMIT = int(getenv("DURATION_LIMIT", "30"))
+DURATION_LIMIT = int(getenv("DURATION_LIMIT", "15"))
 
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 

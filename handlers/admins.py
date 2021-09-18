@@ -54,7 +54,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ **Music resumed!**\n\n• To pause use **command » /pause**")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(command(["end", f"end@{BOT_USERNAME}") & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):

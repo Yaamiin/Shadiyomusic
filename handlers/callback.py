@@ -177,15 +177,10 @@ async def cbbasic(_, query: CallbackQuery):
 /search (title) - search for music from youtube in detail
 /video (title) - download music from youtube in detail
 /lyrics - (title) search for lyrics
-[ CHANNEL SETTINGS ]
-/cplay - play music via channel
-/cplayer - view queue list
-/cpause - pause music player
-/cresume - resume music playing
-/cskip - skip to next song
-/cend - stops music
-/admincache - refresh admin cache
-/ubjoinc - invites assistants to join the channel
+[ MORE ]
+/alive - check alive bot
+/start - starting bot
+/ping - show current ping
 
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
@@ -203,23 +198,33 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadvanced"))
 async def cbadvanced(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ advanced commands
+                f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**<b> 
 
-/start (in group) - see bot status
-/reload - update bot and refresh admin list
-/alive - see the status of the alive bot
-/ping - check bot ping
+➠ **I'm a powerfull bot for playing music in your groups!
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+➠ I can playing music via YouTube
+
+➠ I can download music and videos from YouTube
+
+__{bn} licensed under the GNU General Public License v.3.0__
+
+• Updates channel @{UPDATES_CHANNEL}
+• Group Support @{SUPPORT_GROUP}
+• Assistant @{ASSISTANT_NAME}
+• Here is my [Owner](https://t.me/{OWNER_NAME})**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbhelp"
+                        "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                    ),
+                    InlineKeyboardButton(
+                        "ᴄʟᴏsᴇ​​", callback_data="close"
                     )
                 ]
             ]
-        )
+        ),
+     disable_web_page_preview=True
     )
 
 
@@ -343,9 +348,6 @@ async def cbhelps(_, query: CallbackQuery):
                     InlineKeyboardButton(
                         "📚 Basic Cmd", callback_data="cbbasic"
                     ),
-                    InlineKeyboardButton(
-                        "📕 Advanced Cmd", callback_data="cbadvanced"
-                    )
                 ],
                 [
                     InlineKeyboardButton(
@@ -357,7 +359,7 @@ async def cbhelps(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "♥️ Fun Cmd", callback_data="cbfun"
+                        "📔 Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [

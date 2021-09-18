@@ -10,12 +10,12 @@
 - Python 3.8+ or Higher
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 
-🧪 Get STRING_SESSION from here:
+### Get STRING_SESSION from here:
 
 [![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@KennedyProject/Ken-String-Session#main.py)
 
 
-## Commands 🛠
+### Commands 🛠
 
 - `/play <song name>` - play song you requested
 - `/playlist` - Show now playing list
@@ -49,14 +49,14 @@
 - `.yes` - approve user for sending message to assistant
 - `.no` - disapprove user for sending message to assistant
 
-## 🔎 Support Inline Search
+### 🔎 Support Inline Search
 
-## Heroku Deployment 💜
+### Heroku Deployment 💜
 The easy way to host this bot, deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KennedyProject/KennedyXMusic)
 
-## Deploy On VPS 💙
+### Deploy On VPS 💙
 
 - `sudo apt update && apt upgrade -y`
 - `sudo apt install git curl python3-pip ffmpeg -y`

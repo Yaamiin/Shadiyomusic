@@ -160,7 +160,7 @@ def r_ply(type_):
         [
             [
                 InlineKeyboardButton("⏹", "leave"),
-                InlineKeyboardButton("⏸", "puse"),
+                InlineKeyboardButton("⏸", "pause"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip")
             ],
@@ -281,7 +281,7 @@ async def bt_cls(b, cb):
 
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
+    filters.regex(pattern=r"^(play|pause|skip|leave|pause|resume|menu|cls)$")
 )
 @cb_admin_check
 async def m_cb(b, cb):
@@ -358,7 +358,7 @@ async def m_cb(b, cb):
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("music resumed!")
      
-    elif type_ == "puse":         
+    elif type_ == "pause":         
         if (
             chet_id not in callsmusic.pytgcalls.active_calls
                 ) or (
@@ -381,7 +381,7 @@ async def m_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("⏸", "pause"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip")
                 
@@ -855,7 +855,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **Connecting Ke VCG**")
+    await lel.edit("🔁 **Connecting**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

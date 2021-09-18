@@ -94,4 +94,4 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⏭️ **__Skip the song to the next queue__**")
+    await message.reply_text(f"⏭️ **__You've skipped to the next song__**")

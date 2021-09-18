@@ -53,7 +53,8 @@ async def start_(client: Client, message: Message):
                     )
                 ]
             ]
-        )
+        ),
+     disable_web_page_preview=True
     )
 
 
@@ -68,9 +69,9 @@ async def start(client: Client, message: Message):
         f"""<b>👋🏻 **Hello {message.from_user.mention()}!**</b>
 
 ✅ **I'm active and ready to play music!
-• Speed : {delta_ping * 1000:.3f} ms
 • Start time: `{START_TIME_ISO}`
-• Click on button » 📚 **Command** and see all bot commands!
+
+> Click on button » 📚 **Command** and see all bot commands!
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -127,6 +128,7 @@ async def help_(client: Client, message: Message):
 
 
 @Client.on_message(filters.command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@authorized_users_only
 async def ping_pong(client: Client, message: Message):
     start = time()
     current_time = datetime.utcnow()

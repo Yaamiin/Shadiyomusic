@@ -92,9 +92,9 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbabout"))
 async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ **About  [{bn}](https://t.me/{BOT_USERNAME}) 
+        f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**<b> 
 
-➠ I'm a powerfull bot for playing music in your groups!
+➠ **I'm a powerfull bot for playing music in your groups!
 
 ➠ I can playing music via YouTube
 

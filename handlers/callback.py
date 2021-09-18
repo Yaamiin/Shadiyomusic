@@ -181,7 +181,7 @@ async def cbadvanced(_, query: CallbackQuery):
 __{bn} licensed under the GNU General Public License v.3.0__
 
 • Updates channel @{UPDATES_CHANNEL}
-• Group Support @{SUPPORT_GROUP}
+• Group Support @{GROUP_SUPPORT}
 • Assistant @{ASSISTANT_NAME}
 • Here is my [Owner](https://t.me/{OWNER_NAME})**""",
         reply_markup=InlineKeyboardMarkup(

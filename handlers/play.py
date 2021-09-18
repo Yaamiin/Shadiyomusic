@@ -438,7 +438,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔎 **Finding**")
+    lel = await message.reply("🔎 **Finding song**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -543,7 +543,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔎 **Finding**")
+        await lel.edit("🔎 **Finding song**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -617,7 +617,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            await lel.edit("❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**")
+            await lel.edit("❌ **couldn't find song you requested**")
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -630,7 +630,7 @@ async def play(_, message: Message):
                 results[0]["url_suffix"]
                 views = results[0]["views"]
             except Exception as e:
-                # await lel.edit(
+                await lel.edit(
                     "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
                 )
                 print(str(e))
@@ -701,7 +701,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("💡 this is not for you !", show_alert=True)
         return
-    await cb.message.edit("🔁 **Connecting**")
+    await cb.message.edit("🔁 **Processing**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -725,7 +725,7 @@ async def lol_cb(b, cb):
     except:
         pass
     try:
-        thumb_name = f"thumb-{title}veezmusic.jpg"
+        thumb_name = f"thumb-{title}kenmusic.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
     except Exception as e:
@@ -793,7 +793,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔎 **Please wait...**")
+    lel = await message.reply("🔎 **Finding song**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -855,7 +855,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    # await lel.edit("🔁 **Connecting**")
+    await lel.edit("🔁 **Processing**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

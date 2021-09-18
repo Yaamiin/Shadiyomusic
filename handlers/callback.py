@@ -172,9 +172,8 @@ async def cbadvanced(_, query: CallbackQuery):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    await query.reply_photo(
-        photo=f"{BOT_IMG}",
-        caption=f"""**༄ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
+    await query.edit_message_text(
+        f"""**༄ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
 
 ༄ **I'm Working Properly**
 

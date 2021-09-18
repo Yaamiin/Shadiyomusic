@@ -595,8 +595,8 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ ⏱️ **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ 👁 **Viewer** - {results[j]['views']}\n\n"
+                toxxt += f" ├ • **Duration** - {results[j]['duration']}\n"
+                toxxt += f" └ • **Viewer** - {results[j]['views']}\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [
@@ -759,7 +759,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -780,7 +780,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+        caption = f"💡 **Now playing**\n\n🏷 **Name:** {title}\n⏱ **duration:** {duration}\n" \
                 + f"🎧 **Request by:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
@@ -900,7 +900,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -921,7 +921,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+            caption = f"💡 **Now playing**\n\n🏷 **Name:** {title}\n⏱ **duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")

@@ -59,7 +59,7 @@ async def alive(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "ᴀʙᴏᴜᴛ", callback_data="cbabout"
                     ),
                     InlineKeyboardButton(
                         "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"

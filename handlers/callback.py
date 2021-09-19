@@ -65,22 +65,26 @@ async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>❓ **About  [{bn}](https://t.me/{BOT_USERNAME})**</b> 
 
-➠ **A powerfull bot for playing music in your groups!
+➠ **A powerfull bot for playing music for groups!
 
 ➠ Working with pyrogram
 
 ➠ Using Python 3.9.7
 
-➠ I can playing music and download videos from YouTube
+➠ Can play and download music or videos from YouTube
 
-➠ I can make you happy :v
+➠ I can make you happy
+
+➠ For more info click /help
 
 __{bn} licensed under the GNU General Public License v.3.0__
 
 • Updates channel @{UPDATES_CHANNEL}
 • Group Support @{GROUP_SUPPORT}
 • Assistant @{ASSISTANT_NAME}
-• Here is my [Owner](https://t.me/{OWNER_NAME})**""",
+• Here is my [Owner](https://t.me/{OWNER_NAME})**
+
+❓ Wanna make your own bot music? try click Source button!""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -148,7 +152,10 @@ async def cbbasic(_, query: CallbackQuery):
 /song (title) - download music from youtube
 /search (title) - search for music from youtube in detail
 /video (title) - download music from youtube in detail
-/lyrics - (title) search for lyrics
+/lyrics (title) - search for lyrics
+/shazam (reply audio) - for identifying song name
+/q (reply text) - to make a quotes sticker
+/id - to show your id or chat id
 [ MORE ]
 /alive - check alive bot
 /start - starting bot
@@ -258,6 +265,7 @@ async def cbfun(_, query: CallbackQuery):
 /asupan - check yourself
 /truth - check yourself
 /dare - check it yourself
+/q - to make quotes text
 
 💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(

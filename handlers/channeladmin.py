@@ -10,7 +10,6 @@ from helpers.filters import command, other_filters
 from callsmusic import callsmusic
 
 
-
 @Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
 @errors
 @authorized_users_only
@@ -108,23 +107,3 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"- Skipped **{skip[0]}**\n- Now playing **{qeue[0][0]}**")
-
-
-@Client.on_message(filters.command("admincache"))
-@errors
-async def admincache(client, message: Message):
-    try:
-      conchat = await client.get_chat(message.chat.id)
-      conid = conchat.linked_chat.id
-      chid = conid
-    except:
-      await message.reply("is the chat already connected ?")
-      return
-    set(
-        chid,
-        [
-            member.user
-            for member in await conchat.linked_chat.get_members(filter="administrators")
-        ],
-    )
-    await message.reply_text("✅ admin cache refreshed!")

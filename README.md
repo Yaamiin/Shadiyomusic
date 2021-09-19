@@ -43,7 +43,6 @@
 - `/userbotleaveall` - order the assistant to leave all groups
 - `/gcast` - send a broadcast message
 - `/rmd` - remove all downloaded file
-- `/clear` - remove all raw file 
 
 ### pm-permit 💬
 - `.yes` - approve user for sending message to assistant
@@ -72,7 +71,7 @@ The easy way to host this bot, deploy to Heroku
 - `python3 main.py` # Run the bot
 
 ### Credits 🕊️
-- [Kennedy](https://github.com/KennedyProject) Developer
+- [Kennedy](https://github.com/KennedyProject) Dev
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Levina](https://github.com/levina-lab) Veez Project
 

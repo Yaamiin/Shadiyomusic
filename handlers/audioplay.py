@@ -20,7 +20,7 @@ from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}]) & other_filters)
+@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
 @errors
 async def stream(_, message: Message):
 

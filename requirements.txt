@@ -15,4 +15,5 @@ Pillow
 future
 psutil
 wget
+python-arq
 

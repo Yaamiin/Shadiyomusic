@@ -12,7 +12,7 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, GROUP_SUPPORT, OWNER_NAME
+from config import BOT_NAME as bn, BOT_USERNAME, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, GROUP_SUPPORT, OWNER_NAME
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
@@ -20,7 +20,7 @@ from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(command("stream") & other_filters)
+@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}]) & other_filters)
 @errors
 async def stream(_, message: Message):
 

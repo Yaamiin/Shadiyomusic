@@ -63,7 +63,7 @@ async def edit_or_reply(message, text, parse_mode="md"):
     return await message.edit(text, parse_mode=parse_mode)
 
 
-@Client.on_message(command(["identify", "shazam"]))
+@Client.on_message(command(["shazam", f"shazam@{BOT_USERNAME}"]))
 async def shazamm(client, message):
     kek = await edit_or_reply(message, "`Shazaming In Progress!`")
     if not message.reply_to_message:

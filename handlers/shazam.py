@@ -97,7 +97,7 @@ async def shazamm(client, message):
 Song Name : {title}
 Song By : {by}
 Identified Song
-Powered by {BOT_USERNAME}
+Powered by @{BOT_USERNAME}
 """
     await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML")
     os.remove(downloaded_file_name)

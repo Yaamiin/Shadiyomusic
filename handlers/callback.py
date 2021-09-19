@@ -1,4 +1,4 @@
-# (C) Sena aka Kennedy github.com/KennedyProject
+# (C) KennedyProject github.com/KennedyProject
 
 from time import time
 from datetime import datetime
@@ -41,7 +41,7 @@ async def cbstart(_, query: CallbackQuery):
 
 **I'm active and ready to play music!
 • Start time: `{START_TIME_ISO}`
-• Click on the button » Commands and see all the bot commands!
+• Click on the button » 📚 Commands and see all the bot commands!
 
 💡 Bot By @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
@@ -240,7 +240,6 @@ async def cbsudo(_, query: CallbackQuery):
 **/userbotleaveall - remove assistant from all groups
 /gcast - send global messages via assistant
 /rmd - delete downloaded files
-/rmr - deletes downloaded raw files
 
 💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(
@@ -354,7 +353,7 @@ async def cbhelps(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🕊️** HOW TO USE THIS BOTT :**
+        f"""🕊️** HOW TO USE THIS BOT :**
 
 **1.) First, add to your group.
 2.) Then make admin with all permissions except anonymous admin.

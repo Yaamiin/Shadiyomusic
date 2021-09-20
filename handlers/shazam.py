@@ -6,7 +6,7 @@ import requests
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 from json import JSONDecodeError
 from pyrogram.types import Message
-from config import BOT_NAME as bn
+from config import BOT_NAME as bn, BOT_USERNAME
 from pyrogram import Client, filters
 from helpers.filters import command
 

@@ -6,7 +6,7 @@ import requests
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 from json import JSONDecodeError
 from pyrogram.types import Message
-from config import BOT_NAME as bn, BOT_USERNAME
+from config import BOT_NAME as bn
 from pyrogram import Client, filters
 from helpers.filters import command
 
@@ -94,7 +94,7 @@ async def shazamm(client, message):
 Song Name : {title}
 Song By : {by}
 Identified Song
-Powered by [{bn}](https://t.me/{BOT_USERNAME})
+Powered by {bn}
 """
     await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML")
     os.remove(downloaded_file_name)

@@ -12,7 +12,8 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, AUD_IMG, GROUP_SUPPORT, OWNER_NAME
+from config import BOT_USERNAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, GROUP_SUPPORT
+
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
@@ -20,67 +21,58 @@ from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(command("stream") & other_filters)
-@errors
+@Client.on_message(command(["stream", f"stream@{bn}"]) & other_filters)
 async def stream(_, message: Message):
 
-    lel = await message.reply("🔁 **Processing**")
-    sender_id = message.from_user.id
-    sender_name = message.from_user.first_name
+    lel = await message.reply_text("🔁 **processing..**")
+    costumer = message.from_user.mention
 
     keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="💡 Group",
+                        text="ɢʀᴏᴜᴘ",
                         url=f"https://t.me/{GROUP_SUPPORT}"),
                     InlineKeyboardButton(
-                        text="🕊️ Channel​",
+                        text="ᴄʜᴀɴɴᴇʟ",
                         url=f"https://t.me/{UPDATES_CHANNEL}")
-                 ],
-                 [
-                    InlineKeyboardButton(
-                        text="👩‍💻 Bot by​",
-                        url=f"https://t.me/{OWNER_NAME}")
                 ]
             ]
         )
 
-    audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
+    audio = message.reply_to_message.audio if message.reply_to_message else None
     url = get_url(message)
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
-            raise DurationLimitError(
-                f"❌ Cannot play songs more than {DURATION_LIMIT} minutes!"
-            )
+            return await lel.edit(f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**")
 
         file_name = get_file_name(audio)
+        title = audio.title
+        duration = convert_seconds(audio.duration)
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
     elif url:
-        file_path = await converter.convert(youtube.download(url))
+        return
     else:
-        return await lel.edit_text("❌ you didn't give me any music or YouTube links to play!")
+        return await lel.edit("❗ you did not give me audio file or yt link to **stream!**")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        costumer = message.from_user.mention
-        flname = file_name
         await message.reply_photo(
-        photo=f"{AUD_IMG}",
-        reply_markup=keyboard,
-        caption=f"💡  your song is added to **queue!**\n\n🏷 Name : {flname} \n🎧 Requested by {costumer}")
+            photo=f"https://telegra.ph/file/e8fc00f06d6c4f2739f44.jpg",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}](https://t.me/kenbotsupport)\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
+            reply_markup=keyboard,
+        )
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        costumer = message.from_user.mention
-        flname = file_name
         await message.reply_photo(
-        photo=f"{AUD_IMG}",
-        reply_markup=keyboard,
-        caption=f"💡 **playing**\n\n🏷 Name : {flname} \n🎧 Requested by {costumer}!"
+            photo=f"https://telegra.ph/file/e8fc00f06d6c4f2739f44.jpg",
+            caption=f"🏷 **Name:** [{title}](https://t.me/kenbotsupport)\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+                   +f"🎧 **Request by:** {costumer}",
+            reply_markup=keyboard,
         )
         return await lel.delete()

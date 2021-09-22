@@ -5,6 +5,7 @@
 from os import path
 
 from pyrogram import Client
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import Message, Voice
 
 from callsmusic import callsmusic, queues
@@ -14,11 +15,11 @@ from downloaders import youtube
 
 from config import BOT_USERNAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, GROUP_SUPPORT
 
+from handlers.play import convert_seconds
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 @Client.on_message(command(["stream", f"stream@{bn}"]) & other_filters)

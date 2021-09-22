@@ -81,7 +81,7 @@ async def start(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Command", callback_data="cbcmds"
+                        "📚 Command", callback_data="cbhelp"
                     )
                 ]
             ]

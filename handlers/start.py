@@ -77,11 +77,7 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "👥 Support", url=f"https://t.me/{GROUP_SUPPORT}")
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📚 Command", callback_data="cbhelp"
+                        "👥 Support", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ]
             ]

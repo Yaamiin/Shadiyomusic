@@ -33,6 +33,35 @@ async def _human_time_duration(seconds):
 
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""<b>👋 **Hello {message.from_user.mention}** ❗ \n
+**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bot designed to play music in your voice chat groups!**
+**To see some commands for using this bot, click » /help**
+</b>""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
+                    InlineKeyboardButton(
+                        "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                ],[
+                    InlineKeyboardButton(
+                        "ʀᴇᴘᴏ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                    ),
+                    InlineKeyboardButton(
+                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
+                ],[
+                    InlineKeyboardButton(
+                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbcmds"
+                    )
+                ]
+            ]
+        ),
+     disable_web_page_preview=True
+    )
+
+
+@Client.on_callback_query(filters.regex("cbstartgroup"))
+async def cbstartgroup(_, query: CallbackQuery):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))

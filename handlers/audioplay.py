@@ -12,7 +12,7 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import DURATION_LIMIT, UPDATES_CHANNEL, GROUP_SUPPORT
+from config import BOT_USERNAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, GROUP_SUPPORT
 
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
@@ -21,7 +21,7 @@ from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(command("stream") & other_filters)
+@Client.on_message(command(["stream", f"stream@{bn}"]) & other_filters)
 async def stream(_, message: Message):
 
     lel = await message.reply_text("🔁 **processing..**")

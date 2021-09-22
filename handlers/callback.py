@@ -60,35 +60,6 @@ async def cbstart(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbstartgroup"))
-async def cbstartgroup(_, query: CallbackQuery):
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    await query.edit_message_text(
-        f"""<b>👋🏻 **Hi, I'm {query.message.from_user.mention}!**</b>
-
-**I'm active and ready to play music!
-• Start time: `{START_TIME_ISO}`
-• Click on the button » 📚 Commands and see all the bot commands!
-
-💡 Bot By @{UPDATES_CHANNEL}**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "👥 Support", url=f"https://t.me/{GROUP_SUPPORT}")
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📚 Command", callback_data="cbhelp"
-                    )
-                ]
-            ]
-        )
-    )
-
-
 @Client.on_callback_query(filters.regex("cbabout"))
 async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(

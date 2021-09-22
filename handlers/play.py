@@ -123,7 +123,7 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Now playing** on {}".format(message.chat.title)
+    msg = "🎵 **Now playing** on {}".format(message.chat.title)
     msg += "\n• "+ now_playing
     msg += "\n• Req By "+by
     temp.pop(0)
@@ -165,7 +165,7 @@ def r_ply(type_):
                 InlineKeyboardButton("⏭", "skip")
             ],
             [
-                InlineKeyboardButton("📖 Playlist", "playlist"),
+                InlineKeyboardButton("📚 Playlist", "playlist"),
             ],
             [       
                 InlineKeyboardButton("🗑 Close", "cls")
@@ -253,7 +253,7 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now playing** in {}".format(cb.message.chat.title)
+        msg = "🎵 **Now playing** in {}".format(cb.message.chat.title)
         msg += "\n• " + now_playing
         msg += "\n• Req by " + by
         temp.pop(0)
@@ -387,7 +387,7 @@ async def m_cb(b, cb):
                 
                 ],
                 [
-                    InlineKeyboardButton("📖 Playlist", "playlist"),
+                    InlineKeyboardButton("📚 Playlist", "playlist"),
                 
                 ],
                 [       
@@ -612,12 +612,16 @@ async def play(_, message: Message):
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
             )
-            await lel.edit(toxxt,reply_markup=keyboard,disable_web_page_preview=True)
-            # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
+            await message.reply_photo(
+                photo="https://telegra.ph/file/d092158441ceecffd2ac7.jpg",
+                caption=toxxt, reply_markup=keyboard, 
+            )
+            await lel.delete()
             return
-            # KONTOOOOOLLLLLLLLLLL
+            # Returning to pornhub
         except:
-            await lel.edit("❌ **couldn't find song you requested**")
+            #await lel.edit("❌ **couldn't find song you requested**")
+
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -631,7 +635,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+                    "❌ **couldn't find song**, Please provide the correct song name or include the artist's name as well.**"
                 )
                 print(str(e))
                 return
@@ -678,10 +682,10 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
-            reply_markup=keyboard
-        )
+            caption = f"🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** Playing\n" \
+                    + f"🎧 **Request by:** {message.from_user.mention}",
+                   reply_markup=keyboard,)
+
         os.remove("final.png")
         return await lel.delete()
 
@@ -780,15 +784,14 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"💡 **Now playing**\n\n🏷 **Name:** {title}\n⏱ **duration:** {duration}\n" \
-                + f"🎧 **Request by:** {r_by.mention} \n",
-        reply_markup=keyboard,
-        )
+        caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+                + f"🎧 **Request by:** {message.from_user.mention}",
+               reply_markup=keyboard,)
         if path.exists("final.png"):
             os.remove("final.png")
 
 
-@Client.on_message(command(["ytpkontol", f"ytpkontol@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["ytp", f"ytp@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -872,7 +875,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+            "❌ **couldn't find song, Please provide the correct song name or include the artist's name as well.**"
         )
         print(str(e))
         return
@@ -881,8 +884,8 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
         )
@@ -921,8 +924,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** {title}\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
-                    reply_markup=keyboard)
+            caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+                    + f"🎧 **Request by:** {message.from_user.mention}",
+                   reply_markup=keyboard,)
         os.remove("final.png")
         return await lel.delete()

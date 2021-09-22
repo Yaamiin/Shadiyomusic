@@ -559,7 +559,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "❌ **couldn't find song**\nPlease provide the correct song name.**"
+                "❌ **couldn't find song**, please provide the correct song name.**"
             )
             print(str(e))
             return
@@ -632,7 +632,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song**\nPlease provide the correct song name.**"
+                    "❌ **couldn't find song**, please provide the correct song name.**"
                 )
                 print(str(e))
                 return
@@ -753,7 +753,7 @@ async def lol_cb(b, cb):
             r_by = cb.message.reply_to_message.from_user
         except:
             r_by = cb.message.from_user
-        loc = filqe_path
+        loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await cb.message.delete()
@@ -856,7 +856,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **Processing**")
+    # await lel.edit("🔁 **Processing**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -873,7 +873,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song**\nPlease provide the correct song name.**"
+            "❌ **couldn't find song**, please provide the correct song name.**"
         )
         print(str(e))
         return

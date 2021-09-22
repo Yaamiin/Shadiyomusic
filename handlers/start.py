@@ -4,7 +4,7 @@ from config import BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_C
 from helpers.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from helpers.decorators import authorized_users_only
+from helpers.decorators import sudo_users_only, authorized_users_only
 
 
 START_TIME = datetime.utcnow()
@@ -131,12 +131,25 @@ async def help_(client: Client, message: Message):
 @authorized_users_only
 async def ping_pong(client: Client, message: Message):
     start = time()
+    m_reply = await message.reply_text("pinging...")
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
+    await m_reply.edit_text(
+        f"🏓 **Pong !!** `{delta_ping * 1000:.3f} ms`\n"
+        f"⚡ **uptime:** `{uptime}`"
+    )
+
+
+@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@sudo_users_only
+async def get_uptime(client: Client, message: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"**Pong !!** {delta_ping * 1000:.3f} ms\n"
+        "🤖 bot status:\n"
         f"• **uptime:** `{uptime}`\n"
         f"• **start time:** `{START_TIME_ISO}`"
     )

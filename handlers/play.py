@@ -490,8 +490,8 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    audio = message.reply_to_message.audio if message.reply_to_message else None
-    url = get_url(message)
+    if message.reply_to_message:
+        if message.reply_to_message.audio or message.reply_to_message.voice:
             pass
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -511,7 +511,7 @@ async def play(_, message: Message):
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     audio = (
-        (await message.reply_to_message.download(file_name)
+        (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
         else None
     )
@@ -530,7 +530,7 @@ async def play(_, message: Message):
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
+        thumb_name = "https://telegra.ph/file/1d7d0cbc9cd64956cbce8.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -592,7 +592,7 @@ async def play(_, message: Message):
             toxxt = "\n"
             j = 0
             useer=user_name
-            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
+            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ • **Duration** - {results[j]['duration']}\n"
@@ -608,6 +608,9 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}')
+                    ],
+                    [
+                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
@@ -632,7 +635,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song**, please provide the correct song name.**"
+                    "❌ **couldn't find song**, please enter the correct song name.**"
                 )
                 print(str(e))
                 return
@@ -696,7 +699,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**")
+        await cb.message.edit("❌ **couldn't find song**, please enter the correct song name.")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -873,7 +876,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song**, please provide the correct song name.**"
+            "❌ **couldn't find song**, please enter the correct song name.**"
         )
         print(str(e))
         return

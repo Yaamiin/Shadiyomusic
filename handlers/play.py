@@ -559,7 +559,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+                "❌ **couldn't find song**\nPlease provide the correct song name.**"
             )
             print(str(e))
             return
@@ -589,7 +589,7 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__Choose the song you want to play__**\n\n"
+            toxxt = "\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
@@ -612,11 +612,8 @@ async def play(_, message: Message):
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
             )
-            await message.reply_photo(
-                photo="https://telegra.ph/file/d092158441ceecffd2ac7.jpg",
-                caption=toxxt, reply_markup=keyboard, 
-            )
-            await lel.delete()
+            await lel.edit(toxxt,reply_markup=keyboard,disable_web_page_preview=True)
+            # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # Returning to pornhub
         except:
@@ -635,7 +632,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song**, Please provide the correct song name or include the artist's name as well.**"
+                    "❌ **couldn't find song**\nPlease provide the correct song name.**"
                 )
                 print(str(e))
                 return
@@ -644,8 +641,8 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
         )
@@ -740,8 +737,8 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
         )
@@ -756,7 +753,7 @@ async def lol_cb(b, cb):
             r_by = cb.message.reply_to_message.from_user
         except:
             r_by = cb.message.from_user
-        loc = file_path
+        loc = filqe_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await cb.message.delete()
@@ -784,9 +781,10 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
-                + f"🎧 **Request by:** {message.from_user.mention}",
-               reply_markup=keyboard,)
+        caption=f"🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+               +f"🎧 **Request by:** {r_by.mention}",
+        reply_markup=keyboard,
+        )
         if path.exists("final.png"):
             os.remove("final.png")
 
@@ -875,7 +873,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song, Please provide the correct song name or include the artist's name as well.**"
+            "❌ **couldn't find song**\nPlease provide the correct song name.**"
         )
         print(str(e))
         return
@@ -924,7 +922,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
                     + f"🎧 **Request by:** {message.from_user.mention}",
                    reply_markup=keyboard,)
         os.remove("final.png")

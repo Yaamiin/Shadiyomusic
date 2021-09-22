@@ -7,11 +7,33 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 
 from cache.admins import admins
 from helpers.channelmusic import get_chat_id
-from helpers.decorators import authorized_users_only, errors
+from helpers.decorators import sudo_users_only, authorized_users_only, errors
 from helpers.filters import command, other_filters
 from callsmusic import callsmusic
 from callsmusic.queues import queues
 from config import BOT_USERNAME
+
+
+START_TIME = datetime.utcnow()
+START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
+TIME_DURATION_UNITS = (
+    ('week', 60 * 60 * 24 * 7),
+    ('day', 60 * 60 * 24),
+    ('hour', 60 * 60),
+    ('min', 60),
+    ('sec', 1)
+)
+
+async def _human_time_duration(seconds):
+    if seconds == 0:
+        return 'inf'
+    parts = []
+    for unit, div in TIME_DURATION_UNITS:
+        amount, seconds = divmod(int(seconds), div)
+        if amount > 0:
+            parts.append('{} {}{}'
+                         .format(amount, unit, "" if amount == 1 else "s"))
+    return ', '.join(parts)
 
 
 @Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]))
@@ -95,3 +117,16 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"⏭️ **__You've skipped to the next song__**")
+
+
+@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@sudo_users_only
+async def get_uptime(client: Client, message: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await message.reply_text(
+        "🤖 bot status:\n"
+        f"• **uptime:** `{uptime}`\n"
+        f"• **start time:** `{START_TIME_ISO}`"
+    )

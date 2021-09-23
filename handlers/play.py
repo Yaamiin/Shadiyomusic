@@ -523,8 +523,8 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📊 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
         )
@@ -568,8 +568,8 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📊 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
         )
@@ -584,7 +584,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
 
         try:
-          results = YoutubeSearch(query, max_results=5).to_dict()
+          results = YoutubeSearch(query, max_results=6).to_dict()
         except:
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
@@ -593,7 +593,7 @@ async def play(_, message: Message):
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
-            while j < 5:
+            while j < 6:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ • **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ • **Viewer** - {results[j]['views']}\n\n"
@@ -620,7 +620,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            #await lel.edit("❌ **couldn't find song you requested**")
+            # await lel.edit("❌ **couldn't find song you requested**")
 
             # print(results)
             try:
@@ -635,7 +635,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song**, please enter the correct song name.**"
+                    "❌ **couldn't find song**, please enter the provided song name.**"
                 )
                 print(str(e))
                 return
@@ -644,7 +644,7 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("📊 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
@@ -699,7 +699,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ **couldn't find song**, please enter the correct song name.")
+        await cb.message.edit("❌ **couldn't find song**, please enter the provided song name.")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -740,7 +740,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("📊 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]
@@ -792,7 +792,7 @@ async def lol_cb(b, cb):
             os.remove("final.png")
 
 
-@Client.on_message(command(["ytp", f"ytp@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["ytplay", f"ytplay@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -859,7 +859,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    # await lel.edit("🔁 **Processing**")
+    await lel.edit("🔁 **Processing**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -876,7 +876,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song**, please enter the correct song name.**"
+            "❌ **couldn't find song**, please enter the provided song name.**"
         )
         print(str(e))
         return
@@ -885,7 +885,7 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💡 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton("📊 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton(text="🗑️ Close", callback_data="closed")
                 ],
             ]

@@ -617,7 +617,8 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            await lel.edit("❌ **couldn't find song you requested**")
+            # await lel.edit("❌ **couldn't find song you requested**")
+
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"

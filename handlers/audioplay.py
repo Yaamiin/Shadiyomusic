@@ -5,27 +5,28 @@
 from os import path
 
 from pyrogram import Client
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.types import Message, Voice
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from callsmusic import callsmusic, queues
 
 import converter
 from downloaders import youtube
 
-from config import BOT_USERNAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, GROUP_SUPPORT
-
+from config import (
+    DURATION_LIMIT,
+    UPDATES_CHANNEL,
+    GROUP_SUPPORT,
+    BOT_USERNAME,
+)
 from handlers.play import convert_seconds
 from helpers.filters import command, other_filters
-from helpers.decorators import errors
-from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 
 
-@Client.on_message(command(["stream", f"stream@{bn}"]) & other_filters)
+@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
 async def stream(_, message: Message):
 
-    lel = await message.reply_text("🔁 **processing..**")
+    lel = await message.reply("🔁 **processing** sound...")
     costumer = message.from_user.mention
 
     keyboard = InlineKeyboardMarkup(
@@ -56,23 +57,23 @@ async def stream(_, message: Message):
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
     elif url:
-        return
+        return await lel.edit("❗ **reply to a telegram audio file.**")
     else:
-        return await lel.edit("❗ you did not give me audio file or yt link to **stream!**")
+        return await lel.edit("❗ **reply to a telegram audio file.**")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo=f"https://telegra.ph/file/e8fc00f06d6c4f2739f44.jpg",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}](https://t.me/kenbotsupport)\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
+            photo="https://telegra.ph/file/36343b9d4742efe0b09cd.jpg",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title[:35]}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
             reply_markup=keyboard,
         )
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-            photo=f"https://telegra.ph/file/e8fc00f06d6c4f2739f44.jpg",
-            caption=f"🏷 **Name:** [{title}](https://t.me/kenbotsupport)\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+            photo="https://telegra.ph/file/224178328de996a82507f.jpg",
+            caption=f"🏷 **Name:** {title[:35]}\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
                    +f"🎧 **Request by:** {costumer}",
             reply_markup=keyboard,
         )

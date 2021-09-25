@@ -9,7 +9,7 @@ from Python_ARQ import ARQ
 from pyrogram import Client, filters
 from helpers.filters import command
 
-ARQ_API_KEY = "VGSVKA-FSOMYZ-ETLTTD-CGZPZT-ARQ"
+ARQ_API_KEY = "BIHMCQ-RKNBRK-HPVADU-BMPNJE-ARQ"
 aiohttpsession = aiohttp.ClientSession()
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
 

@@ -51,7 +51,7 @@ async def cbstart(_, query: CallbackQuery):
                         "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbcmds"
+                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbguide"
                     )
                 ]
             ]
@@ -310,41 +310,3 @@ async def cbguide(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("close"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
-
-
-@Client.on_callback_query(filters.regex("cbcmds"))
-async def cbhelps(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""<b>🕊️ **Here is the help menu !</b>
-
-**In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📘 Admin Cmd", callback_data="cbadmin"
-                    ),
-                    InlineKeyboardButton(
-                        "📗 Sudo Cmd", callback_data="cbsudo"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "BACK", callback_data="cbguide"
-                    )
-                ]
-            ]
-        )
-    )

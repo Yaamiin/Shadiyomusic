@@ -29,15 +29,15 @@ async def update_admin(client, message):
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
-async def pause(client, message: Message):
-    chat_id = get_chat_id(message.chat)
+async def pause(client, message):
+    chat_id = get_chat_id(message.chat.id)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
         await message.reply_text( "❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await client.send_message(message.chat_id, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await client.send_message(chat_id, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)

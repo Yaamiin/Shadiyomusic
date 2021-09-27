@@ -768,7 +768,6 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        photo="final.png",
         caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
         reply_markup=keyboard,
         )

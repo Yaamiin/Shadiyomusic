@@ -35,10 +35,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await bot.send_message("❌ **Not playing a song!**")
+        await bot.send_message(message.chat.id, "❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await bot.send_message("▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await bot.send_message(message.chat.id, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)

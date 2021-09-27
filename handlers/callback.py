@@ -342,30 +342,7 @@ async def cbhelps(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbstart"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_callback_query(filters.regex("cbhowtouse"))
-async def cbguides(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🕊️** HOW TO USE THIS BOT :**
-
-**1.) First, add to your group.
-2.) Then make admin with all permissions except anonymous admin.
-3.) Add @{ASSISTANT_NAME} to your group or type /userbotjoin to invite assistant.
-4.) Turn on voice chat first before playing music.
-
-💡 Bot by @{UPDATES_CHANNEL}**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "BACK", callback_data="cbstart"
+                        "BACK", callback_data="cbguide"
                     )
                 ]
             ]

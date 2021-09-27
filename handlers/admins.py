@@ -1,8 +1,8 @@
-import Bot as bot 
 import traceback
 import asyncio
 from asyncio import QueueEmpty
 from config import que
+from pyrogram import Client as bot
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 

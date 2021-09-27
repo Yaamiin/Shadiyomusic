@@ -497,7 +497,7 @@ async def play(_, message: Message):
         else None
     )
     url = get_url(message)
-    else:
+    if url:
         url=None
     if text_links:
         url = True

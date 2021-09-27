@@ -49,7 +49,7 @@ async def start_(client: Client, message: Message):
                         "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbcmds"
+                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbguide"
                     )
                 ]
             ]
@@ -115,7 +115,7 @@ async def help_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "HELP", callback_data="cbhowtouse"
+                        "HELP", callback_data="cbguide"
                     )
                 ]
             ]

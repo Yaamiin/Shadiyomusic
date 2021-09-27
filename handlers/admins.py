@@ -1,3 +1,4 @@
+import Bot as bot 
 import traceback
 import asyncio
 from asyncio import QueueEmpty
@@ -23,7 +24,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await client.send_message(message.chat.id, "✅ Bot **reload correctly !**\n\n• **Admin list** has been **updated !**")
+    await client.send_message(message.chat.id, "✅ Bot **reloaded correctly!**\n\n• The **Admin list** has been **updated.**")
 
 
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
@@ -34,10 +35,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❌ **Not playing a song!**")
+        await bot.send_message("❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await bot.send_message("▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)

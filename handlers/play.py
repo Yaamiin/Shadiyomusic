@@ -497,7 +497,7 @@ async def play(_, message: Message):
         if message.reply_to_message
         else None
     )
-        entities = []
+    entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
         if message.reply_to_message.entities:
             entities = message.reply_to_message.entities + entities

@@ -439,7 +439,7 @@ async def play(_, message: Message):
     if message.chat.id in DISABLED_GROUPS:
         await message.reply("😕 **Musicplayer is Disable!**\n\n» Ask admin for Enable the Musicplayer for this group.")
         return
-    lel = await message.reply("🔎 **Finding song**")
+    lel = await message.reply("🔎 **Searching**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -551,7 +551,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔎 **Finding song**")
+        await lel.edit("🔎 **Searching**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -668,7 +668,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
             reply_markup=keyboard
         )
     else:
@@ -687,10 +687,10 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
-            reply_markup=keyboard
-        )
+            caption = f"🏷 **Title:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** Playing\n" \
+                    + f"🎧 **Request by:** {message.from_user.mention}",
+                   reply_markup=keyboard,)
+
         os.remove("final.png")
         return await lel.delete()
 
@@ -768,7 +768,8 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+        photo="final.png",
+        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -789,8 +790,8 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                + f"🎧 **Request by:** {r_by.mention} \n",
+        caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+               +f"🎧 **Request by:** {r_by.mention}",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -931,8 +932,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
-                    reply_markup=keyboard)
+            caption = f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+                    + f"🎧 **Request by:** {message.from_user.mention}",
+                   reply_markup=keyboard,)
         os.remove("final.png")
         return await lel.delete()

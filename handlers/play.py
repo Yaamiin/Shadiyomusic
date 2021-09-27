@@ -100,7 +100,7 @@ async def generate_cover(title, thumbnail):
     draw.text((30, 535), f"Playing here", (0, 0, 0), font=font)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
     draw.text((30, 615),
-        f"{title[:20]} . . .",
+        f"{title[:20]} ...",
         (0, 0, 0),
         font=font,
     )
@@ -596,8 +596,8 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ ⏱️ **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ 👁 **Viewer** - {results[j]['views']}\n\n"
+                toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
+                toxxt += f" └ ⚡ **__Powered by [BOT_NAME](https://t.me/{BOT_USERNAME})__**\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [
@@ -661,7 +661,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
             reply_markup=keyboard
         )
     else:
@@ -680,7 +680,7 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
             reply_markup=keyboard
         )
@@ -782,7 +782,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+        caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
                 + f"🎧 **Request by:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
@@ -903,7 +903,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -924,7 +924,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Now playing**\n\n🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")

@@ -47,7 +47,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await client.send_message(message.chat.id, "✅ Bot **reload correctly !**\n\n• **Admin list** has been **updated !**")
+    await client.send_message(message.chat.id, "✅ Bot **reloaded correctly !**\n\n• The **Admin list** has been **updated.**")
 
 
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
@@ -61,7 +61,7 @@ async def pause(_, message: Message):
         await message.reply_text("❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await message.reply_text("▶️ **Music paused!**\n\n• To resume the track use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
@@ -75,7 +75,7 @@ async def resume(_, message: Message):
         await message.reply_text("❌ **No music is paused!**")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ **Music resumed!**\n\n• To pause use **command » /pause**")
+        await message.reply_text("⏸ **Music resumed!**\n\n• To pause the track use **command » /pause**")
 
 
 @Client.on_message(command(["end", f"end@{BOT_USERNAME}"]) & other_filters)
@@ -92,7 +92,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **Music stopped!**\n\n• **Userbot disconnected from voice chat**")
+        await message.reply_text("✅ **The Userbot has been disconnected from voice chat**")
 
 
 @Client.on_message(command("skip") & other_filters)

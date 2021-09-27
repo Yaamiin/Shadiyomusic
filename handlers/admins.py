@@ -1,8 +1,8 @@
+import bot
 import traceback
 import asyncio
 from asyncio import QueueEmpty
 from config import que
-from pyrogram import Client as bot
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 
@@ -38,7 +38,7 @@ async def pause(_, message: Message):
         await message.reply_text( "❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await bot.send_text(message.chat, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await bot.send_message(message.chat, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
@@ -69,7 +69,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **Music stopped!**\n\n• **Userbot disconnected from voice chat**")
+        await message.reply_text("✅ The **Userbot disconnected from voice chat**")
 
 
 @Client.on_message(command("skip") & other_filters)

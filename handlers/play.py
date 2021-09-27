@@ -498,32 +498,7 @@ async def play(_, message: Message):
             f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
         )
         return
-    text_links=None
-    if message.reply_to_message:
-        if message.reply_to_message.audio or message.reply_to_message.voice:
-            pass
-        entities = []
-        toxt = message.reply_to_message.text or message.reply_to_message.caption
-        if message.reply_to_message.entities:
-            entities = message.reply_to_message.entities + entities
-        elif message.reply_to_message.caption_entities:
-            entities = message.reply_to_message.entities + entities
-        urls = [entity for entity in entities if entity.type == 'url']
-        text_links = [
-            entity for entity in entities if entity.type == 'text_link'
-        ]
-    else:
-        urls=None
-    if text_links:
-        urls = True
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
-    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    audio = (
-        (message.reply_to_message.audio or message.reply_to_message.voice)
-        if message.reply_to_message
-        else None
-    )
+
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message

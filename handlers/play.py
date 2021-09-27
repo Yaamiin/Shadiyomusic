@@ -437,7 +437,8 @@ async def play(_, message: Message):
     global que
     global useer
     if message.chat.id in DISABLED_GROUPS:
-        return    
+        await message.reply("😕 **Musicplayer is Disable/n/n• Ask admin for Enable the Musicplayer for this group!**")
+        return
     lel = await message.reply("🔎 **Finding song**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -793,6 +794,7 @@ async def lol_cb(b, cb):
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
+        await message.reply("😕 **Musicplayer is Disable/n/n• Ask admin for Enable the Musicplayer for this group!**")
         return
     lel = await message.reply("🔎 **Finding song**")
     administrators = await get_administrators(message.chat)

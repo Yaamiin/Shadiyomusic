@@ -19,7 +19,8 @@ from callsmusic.callsmusic import client as USER
 from pyrogram.errors import UserAlreadyParticipant
 from downloaders import youtube
 
-from config import que, BOT_NAME, DURATION_LIMIT, BOT_USERNAME, UPDATES_CHANNEL, GROUP_SUPPORT, ASSISTANT_NAME
+from config import BOT_NAME as bn
+from config import que, DURATION_LIMIT, BOT_USERNAME, UPDATES_CHANNEL, GROUP_SUPPORT, ASSISTANT_NAME
 from helpers.filters import command, other_filters
 from helpers.decorators import authorized_users_only
 from helpers.gets import get_file_name, get_url
@@ -597,7 +598,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ **__Powered by [{BOT_NAME}](https://t.me/{BOT_USERNAME})__**\n\n"
+                toxxt += f" └ ⚡ **__Powered by [{bn}](https://t.me/{BOT_USERNAME})__**\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [

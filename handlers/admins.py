@@ -1,4 +1,3 @@
-import bot
 import traceback
 import asyncio
 from asyncio import QueueEmpty
@@ -30,7 +29,7 @@ async def update_admin(client, message):
 @Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
-async def pause(_, message: Message):
+async def pause(_, client, message: Message):
     chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
@@ -38,7 +37,7 @@ async def pause(_, message: Message):
         await message.reply_text( "❌ **Not playing a song!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await bot.send_message(message.chat, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
+        await client.send_message(message.chat_id, "▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
 
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)

@@ -532,7 +532,60 @@ async def play(_, message: Message):
             if not path.isfile(path.join("downloads", file_name))
             else file_name
         )
-    elif url:
+        return
+    text_links=None
+    if message.reply_to_message:
+        if message.reply_to_message.audio or message.reply_to_message.voice:
+            pass
+        entities = []
+        toxt = message.reply_to_message.text or message.reply_to_message.caption
+        if message.reply_to_message.entities:
+            entities = message.reply_to_message.entities + entities
+        elif message.reply_to_message.caption_entities:
+            entities = message.reply_to_message.entities + entities
+        urls = [entity for entity in entities if entity.type == 'url']
+        text_links = [
+            entity for entity in entities if entity.type == 'text_link'
+        ]
+    else:
+        urls=None
+    if text_links:
+        urls = True
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
+    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    audio = (
+        (message.reply_to_message.audio or message.reply_to_message.voice)
+        if message.reply_to_message
+        else None
+    )
+    if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            raise DurationLimitError(
+                f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**"
+            )
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                ],
+            ]
+        )
+        file_name = get_file_name(audio)
+        title = file_name
+        thumb_name = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
+        thumbnail = thumb_name
+        duration = round(audio.duration / 60)
+        views = "Locally added"
+        requested_by = message.from_user.first_name
+        await generate_cover(title, thumbnail)
+        file_path = await converter.convert(
+            (await message.reply_to_message.download(file_name))
+            if not path.isfile(path.join("downloads", file_name))
+            else file_name
+        )
+    elif urls:
         query = toxt
         await lel.edit("🔎 **Searching**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}

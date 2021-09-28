@@ -70,8 +70,6 @@ async def start(client: Client, message: Message):
 
 ✅ **I'm active and ready to play music!
 • Start time: `{START_TIME_ISO}`
-
-> Click on button » 📚 **Command** and see all bot commands!
 """,
         reply_markup=InlineKeyboardMarkup(
             [

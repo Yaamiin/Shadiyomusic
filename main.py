@@ -17,5 +17,8 @@ bot = Bot(
     plugins=dict(root="handlers")
 )
 
+print("[INFO]: YOUR MUSIC BOT STARTED!")
+
+
 bot.start()
 run()

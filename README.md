@@ -23,8 +23,10 @@
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
 - `/video <song name>` - download videos you want quickly
+- `/lyric <query>` - searching lyric 
+- `/q` or `/quotly <reply text>` - make a sticker by reply text like @quotlybot
 
-#### Admins Only 👷‍♂️
+#### Admins Only 👮
 - `/player` - open music player settings panel
 - `/pause` - pause song play
 - `/resume` - resume song play
@@ -38,7 +40,7 @@
 - `/uptime` - check the bot uptime status
 - `/ping` - check the bot ping status
 
-### Sudo User ✅
+### Sudo User 👷
 - `/pmpermit on | off` turn on/off the assistant pmpermit
 - `/userbotleaveall` - order the assistant to leave all groups
 - `/gcast` - send a broadcast message
@@ -72,6 +74,7 @@ The easy way to host this bot, deploy to Heroku
 
 ### Credits 🕊️
 - [Kennedy](https://github.com/KennedyProject) Dev
+- [Feri](https://github.com/FeriEXP)
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Levina](https://github.com/levina-lab) Veez Project
 

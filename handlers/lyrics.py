@@ -34,7 +34,7 @@ async def lyrics_func(answers, text):
         lyrics = await hastebin(lyrics)
         lyrics = f"**LYRICS_TOO_LONG:** [URL]({lyrics})"
 
-    msg = f"{lyrics}"
+    msg = f"__{lyrics}__"
 
     answers.append(
         InlineQueryResultArticle(
@@ -55,6 +55,6 @@ async def lyrics_func(_, message):
     song = await arq.lyrics(query)
     lyrics = song.result
     if len(lyrics) < 4095:
-        return await m.edit(f"{lyrics}")
+        return await m.edit(f"__{lyrics}__")
     lyrics = await paste(lyrics)
     await m.edit(f"**LYRICS_TOO_LONG:** [URL]({lyrics})") 

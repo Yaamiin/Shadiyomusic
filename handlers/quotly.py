@@ -1,6 +1,8 @@
 # Made by: https://github.com/FeriEXP
 # Special credits to https://github.com/TheHamkerCat 
 
+from os import path
+
 import aiohttp
 from io import BytesIO
 from traceback import format_exc

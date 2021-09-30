@@ -74,7 +74,7 @@ The easy way to host this bot, deploy to Heroku
 
 ### Credits 🕊️
 - [Kennedy](https://github.com/KennedyProject) Dev
-- [Feri](https://github.com/FeriEXP)
+- [Feri](https://github.com/FeriEXP) Contribitor
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Levina](https://github.com/levina-lab) Veez Project
 

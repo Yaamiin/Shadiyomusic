@@ -2,7 +2,7 @@
 # Don't remove this credits
 
 from pyrogram.types import Message
-from python_ARQ import ARQ
+from Python_ARQ import ARQ
 from pyrogram import Client, filters
 from helpers.filters import command
 from config import ARQ_API_KEY

@@ -1,6 +1,7 @@
 # Modules imported by @xgothboi (https://github.com/KennedyProject/KennedyXMusic)
 # Don't remove this credits
 
+import aiohttp
 from pyrogram.types import Message
 from Python_ARQ import ARQ
 from pyrogram import Client, filters

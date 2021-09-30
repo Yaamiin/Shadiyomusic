@@ -8,6 +8,7 @@ if os.path.exists("local.env"):
 load_dotenv()
 que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
+ARQ_API_KEY = getenv("ARQ_API_KEY")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_NAME = getenv("BOT_NAME", "Kennedy Music")
 BG_IMAGE = getenv("BG_IMAGE", "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png")

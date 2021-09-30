@@ -1,6 +1,8 @@
 # Modules imported by @xgothboi (https://github.com/KennedyProject/KennedyXMusic)
 # Don't remove this credits
 
+from os import path
+
 import aiohttp
 from pyrogram.types import Message
 from Python_ARQ import ARQ
@@ -24,7 +26,7 @@ async def lyrics_func(answers, text):
                     song.result
                 ),
             )
-        )
+        ) 
         return answers
     lyrics = song.result
     song = lyrics.splitlines()

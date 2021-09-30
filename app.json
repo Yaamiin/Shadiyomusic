@@ -11,77 +11,77 @@
             "required": true
         },
         "ARQ_API_KEY": {
-            "description": "Arq untuk handler quotly, ambil di @ARQRobot",
+            "description": "For lyric and quotly modules, get on @ARQRobot",
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "bot tokenmu dari @BotFather",
+            "description": "Your bot token from @BotFather",
             "required": true
         },
         "BOT_NAME": {
-            "description": "nama bot musik mu.",
+            "description": "Your musicplayer name.",
             "required": true,
             "value": ""
         },
         "BOT_USERNAME": {
-            "description": "isi dengan username bot musikmu tanpa menggunakan @",
+            "description": "Fill woth your blt username without @",
             "required": true,
             "value": "KenzxMusicBot"
         },
         "BOT_IMG": {
-            "description": "Photo untuk alive.",
+            "description": "For alive pic.",
             "required": false,
             "value": "https://telegra.ph/file/5f5f8e412644c47cc836a.jpg"
         },
         "ASSISTANT_NAME": {
-            "description": "isi dengan username asistenmu tanpa menggunakan @",
+            "description": "Fill with your assistant username without @",
             "required": true,
             "value": "kennedyassistant"
         },
         "BG_IMAGE": {
-            "description": "isi dengan link telegraph background mu",
+            "description": "For background image if you playing",
             "required": false,
             "value": "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png"
         },
         "DEV_NAME": {
-            "description": "isi dengan nama mu (Untuk tampilan nama di /alive)",
+            "description": "Fi with your name (for name master in /alive)",
             "required": true,
             "value": "Sena"
         },
         "OWNER_NAME": {
-            "description": "isi dengan username mu tanpa menggunakan @",
+            "description": "Fill with your username account without @",
             "required": false,
             "value": "xgothboi"
         },
         "API_ID": {
-            "description": "APP ID mu dari my.telegram.org",
+            "description": "APP ID from my.telegram.org",
             "required": true
         },
         "API_HASH": {
-            "description": "API HASH dari my.telegram.org",
+            "description": "API HASH from my.telegram.org",
             "required": true
         },
         "SUDO_USERS": {
-            "description": "id untuk daftar anggota sudo (pisahkan dengan spasi).",
+            "description": "Fill with ID who you made a admin for bot (separate with space).",
             "required": true
         },
         "DURATION_LIMIT": {
-            "description": "max durasi untuk video yang diunduh (dalam menit).",
+            "description": "Duration limit for your musicplayer (in minutes).",
             "required": true,
             "value": "15"
         },
         "PMPERMIT": {
-            "description": "pm-permit untuk asisten.",
+            "description": "for PMPERMIT on assistant account.",
             "required": false,
             "value": "ENABLE"
         },
         "UPDATES_CHANNEL": {
-            "description": "isi dengan username channel kamu, jika tidak punya lewati saja",
+            "description": "Fill with your channel username without @, if you haven't one you can leave it default",
             "required": false,
             "value": "KennedyProject"
         },
         "GROUP_SUPPORT": {
-            "description": "isi dengan username grup kamu, jika tidak punya skip saja",
+            "description": "Fill with your group username without @, if your haven't one you can leave it default",
             "required": false,
             "value": "kenbotsupport"
         }

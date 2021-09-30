@@ -76,7 +76,7 @@ The easy way to host this bot, deploy to Heroku
 - [Kennedy](https://github.com/KennedyProject) Dev
 - [Feri](https://github.com/FeriEXP) Contribitor
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
-- [Levina](https://github.com/levina-lab) Veez Project
+- [Veez Music](https://github.com/levina-lab/veezmusic) Veez Music
 
 ### Support & Updates 🛵
 <a href="https://t.me/kenbotsupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/KennedyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>

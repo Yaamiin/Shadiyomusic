@@ -154,7 +154,7 @@ async def logswen(client: Client, message: Message, happ):
 
 
 # Restart Bot
-@Client.on_message(command("restart") & filters.user(OWNER_ID))
+@Client.on_message(command("restart"))
 @sudo_users_only
 @_check_heroku
 async def restart(client: Client, message: Message, hap):
@@ -163,7 +163,7 @@ async def restart(client: Client, message: Message, hap):
 
 
 # Set Heroku Var
-@Client.on_message(command("setvar") & filters.user(OWNER_ID))
+@Client.on_message(command("setvar"))
 @sudo_users_only
 @_check_heroku
 async def setvar(client: Client, message: Message, app_):
@@ -186,7 +186,7 @@ async def setvar(client: Client, message: Message, app_):
 
 
 # Delete Heroku Var
-@Client.on_message(command("delvar") & filters.user(OWNER_ID))
+@Client.on_message(command("delvar"))
 @_check_heroku
 async def delvar(client: Client, message: Message, app_):
     msg = await message.reply_text(message, "`please wait...!`")

@@ -6,14 +6,9 @@ import aiohttp
 from io import BytesIO
 from traceback import format_exc
 from pyrogram.types import Message
-from Python_ARQ import ARQ
 from pyrogram import Client, filters
 from helpers.filters import command
-from config import ARQ_API_KEY
-
-
-aiohttpsession = aiohttp.ClientSession()
-arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
+from config import ARQ_API_KEY, arq
 
 
 async def quotify(messages: list):

@@ -3,7 +3,7 @@
 ### Music bot for playing music on telegram voice chat group.
 <p align="center"><a href="https://t.me/KennedyXMusic"><img src="https://telegra.ph/file/634bc96909fc3963d2673.jpg" width="300"></a></p>
 
-<h3>Requirements 📝</h3>
+<h3>Requirements</h3>
 
 - FFmpeg
 - NodeJS [nodesource.com](https://nodesource.com/)
@@ -15,7 +15,7 @@
 [![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@KennedyProject/Ken-String-Session#main.py)
 
 
-### Commands 🛠
+### Commands 
 
 - `/play <song name>` - play song you requested
 - `/playlist` - Show now playing list
@@ -26,7 +26,7 @@
 - `/lyric <query>` - searching lyric 
 - `/q` or `/quotly <reply text>` - make a sticker by reply text like @quotlybot
 
-#### Admins Only 👮
+#### Admins Only 
 - `/player` - open music player settings panel
 - `/pause` - pause song play
 - `/resume` - resume song play
@@ -40,13 +40,13 @@
 - `/uptime` - check the bot uptime status
 - `/ping` - check the bot ping status
 
-### Sudo User 👷
+### Sudo User 
 - `/pmpermit on | off` turn on/off the assistant pmpermit
 - `/userbotleaveall` - order the assistant to leave all groups
 - `/gcast` - send a broadcast message
 - `/rmd` - remove all downloaded file
 
-### pm-permit 💬
+### pm-permit 
 - `.yes` - approve user for sending message to assistant
 - `.no` - disapprove user for sending message to assistant
 
@@ -74,7 +74,7 @@ The easy way to host this bot, deploy to Heroku
 
 ### Credits 🕊️
 - [Kennedy](https://github.com/KennedyProject) Dev
-- [Feri](https://github.com/FeriEXP) Contribitor
+- [Feri](https://github.com/FeriEXP) Contributor
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Veez Music](https://github.com/levina-lab/veezmusic) Veez Music
 

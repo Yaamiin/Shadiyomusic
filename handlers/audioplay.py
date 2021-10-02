@@ -65,7 +65,7 @@ async def stream(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://telegra.ph/file/36343b9d4742efe0b09cd.jpg",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title[:35]}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
             reply_markup=keyboard,
         )
         return await lel.delete()
@@ -73,7 +73,7 @@ async def stream(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
             photo="https://telegra.ph/file/224178328de996a82507f.jpg",
-            caption=f"🏷 **Name:** {title[:35]}\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+            caption=f"🏷 **Name:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
                    +f"🎧 **Request by:** {costumer}",
             reply_markup=keyboard,
         )

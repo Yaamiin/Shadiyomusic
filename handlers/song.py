@@ -8,6 +8,7 @@ import aiohttp
 import requests
 import wget
 import youtube_dl
+from io import BytesIO
 from random import randint
 from urllib.parse import urlparse
 from pyrogram import Client, filters
@@ -16,7 +17,7 @@ from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 from helpers.filters import command
-from config import DURATION_LIMIT, BOT_USERNAME, BOT_NAME
+from config import DURATION_LIMIT, BOT_USERNAME, BOT_NAME, arq
 
 
 @Client.on_message(filters.command(["song", f"song@{BOT_USERNAME}"]) & ~filters.channel)
@@ -317,3 +318,48 @@ async def ytmusic(client, message: Message):
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
             os.remove(files)
+
+
+async def download_song(url):
+    async with session.get(url) as resp:
+        song = await resp.read()
+    song = BytesIO(song)
+    song.name = "a.mp3"
+    return song
+
+
+@Client.on_message(command(["saavn", f"saavn@{BOT_USERNAME}"]))
+async def jssong(_, message):
+    global is_downloading
+    if len(message.command) < 2:
+        return await message.reply_text("/saavn requires an argument.")
+    if is_downloading:
+        return await message.reply_text("Another download is in progress, try again after sometime.")
+    is_downloading = True
+    text = message.text.split(None, 1)[1]
+    m = await message.reply_text("Searching...")
+    try:
+        songs = await arq.saavn(text)
+        if not songs.ok:
+            await m.edit(songs.result)
+            is_downloading = False
+            return
+        sname = songs.result[0].song
+        slink = songs.result[0].media_url
+        ssingers = songs.result[0].singers
+        sduration = songs.result[0].duration
+        await m.edit("Downloading")
+        song = await download_song(slink)
+        await m.edit("Uploading")
+        await message.reply_audio(
+            audio=song,
+            title=sname,
+            performer=ssingers,
+            duration=sduration,
+        )
+        await m.delete()
+    except Exception as e:
+        is_downloading = False
+        return await m.edit(str(e))
+    is_downloading = False
+    song.close()

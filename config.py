@@ -1,8 +1,8 @@
 import os
+import aiohttp
+from Python_ARQ import ARQ
 from os import getenv
-
 from dotenv import load_dotenv
-
 from helpers.uptools import fetch_heroku_git_url
 
 if os.path.exists("local.env"):
@@ -27,17 +27,15 @@ UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "KennedyProject")
 OWNER_NAME = getenv("OWNER_NAME", "xgothboi") # isi dengan username kamu tanpa simbol @
 DEV_NAME = getenv("DEV_NAME", "xgothboi")
 PMPERMIT = getenv("PMPERMIT", "ENABLE")
-
-DURATION_LIMIT = int(getenv("DURATION_LIMIT", "30"))
-
+DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
-
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 # UPDATER CONFIG
 U_BRANCH = "main"
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
-UPSTREAM_REPO = os.environ.get(
-    "UPSTREAM_REPO", "https://github.com/KennedyProject/KennedyXMusic"
-)
+UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/KennedyProject/KennedyXMusic")
 HEROKU_URL = fetch_heroku_git_url(HEROKU_API_KEY, HEROKU_APP_NAME)
+
+aiohttpsession = aiohttp.ClientSession()
+arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)

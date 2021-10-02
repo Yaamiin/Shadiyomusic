@@ -151,14 +151,13 @@ async def cbbasic(_, query: CallbackQuery):
 /song (title) - download music from youtube
 /search (title) - search for music from youtube in detail
 /video (title) - download music from youtube in detail
-/lyrics (title) - search for lyrics
+/lyric (title) - search for lyrics
 /shazam (reply audio) - for identifying song name
 /q (reply text) - to make a quotes sticker
 /id - to show your id or chat id
 [ MORE ]
 /alive - check alive bot
 /start - starting bot
-/ping - show current ping
 
 💡 Bot by @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
@@ -239,6 +238,12 @@ async def cbsudo(_, query: CallbackQuery):
 **/userbotleaveall - remove assistant from all groups
 /gcast - send global messages via assistant
 /rmd - delete downloaded files
+/uptime - for see the uptime and start time bot launched
+if using heroku
+/update - for build update your bot
+/restart - restart/reboot your bot
+/setvar (var) (value) - to update your value variable on heroku
+/delvar (var) - to delete your var on heroku.
 
 💡 Bot by @{UPDATES_CHANNEL}**""",
         reply_markup=InlineKeyboardMarkup(

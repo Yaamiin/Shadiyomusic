@@ -2,17 +2,11 @@
 # Don't remove this credits
 
 from os import path
-
-import aiohttp
 from pyrogram.types import Message
-from Python_ARQ import ARQ
 from pyrogram import Client, filters
 from helpers.filters import command
-from config import ARQ_API_KEY
+from config import arq
 from config import BOT_USERNAME as bn
-
-aiohttpsession = aiohttp.ClientSession()
-arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
 
 
 async def lyrics_func(answers, text):

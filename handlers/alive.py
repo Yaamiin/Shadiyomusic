@@ -11,7 +11,6 @@ from pyrogram.types import Message
 from time import time
 from datetime import datetime
 from config import DEV_NAME as dn
-from config import UPSTREAM_REPO as repo
 from config import BOT_NAME as bn, BOT_USERNAME, BOT_IMG, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from helpers.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -46,17 +45,17 @@ async def alive(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_photo(
         photo=f"{BOT_IMG}",
-        caption=f"""**༄ Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
+        caption=f"""**🌻 Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
 
-༄ **I'm Working Properly**
+🌻 **I'm Working Properly**
 
-༄ **Bot : 6.0 LATEST**
+🌻 **Bot : 6.0 LATEST**
 
-༄ **My Master : [{dn}](https://t.me/{OWNER_NAME})**
+🌻 **My Master : [{dn}](https://t.me/{OWNER_NAME})**
 
-༄ **Service Uptime : `{uptime}`**
+🌻 **Service Uptime : `{uptime}`**
 
-**Thanks For Using Me ♥️**""",
+**Thanks For Using Me ❤️**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -70,23 +69,3 @@ async def alive(client: Client, message: Message):
             ]
         )
     )
-
-
-@Client.on_message(filters.command(["repo", f"repo@{BOT_USERNAME}"]))
-async def repo(client: Client, message: Message):
-    await message.reply_text(""""<b>Holla im using Kennedy Music</b>
-Wanna make your own music bot? Tap the button ❤️""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ʀᴇᴘᴏ​", url="{repo}"
-                    ),
-                    InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    )
-                ]
-            ]
-        )
-    )
-

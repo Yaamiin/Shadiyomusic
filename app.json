@@ -31,6 +31,7 @@
         "U_BRANCH": {
             "description": "This branch the repo DON'T CHANGE!",
             "required": true
+            "value": "main"
         },
         "HEROKU_API_KEY": {
             "description": "Your heroku api key get from setting account.",
@@ -40,7 +41,7 @@
         "HEROKU_APP_NAME": {
             "description": "Your heroku app name, get it from top",
             "required": true,
-            "value": "KenzxMusicBot"
+            "value": ""
         },
         "UPSTREAM_REPO": {
             "description": "If you forking, put your link on this value. if you not forking LEAVE THIS ONE!",

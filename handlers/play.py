@@ -561,7 +561,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+                "❌ **couldn't find song**, please provide the correct song name."
             )
             print(str(e))
             return
@@ -619,7 +619,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            # await lel.edit("❌ **couldn't find song you requested**")
+            # await lel.edit("❌ **couldn't find song**")
 
             # print(results)
             try:
@@ -634,7 +634,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+                    "❌ **couldn't find song**, please provide the correct song name."
                 )
                 print(str(e))
                 return
@@ -698,7 +698,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**")
+        await cb.message.edit("❌ **couldn't find song you requested**, please provide the correct song name.")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -876,7 +876,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+            "❌ **couldn't find song you requested**, please provide the correct song name."
         )
         print(str(e))
         return

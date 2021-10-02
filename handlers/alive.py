@@ -11,6 +11,7 @@ from pyrogram.types import Message
 from time import time
 from datetime import datetime
 from config import DEV_NAME as dn
+from config import UPSTREAM_REPO as repo
 from config import BOT_NAME as bn, BOT_USERNAME, BOT_IMG, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from helpers.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -69,3 +70,23 @@ async def alive(client: Client, message: Message):
             ]
         )
     )
+
+
+@Client.on_message(filters.command(["repo", f"repo@{BOT_USERNAME}"]))
+async def repo(client: Client, message: Message):
+    await message.reply_text(""""<b>Holla im using Kennedy Music</b>
+Wanna make your own music bot? Tap the button ❤️""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "ʀᴇᴘᴏ​", url="{repo}"
+                    ),
+                    InlineKeyboardButton(
+                        "ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    )
+                ]
+            ]
+        )
+    )
+

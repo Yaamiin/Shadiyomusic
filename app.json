@@ -28,6 +28,25 @@
             "required": true,
             "value": "KenzxMusicBot"
         },
+        "U_BRANCH": {
+            "description": "This branch the repo DON'T CHANGE!",
+            "required": true
+        },
+        "HEROKU_API_KEY": {
+            "description": "Your heroku api key get from setting account.",
+            "required": true,
+            "value": ""
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Your heroku app name, get it from top",
+            "required": true,
+            "value": "KenzxMusicBot"
+        },
+        "UPSTREAM_REPO": {
+            "description": "If you forking, put your link on this value. if you not forking LEAVE THIS ONE!",
+            "required": true,
+            "value": "https://github.com/KennedyProject/KennedyXMusic"
+        },
         "BOT_IMG": {
             "description": "For alive pic.",
             "required": false,

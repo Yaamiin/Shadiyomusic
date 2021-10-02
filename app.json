@@ -30,7 +30,7 @@
         },
         "U_BRANCH": {
             "description": "This branch the repo DON'T CHANGE!",
-            "required": true
+            "required": true,
             "value": "main"
         },
         "HEROKU_API_KEY": {

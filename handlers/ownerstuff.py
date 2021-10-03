@@ -203,7 +203,7 @@ async def delvar(client: Client, message: Message, app_):
 
 
 heroku_client = None
-if Config.HEROKU_API_KEY:
+if HEROKU_API_KEY:
     heroku_client = heroku3.from_key(Config.HEROKU_API_KEY)
     
 def _check_heroku(func):

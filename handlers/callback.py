@@ -5,6 +5,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from helpers.decorators import authorized_users_only
+from config import ALIVE_EMOJI as alv
 from config import BOT_NAME as bn, BOT_IMG, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
 from handlers.play import cb_admin_check
 
@@ -103,7 +104,7 @@ __{bn} licensed under the GNU General Public License v.3.0__
 @Client.on_callback_query(filters.regex("cbhelp"))
 async def cbhelp(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ Here is the help menu !</b>
+        f"""<b>{alv} Here is the help menu !</b>
 
 **In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
@@ -141,7 +142,7 @@ async def cbhelp(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ basic commands for bots
+        f"""<b>{alv} basic commands for bots
 
 [GROUP SETTINGS]
 /play (title) - play music via youtube
@@ -179,15 +180,15 @@ async def cbadvanced(_, query: CallbackQuery):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await query.edit_message_text(
-        f"""**🌻 Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
+        f"""**{alv} Holla I'm [{bn}](https://t.me/{BOT_USERNAME})**
 
-🌻 **I'm Working Properly**
+{alv} **I'm Working Properly**
 
-🌻 **Bot : 6.0 LATEST**
+{alv} **Bot : 6.0 LATEST**
 
-🌻 **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
+{alv} **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 
-🌻 **Service Uptime : `{uptime}`**
+{alv} **Service Uptime : `{uptime}`**
 
 **Thanks For Using Me ♥️**""",
         reply_markup=InlineKeyboardMarkup(
@@ -208,7 +209,7 @@ async def cbadvanced(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ command for group admin
+        f"""<b>{alv} command for group admin
 
 /player - view playback status
 /pause - pauses playing music
@@ -234,7 +235,7 @@ async def cbadmin(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ **command for sudo**
+        f"""<b>{alv} **command for sudo**
 
 **/userbotleaveall - remove assistant from all groups
 /gcast - send global messages via assistant
@@ -263,7 +264,7 @@ if using heroku
 @Client.on_callback_query(filters.regex("cbfun"))
 async def cbfun(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>🕊️ **Command fun**
+        f"""<b>{alv} **Command fun**
 
 **/chika - check it yourself
 /wibu - check it yourself

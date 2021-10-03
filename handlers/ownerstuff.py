@@ -276,7 +276,7 @@ async def gib_usage(client, message, hc):
       AppPercentage = math.floor(App[0]["quota_used"] * 100 / quota)
   AppHours = math.floor(AppQuotaUsed / 60)
   AppMinutes = math.floor(AppQuotaUsed % 60)
-  app_name = Config.HEROKU_APP_NAME or "Not Specified."
+  app_name = HEROKU_APP_NAME or "Not Specified."
   return await msg_.edit(
         "<b><u>Dyno Usage Data</b></u>:\n\n"
         f"<b>✗ APP NAME :</b> <code>{app_name}</code> \n"

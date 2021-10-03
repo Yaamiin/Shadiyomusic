@@ -124,14 +124,14 @@ async def help_(client: Client, message: Message):
 @authorized_users_only
 async def ping_pong(client: Client, message: Message):
     start = time()
-    m_reply = await message.reply_text("pinging...")
+    m_reply = await message.reply_text("`Pinging...`")
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await m_reply.edit_text(
         "**Pong !!**\n" 
-        f"**Time taken :**`{delta_ping * 1000:.3f} ms`\n"
+        f"**Time taken : **`{delta_ping * 1000:.3f} ms`\n"
         f"**Service uptime :** `{uptime}`"
     )
 

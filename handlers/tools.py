@@ -8,7 +8,7 @@ import aiofiles
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 from json import JSONDecodeError
 from pykeyboard import InlineKeyboard
-from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, Message
 from helpers.pastebin import paste
 from pyrogram import Client, filters
 from config import BOT_USERNAME, aiohttpsession as session
@@ -209,6 +209,9 @@ Powered by @{BOT_USERNAME}
     await kek.delete()
 
 
+# ====== JSON ======
+
+
 @Client.on_message(command(["json", f"json@{BOT_USERNAME}"]))
 async def jsonify(_, message):
     the_real_message = None
@@ -231,3 +234,26 @@ async def jsonify(_, message):
             reply_to_message_id=reply_to_id
         )
         os.remove("json.text")
+
+
+# ====== WEBSS ======
+
+
+@Client.on_message(command("webss"))
+async def take_ss(_, message: Message):
+    try:
+        if len(message.command) != 2:
+            return await message.reply_text("Give A Url To Fetch Screenshot.")
+        url = message.text.split(None, 1)[1]
+        m = await message.reply_text("**Taking Screenshot**")
+        await m.edit("**Uploading**")
+        try:
+            await message.reply_photo(
+                photo=f"https://webshot.amanoteam.com/print?q={url}",
+                quote=False,
+            )
+        except TypeError:
+            return await m.edit("No Such Website.")
+        await m.delete()
+    except Exception as e:
+        await message.reply_text(str(e))

@@ -12,7 +12,7 @@
 
 ### Get STRING_SESSION from here:
 
-[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@KennedyProject/Ken-String-Session#main.py)
+[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@KennedyProject/String-Session#main.py)
 
 
 ### Commands 
@@ -74,7 +74,7 @@ The easy way to host this bot, deploy to Heroku
 
 ### Credits 🕊️
 - [Kennedy](https://github.com/KennedyProject) Dev
-- [Feri](https://github.com/FeriEXP) Contributor
+- [Feri](https://github.com/FeriEXP) Dev
 - [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
 - [Veez Music](https://github.com/levina-lab/veezmusic) Veez Music
 

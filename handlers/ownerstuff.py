@@ -6,7 +6,6 @@ import sys
 import heroku3
 import traceback
 import psutil
-from datetime import datetime
 from functools import wraps
 from os import environ, execle
 from git import Repo
@@ -14,7 +13,6 @@ from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import Client, filters
 from callsmusic.callsmusic import client as kntl
 from pyrogram.types import Message
-
 from config import (
     HEROKU_API_KEY,
     HEROKU_APP_NAME,
@@ -289,42 +287,3 @@ async def gib_usage(client, message, hc):
         f" • <code>{hours}h {minutes}m</code>"
         f" | <code>[{percentage}%]</code>",
     )
-
-
-# STATS COUNT
-@Client.on_message(command("ustats"))
-@sudo_users_only
-async def stats(client, message):
-    pablo = await message.reply_text("`Processing....`")
-    start = datetime.now()
-    u = 0
-    g = 0
-    sg = 0
-    c = 0
-    b = 0
-    a_chat = 0
-    group = ["supergroup", "group"]
-    async for dialog in kntl.iter_dialogs():
-        if dialog.chat.type == "private":
-            u += 1
-        elif dialog.chat.type == "bot":
-            b += 1
-        elif dialog.chat.type == "group":
-            g += 1
-        elif dialog.chat.type == "supergroup":
-            sg += 1
-            user_s = await dialog.chat.get_member(client)
-            if user_s.status in ("creator", "administrator"):
-                a_chat += 1
-        elif dialog.chat.type == "channel":
-            c += 1
-    end = datetime.now()
-    ms = (end - start).seconds
-    STATS = f"""`Your Stats Obtained in {ms} seconds`
-`{BOT_NAME} have {u} Private Messages.`
-`{BOT_NAME} are in {g} Groups.`
-`{BOT_NAME} are in {sg} Super Groups.`
-`{BOT_NAME} Are in {c} Channels.`
-`{BOT_NAME} Are Admin in {a_chat} Chats.`
-`Bots = {b}`"""
-    await pablo.edit(STATS)

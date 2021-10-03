@@ -281,8 +281,8 @@ async def gib_usage(client, message, hc):
         f"📅 <b>Dyno Usage {app_name}</b>\n\n"
         f"<b>✗ Usage in Hours And Minutes :</b>\n"
         f"<code>{AppHours}h {AppMinutes}m</code>"
-        f"| <code>[{AppPercentage} %]</code> \n\n"
+        f" | <code>[{AppPercentage} %]</code> \n\n"
         "<b>✗ Dyno Remaining This Months: </b>\n"
         f"<code>{hours}h {minutes}m</code>"
-        f"| <code>[{percentage}%]</code>",
+        f" | <code>[{percentage}%]</code>",
     )

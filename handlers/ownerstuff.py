@@ -208,7 +208,7 @@ async def delvar(client: Client, message: Message, app_):
 @sudo_users_only
 @_check_heroku
 async def gib_usage(client, message, hc):
-  msg_ = await message.reply_text("`[HEROKU] - Please Wait.`")
+  msg_ = await edit_or_reply(message, "`[HEROKU] - Please Wait.`")
   useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "

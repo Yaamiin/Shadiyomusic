@@ -17,7 +17,7 @@ from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 from helpers.filters import command
-from config import DURATION_LIMIT, BOT_USERNAME, BOT_NAME, arq
+from config import DURATION_LIMIT, BOT_USERNAME, BOT_NAME, arq, aiohttpsession as session
 
 
 @Client.on_message(filters.command(["song", f"song@{BOT_USERNAME}"]) & ~filters.channel)

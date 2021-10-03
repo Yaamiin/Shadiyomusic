@@ -88,7 +88,7 @@ async def help(client: Client, message: Message):
         f"""<b>👋 **Hello** {message.from_user.mention()}</b>
 **Please press the button below to read the explanation and see the list of available commands !**
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -107,7 +107,7 @@ async def help_(client: Client, message: Message):
 
 **__In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command__**
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

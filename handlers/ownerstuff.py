@@ -249,7 +249,7 @@ async def gib_usage(client, message, hc):
   acc_id = hc.account().id  
   headers = {
         "User-Agent": useragent,
-        "Authorization": f"Bearer {Config.HEROKU_API_KEY}",
+        "Authorization": f"Bearer {HEROKU_API_KEY}",
         "Accept": "application/vnd.heroku+json; version=3.account-quotas",
     }
   heroku_api = "https://api.heroku.com"

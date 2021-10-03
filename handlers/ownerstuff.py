@@ -6,6 +6,7 @@ import sys
 import heroku3
 import traceback
 import psutil
+from datetime import datetime
 from functools import wraps
 from os import environ, execle
 from git import Repo
@@ -19,6 +20,7 @@ from config import (
     HEROKU_URL,
     U_BRANCH,
     UPSTREAM_REPO,
+    BOT_NAME,
 )
 from handlers.song import get_text, humanbytes
 from helpers.filters import command
@@ -286,3 +288,42 @@ async def gib_usage(client, message, hc):
         f" • <code>{hours}h {minutes}m</code>"
         f" | <code>[{percentage}%]</code>",
     )
+
+
+# STATS COUNT
+@Client.on_message(command("stats"))
+@sudo_users_only
+async def stats(client, message):
+    pablo = await message.reply_text("`Processing....`"))
+    start = datetime.now()
+    u = 0
+    g = 0
+    sg = 0
+    c = 0
+    b = 0
+    a_chat = 0
+    group = ["supergroup", "group"]
+    async for dialog in client.iter_dialogs():
+        if dialog.chat.type == "private":
+            u += 1
+        elif dialog.chat.type == "bot":
+            b += 1
+        elif dialog.chat.type == "group":
+            g += 1
+        elif dialog.chat.type == "supergroup":
+            sg += 1
+            user_s = await dialog.chat.get_member(int(client.me.id))
+            if user_s.status in ("creator", "administrator"):
+                a_chat += 1
+        elif dialog.chat.type == "channel":
+            c += 1
+    end = datetime.now()
+    ms = (end - start).seconds
+    STATS = f"""`Your Stats Obtained in {ms} seconds`
+`{BOT_NAME} have {u} Private Messages.`
+`{BOT_NAME} are in {g} Groups.`
+`{BOT_NAME} are in {sg} Super Groups.`
+`{BOT_NAME} Are in {c} Channels.`
+`{BOT_NAME} Are Admin in {a_chat} Chats.`
+`Bots = {b}`"""
+    await pablo.edit(STATS)

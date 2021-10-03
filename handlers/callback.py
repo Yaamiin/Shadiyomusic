@@ -107,7 +107,7 @@ async def cbhelp(_, query: CallbackQuery):
 
 **In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -160,7 +160,7 @@ async def cbbasic(_, query: CallbackQuery):
 /alive - check alive bot
 /start - starting bot
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -218,7 +218,7 @@ async def cbadmin(_, query: CallbackQuery):
 /userbotjoin - invite assistant to join the group
 /musicplayer (on / off) - turn on / off the music player in your group
 
-💡 Bot by @{UPDATES_CHANNEL}""",
+💡 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -246,7 +246,7 @@ if using heroku
 /setvar (var) (value) - to update your value variable on heroku
 /delvar (var) - to delete your var on heroku.
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -271,7 +271,7 @@ async def cbfun(_, query: CallbackQuery):
 /dare - check it yourself
 /q - to make quotes text
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -294,7 +294,7 @@ async def cbguide(_, query: CallbackQuery):
 3.) Add @{ASSISTANT_NAME} to your group or type `/userbotjoin` to invite assistant.
 4.) Turn on voice chat first before playing music.
 
-💡 Bot by @{UPDATES_CHANNEL}**""",
+💡 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [

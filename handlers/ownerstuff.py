@@ -202,6 +202,20 @@ async def delvar(client: Client, message: Message, app_):
 # Usage Heroku Dyno
 
 
+heroku_client = None
+if Config.HEROKU_API_KEY:
+    heroku_client = heroku3.from_key(Config.HEROKU_API_KEY)
+    
+def _check_heroku(func):
+    @wraps(func)
+    async def heroku_cli(client, message):
+        if not heroku_client:
+            await edit_or_reply(message, "`Please Add Heroku API Key For This To Function To Work!`")
+        else:
+            await func(client, message, heroku_client)
+    return heroku_cli
+
+
 def fetch_heroku_git_url(api_key, app_name):
     if not api_key:
         return None

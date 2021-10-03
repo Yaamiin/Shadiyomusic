@@ -271,6 +271,7 @@ async def cbfun(_, query: CallbackQuery):
 /truth - check yourself
 /dare - check it yourself
 /q - to make quotes text
+/paste - pasting your text or document to pastebin into photo
 
 💡 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(

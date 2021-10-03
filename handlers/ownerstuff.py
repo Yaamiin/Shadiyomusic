@@ -294,7 +294,7 @@ async def gib_usage(client, message, hc):
 @Client.on_message(command("stats"))
 @sudo_users_only
 async def stats(client, message):
-    pablo = await message.reply_text("`Processing....`"))
+    pablo = await message.reply_text("`Processing....`")
     start = datetime.now()
     u = 0
     g = 0

@@ -25,6 +25,7 @@
 - `/video <song name>` - download videos you want quickly
 - `/lyric <query>` - searching lyric 
 - `/q` or `/quotly <reply text>` - make a sticker by reply text like @quotlybot
+- `/paste` - paste your text or document to pastebin and make photo from that
 
 #### Admins Only 
 - `/player` - open music player settings panel
@@ -45,6 +46,13 @@
 - `/userbotleaveall` - order the assistant to leave all groups
 - `/gcast` - send a broadcast message
 - `/rmd` - remove all downloaded file
+
+## If you deploy on heroku, sudo can :
+- `/usage` - see your dynos usage for your app
+- `/update` - to push last commit on github
+- `/restart` - restarting your bot
+- `/setvar <var> <value>` - add or retype your var on heroku
+- `/delvar <var name>` delete your var on heroku
 
 ### pm-permit 
 - `.yes` - approve user for sending message to assistant

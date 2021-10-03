@@ -12,6 +12,7 @@ from os import environ, execle
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import Client, filters
+from callsmusic.callsmusic import client as kntl
 from pyrogram.types import Message
 
 from config import (
@@ -291,7 +292,7 @@ async def gib_usage(client, message, hc):
 
 
 # STATS COUNT
-@Client.on_message(command("stats"))
+@Client.on_message(command("ustats"))
 @sudo_users_only
 async def stats(client, message):
     pablo = await message.reply_text("`Processing....`")
@@ -303,7 +304,7 @@ async def stats(client, message):
     b = 0
     a_chat = 0
     group = ["supergroup", "group"]
-    async for dialog in client.iter_dialogs():
+    async for dialog in kntl.iter_dialogs():
         if dialog.chat.type == "private":
             u += 1
         elif dialog.chat.type == "bot":

@@ -72,9 +72,7 @@ async def updatebot(_, message: Message):
         return
     else:
         await msg.edit("`heroku detected!`")
-        await msg.edit(
-            "`updating and restarting is started, please wait for 5-10 minutes!`"
-        )
+        await msg.edit("`updating and restarting is started, please wait for 5-10 minutes!`")
         ups_rem.fetch(U_BRANCH)
         repo.git.reset("--hard", "FETCH_HEAD")
         if "heroku" in repo.remotes:
@@ -208,7 +206,7 @@ async def delvar(client: Client, message: Message, app_):
 @sudo_users_only
 @_check_heroku
 async def gib_usage(client, message, hc):
-  msg_ = await edit_or_reply(message, "`[HEROKU] - Please Wait.`")
+  msg_ = await message.reply_text("`[HEROKU] - Please Wait.`")
   useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "

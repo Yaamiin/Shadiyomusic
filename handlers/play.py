@@ -1,7 +1,6 @@
 import os
 import json
 import ffmpeg
-import aiohttp
 import aiofiles
 import asyncio
 import requests
@@ -18,9 +17,16 @@ from youtube_search import YoutubeSearch
 from callsmusic.callsmusic import client as USER
 from pyrogram.errors import UserAlreadyParticipant
 from downloaders import youtube
-
-from config import BOT_NAME as bn
-from config import que, DURATION_LIMIT, BOT_USERNAME, UPDATES_CHANNEL, GROUP_SUPPORT, ASSISTANT_NAME
+from config import (
+    que,
+    DURATION_LIMIT,
+    BOT_USERNAME,
+    UPDATES_CHANNEL,
+    GROUP_SUPPORT,
+    ASSISTANT_NAME,
+    aiohttpsession,
+    BOT_NAME as bn,
+)
 from helpers.filters import command, other_filters
 from helpers.decorators import authorized_users_only
 from helpers.gets import get_file_name, get_url
@@ -29,7 +35,6 @@ from cache.admins import admins as a
 from PIL import Image, ImageFont, ImageDraw
 
 
-aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 useer ="NaN"
 DISABLED_GROUPS = []

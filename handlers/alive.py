@@ -4,14 +4,20 @@
 # YAHAHA WAHYOE
 
 from os import path
-
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
 from time import time
 from datetime import datetime
-from config import ALIVE_EMOJI as alv
-from config import BOT_NAME as bn, BOT_USERNAME, BOT_IMG, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
+from config import (
+    BOT_NAME as bn,
+    BOT_USERNAME,
+    BOT_IMG,
+    ASSISTANT_NAME,
+    OWNER_NAME,
+    UPDATES_CHANNEL,
+    GROUP_SUPPORT,
+    ALIVE_EMOJI as alv,
+)
 from helpers.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -51,7 +57,7 @@ async def alive(client: Client, message: Message):
 
 {alv} **Bot : 6.0 LATEST**
 
-{alv} **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
+{alv} **My Master : [Tuhan](https://t.me/{OWNER_NAME})**
 
 {alv} **Service Uptime : `{uptime}`**
 

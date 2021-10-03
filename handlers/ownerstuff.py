@@ -278,11 +278,12 @@ async def gib_usage(client, message, hc):
   AppMinutes = math.floor(AppQuotaUsed % 60)
   app_name = HEROKU_APP_NAME or "Not Specified."
   return await msg_.edit(
-        "<b><u>Dyno Usage Data</b></u>:\n\n"
-        f"<b>✗ APP NAME :</b> <code>{app_name}</code> \n"
-        f"<b>✗ Usage in Hours And Minutes :</b> <code>{AppHours}h {AppMinutes}m</code> \n"
-        f"<b>✗ Usage Percentage :</b> <code>[{AppPercentage} %]</code> \n\n\n"
+        "<b><u>Dyno Usage </b></u>"
+        f"<code>{app_name}</code> \n\n"
+        f"<b>✗ Usage in Hours And Minutes :</b>\n"
+        f"<code>{AppHours}h {AppMinutes}m</code>"
+        f"| <code>[{AppPercentage} %]</code> \n\n\n"
         "<b>✗ Dyno Remaining This Months 📆: </b>\n"
-        f"<code>{hours}h {minutes}m</code> \n"
-        f"<b>✗ Percentage :</b> <code>[{percentage}%]</code>",
+        f"<code>{hours}h {minutes}m</code>"
+        f"| <code>[{percentage}%]</code>",
     )

@@ -63,10 +63,10 @@
             "required": false,
             "value": "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png"
         },
-        "DEV_NAME": {
-            "description": "Fi with your name (for name master in /alive)",
+        "ALIVE_EMOJI": {
+            "description": "for emoji in /alive command",
             "required": true,
-            "value": "Sena"
+            "value": "🌻"
         },
         "OWNER_NAME": {
             "description": "Fill with your username account without @",

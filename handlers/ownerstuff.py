@@ -11,7 +11,6 @@ from os import environ, execle
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import Client, filters
-from callsmusic.callsmusic import client as kntl
 from pyrogram.types import Message
 from config import (
     HEROKU_API_KEY,

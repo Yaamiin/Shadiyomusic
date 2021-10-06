@@ -618,6 +618,7 @@ async def play(_, message: Message):
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
+            )
             await lel.edit(toxxt,reply_markup=keyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return

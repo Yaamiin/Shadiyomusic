@@ -130,7 +130,7 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Now playing** on {}".format(message.chat.title)
+    msg = "🎵 **Now playing** on {}".format(message.chat.title)
     msg += "\n• "+ now_playing
     msg += "\n• Req By "+by
     temp.pop(0)
@@ -147,13 +147,13 @@ async def playlist(client, message):
 # ============================= Settings =========================================
 def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.pytgcalls.active_calls:
-        stats = "Settings from **{}**".format(chat.title)
+        stats = "⚙️ Settings from **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
-            stats += "Volume: {}%\n".format(vol)
-            stats += "Song in queue: `{}`\n".format(len(que))
-            stats += "Now playing: **{}**\n".format(queue[0][0])
-            stats += "Requested by: {}".format(queue[0][1].mention)
+            stats += "🎚️ Volume: {}%\n".format(vol)
+            stats += "🎼 Song in queue: `{}`\n".format(len(que))
+            stats += "💡 Now playing: **{}**\n".format(queue[0][0])
+            stats += "🎧 Requested by: {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -224,7 +224,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been activated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"💡 **music player has been activated in this chat.**\n\n☁️ `{message.chat.id}`"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
@@ -235,7 +235,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been deactivated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"💡 **music player has been deactivated in this chat.**\n\n☁️ `{message.chat.id}`"
         )
     else:
         await message.reply_text(
@@ -597,12 +597,12 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__Choose the song you want to play__**\n\n"
+            toxxt = "\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 Duration - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by [{bn}](https://t.me/{BOT_USERNAME})__\n\n"
                 j += 1            
@@ -668,7 +668,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
             reply_markup=keyboard
         )
     else:
@@ -687,7 +687,7 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
+            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
             reply_markup=keyboard
         )
@@ -704,7 +704,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ **couldn't find song you requested**, please provide the correct song name.")
+        await cb.message.edit("❌ **couldn't find song**, please provide the correct song name.")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -768,7 +768,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:50]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -789,7 +789,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
+        caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
                 + f"🎧 **Request by:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
@@ -882,7 +882,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "❌ **couldn't find song you requested**, please provide the correct song name."
+            "❌ **couldn't find song**, please provide the correct song name."
         )
         print(str(e))
         return
@@ -910,7 +910,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -931,7 +931,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
+            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
                     + f"🎧 **Request by:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")

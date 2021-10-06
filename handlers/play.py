@@ -25,7 +25,6 @@ from config import (
     UPDATES_CHANNEL,
     GROUP_SUPPORT,
     ASSISTANT_NAME,
-    aiohttpsession,
     BOT_NAME as bn,
 )
 from helpers.filters import command, other_filters

@@ -509,7 +509,6 @@ async def play(_, message: Message):
                 or message.reply_to_message.caption
             if message.reply_to_message.entities:
                 entities = message.reply_to_message.entities + entities
-            elif message.reply_to_message.caption_entities:
         else:
             text = message.text or message.caption
 

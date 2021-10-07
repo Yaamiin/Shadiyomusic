@@ -14,4 +14,4 @@ Pillow
 future
 psutil
 wget
-
+yt_dlp

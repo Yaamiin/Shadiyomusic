@@ -559,7 +559,7 @@ async def play(_, message: Message):
             # print(results)
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
-            thumb_name = f"thumb-{title}-kenmusic.jpg"
+            thumb_name = f"{title}.jpg"
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, "wb").write(thumb.content)
             duration = results[0]["duration"]
@@ -632,7 +632,7 @@ async def play(_, message: Message):
                 url = f"https://youtube.com{results[0]['url_suffix']}"
                 title = results[0]["title"]
                 thumbnail = results[0]["thumbnails"][0]
-                thumb_name = f"thumb-{title}-kenmusic.jpg"
+                thumb_name = f"{title}.jpg"
                 thumb = requests.get(thumbnail, allow_redirects=True)
                 open(thumb_name, "wb").write(thumb.content)
                 duration = results[0]["duration"]
@@ -734,7 +734,7 @@ async def lol_cb(b, cb):
     except:
         pass
     try:
-        thumb_name = f"thumb-{title}kenmusic.jpg"
+        thumb_name = f"{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
     except Exception as e:
@@ -856,7 +856,6 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
         )
         return
-    # await lel.edit("🔄 **Processing**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      

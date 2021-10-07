@@ -7,7 +7,7 @@ import aiofiles
 import aiohttp
 import requests
 import wget
-import youtube_dl
+import yt_dlp
 from io import BytesIO
 from random import randint
 from urllib.parse import urlparse

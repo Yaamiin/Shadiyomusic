@@ -1,20 +1,13 @@
-
-import asyncio
-
+import asynci
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-
 from callsmusic.callsmusic import client as USER
 from config import BOT_USERNAME, SUDO_USERS
 from helpers.decorators import authorized_users_only, errors
 from helpers.filters import command
 
 
-@Client.on_message(
-    command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"])
-    & ~filters.private
-    & ~filters.bot
-)
+@Client.on_message(command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
 @errors
 async def addchannel(client, message):
@@ -22,9 +15,7 @@ async def addchannel(client, message):
     try:
         invitelink = await client.export_chat_invite_link(chid)
     except:
-        await message.reply_text(
-            "<b>promote me as admin first !</b>",
-        )
+        await message.reply_text("<b>promote me as admin first !</b>")
         return
 
     try:
@@ -34,13 +25,9 @@ async def addchannel(client, message):
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(
-            message.chat.id, "🤖: i'm joined here for playing music on voice chat"
-        )
+        await USER.send_message(message.chat.id, "🤖: i'm joined here for playing music on voice chat")
     except UserAlreadyParticipant:
-        await message.reply_text(
-            f"<b>✅ userbot already joined chat</b>",
-        )
+        await message.reply_text(f"<b>✅ userbot already joined chat</b>")
     except Exception as e:
         print(e)
         await message.reply_text(
@@ -48,26 +35,17 @@ async def addchannel(client, message):
             "\n\nor manually add assistant to your Group and try again</b>",
         )
         return
-    await message.reply_text(
-        f"<b>✅ userbot successfully joined chat</b>",
-    )
+    await message.reply_text(f"<b>✅ userbot successfully joined chat</b>")
 
 
-@Client.on_message(
-    command(["userbotleave", f"userbotleave@{BOT_USERNAME}"])
-    & filters.group
-    & ~filters.edited
-)
+@Client.on_message(command(["userbotleave", f"userbotleave@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def rem(client, message):
     try:
         await USER.send_message(message.chat.id, "✅ userbot successfully left group")
         await USER.leave_chat(message.chat.id)
     except:
-        await message.reply_text(
-            "<b>user couldn't leave your group, may be floodwaits.\n\nor manually kick me from your group</b>"
-        )
-
+        await message.reply_text("<b>user couldn't leave your group, may be floodwaits.\n\nor manually kick me from your group</b>")
         return
 
 
@@ -88,10 +66,6 @@ async def bye(client, message):
             )
         except:
             failed += 1
-            await lol.edit(
-                f"Assistant leaving... Left: {left} chats. Failed: {failed} chats."
-            )
+            await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
         await asyncio.sleep(0.7)
-    await client.send_message(
-        message.chat.id, f"Left {left} chats. Failed {failed} chats."
-    )
+    await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")

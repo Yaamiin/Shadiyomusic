@@ -497,7 +497,7 @@ async def play(_, message: Message):
         return
     text_links=None
     if message.reply_to_message:
-        if message.reply_to_message.audio:
+        if message.reply_to_message.audio.title:
             pass
         entities = []
         if message.entities:
@@ -524,7 +524,7 @@ async def play(_, message: Message):
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     audio = (
-        (message.reply_to_message.audio or message.reply_to_message.voice)
+        (message.reply_to_message.audio.title or message.reply_to_message.voice.title)
         if message.reply_to_message
         else None
     )

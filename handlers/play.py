@@ -671,7 +671,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n\n🔢 **Queue position »** `{position}`",
+            caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n\n🔢 **Track position »** `{position}`",
             reply_markup=keyboard
         )
     else:
@@ -771,7 +771,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n\n🔢 **Queue position »** `{position}`",
+        caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position »** `{position}`",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -911,7 +911,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n\n🔢 **Queue position »** `{position}`",
+            caption=f"🎵 **Name:** {title}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position »** `{position}`",
                    reply_markup=keyboard,
         )
         os.remove("final.png")

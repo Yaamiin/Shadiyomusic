@@ -524,7 +524,7 @@ async def play(_, message: Message):
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     audio = (
-        (message.reply_to_message.audio.title or message.reply_to_message.voice.title)
+        (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
         else None
     )
@@ -541,7 +541,7 @@ async def play(_, message: Message):
                 ],
             ]
         )
-        file_name = get_file_name(audio)
+        file_name = get_file_name(audio.title)
         title = file_name
         thumb_name = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png"
         thumbnail = thumb_name

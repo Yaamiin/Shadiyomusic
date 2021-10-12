@@ -55,7 +55,7 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply(message, text=document)
     else:
-        await message.reply(f"**[https://telegra.ph/file/8bbb813c8f692f434ac3a.mp4](https://telegra.ph{response[0]})**", disable_web_page_preview=False)
+        await message.reply(f"**[Here's Your Telegraph Link](https://telegra.ph{response[0]})**", disable_web_page_preview=False)
     finally:
         os.remove(download_location)
 

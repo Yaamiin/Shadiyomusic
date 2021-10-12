@@ -16,16 +16,16 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text("<b>promote me as admin first !</b>")
+        await message.reply_sticker("CAACAgUAAx0CS5UEcQAC6BNhZaEpz4aop1kBQMz9rijK_fqe3wACDgMAAhZW6VbNa9_LDidi5iEE")
         return
-
     try:
         user = await USER.get_me()
     except:
         user.first_name = "music assistant"
-
     try:
         await USER.join_chat(invitelink)
         await USER.send_message(message.chat.id, "🤖: i'm joined here for playing music on voice chat")
+        await USER.send_sticker(message.chat.id, "CAACAgUAAx0CS5UEcQAC6BdhZaHUhBmtEuQ2LEjwx84GsKd67gACVgMAArWI8Vah1KOAZ_NCzyEE")
     except UserAlreadyParticipant:
         await message.reply_text(f"<b>✅ userbot already joined chat</b>")
     except Exception as e:

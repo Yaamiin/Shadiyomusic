@@ -535,9 +535,10 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
                 ],
+                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
         )
         file_name = get_file_name(audio)
@@ -584,9 +585,10 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
                 ],
+                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -662,9 +664,10 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
                 ],
+                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
         )
             requested_by = message.from_user.first_name
@@ -762,9 +765,10 @@ async def lol_cb(b, cb):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
                 ],
+                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
         )
     requested_by = useer_name
@@ -911,9 +915,10 @@ async def ytplay(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
                 ],
+                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
         )
     requested_by = message.from_user.first_name

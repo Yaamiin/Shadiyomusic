@@ -47,7 +47,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("you not allowed to do this!", show_alert=True)
+            await cb.answer("You Are Not Allowed To Do This!", show_alert=True)
             return
     return decorator                                                                       
                                           
@@ -224,7 +224,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"💡 **music player has been activated in this chat.**\n\n☁️ `{message.chat.id}`"
+            f"🦄 **Music Player Has Been Activated In This Chat.**\n\n☁️ `{message.chat.id}`"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
@@ -235,7 +235,7 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"💡 **music player has been deactivated in this chat.**\n\n☁️ `{message.chat.id}`"
+            f"😕 **Music Player Has Been Deactivated In This Chat.**\n\n☁️ `{message.chat.id}`"
         )
     else:
         await message.reply_text(
@@ -721,7 +721,7 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("💡 this is not for you !", show_alert=True)
+        await cb.answer("⚠️ This Is Not For You !", show_alert=True)
         return
     await cb.message.edit("🔁 **Processing**")
     x=int(x)

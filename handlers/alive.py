@@ -1,8 +1,3 @@
-# © KennedyProject 2021
-# Sena (@xgothboi)
-# Kalo ngedit jangan hapus credit ya meki
-# YAHAHA WAHYOE
-
 from os import path
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -57,7 +52,7 @@ async def alive(client: Client, message: Message):
 
 {alv} **Bot : 6.0 LATEST**
 
-{alv} **My Master : [Tuhan](https://t.me/{OWNER_NAME})**
+{alv} **My Master : [Pʀᴀᴛʜᴇᴇᴋ](https://t.me/{OWNER_NAME})**
 
 {alv} **Service Uptime : `{uptime}`**
 

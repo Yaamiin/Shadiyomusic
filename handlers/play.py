@@ -602,9 +602,10 @@ async def play(_, message: Message):
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ 💡 Duration - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by [{bn}](https://t.me/{BOT_USERNAME})__\n\n"
+                toxxt += f"{emojilist[j]} {results[j]<b>['title']}<b>\n"
+                toxxt += f" ├ ⏱️ **DURATION** - {results[j]['duration']}\n"
+                toxxt += f" ├ 👀 **VIEWS** - {results[j]['views']}\n"
+                toxxt += f" └ 🥀__Powered by Pratheek Public Bot__\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [

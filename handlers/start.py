@@ -32,28 +32,32 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋 **Hello {message.from_user.mention}**</b> ❗
-**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bot designed to play music in your voice chat groups!**
-**To see some commands for using this bot, click » /help**""",
+        f"""<b>👋 𝙃𝙀𝙇𝙇𝙊 𝙏𝙃𝙀𝙍𝙀 {message.from_user.mention}</b> ❗ 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙈𝙔 𝘽𝙊𝙏💞
+
+𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝘽𝙊𝙏 𝘿𝙀𝙎𝙄𝙂𝙉𝙀𝘿 𝙏𝙊 𝙋𝙇𝘼𝙔 𝙈𝙐𝙎𝙄𝘾 𝙄𝙉 𝙔𝙊𝙐𝙍 𝙂𝙍𝙊𝙐𝙋𝙎!
+
+𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝙋𝙍𝙄𝙑𝘼𝙏𝙀 𝙋𝙍𝙊𝙅𝙀𝘾𝙏 𝙊𝙁 [𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆](https://t.me/pratheek06)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
+
+𝙃𝙀𝙍𝙀 𝘼𝙍𝙀 𝙎𝙊𝙈𝙀 𝘾𝙈𝘿𝙎 𝙏𝙊 𝙐𝙎𝙀 𝙏𝙃𝙄𝙎 𝘽𝙊𝙏, 𝘾𝙇𝙄𝘾𝙆 » **/help**""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Sᴜᴍᴍᴏɴ Mᴇ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "ʀᴇᴘᴏ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "​​Oᴡɴᴇʀ 🥀", url="https://t.me/pratheek06"
                     ),
                     InlineKeyboardButton(
-                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
+                        "Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 👥", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbguide"
+                        "❓Hᴏᴡ Tᴏ Usᴇ Mᴇ​ ❓​", callback_data="cbguide"
                     )
                 ]
             ]
         ),
-     disable_web_page_preview=True
+     disable_web_page_preview=False
     )
 
 
@@ -65,16 +69,16 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     delta_ping = time() - start
     await message.reply_text(
-        f"""<b>👋 **Hello {message.from_user.mention()}** ❗</b>
+        f"""<b>☺️ **𝙃𝙀𝙇𝙇𝙊 {message.from_user.mention()}** ❗</b>
 
-✅ **I'm active and ready to play music!
+✅ **𝙔𝙊,𝙄𝘼𝙈 𝘼𝙇𝙄𝙑𝙀 𝙓𝘿!
 • Start time: `{START_TIME_ISO}`
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "👥 Support", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ]
             ]
@@ -85,15 +89,15 @@ async def start(client: Client, message: Message):
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋 **Hello** {message.from_user.mention()}</b>
+        f"""<b>☺️ 𝙃𝙚𝙮 𝙔𝙤𝙤.. {message.from_user.mention()}</b>
 **Please press the button below to read the explanation and see the list of available commands !**
 
-💡 Bot by @{OWNER_NAME}""",
+🥀 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text=" HOW TO USE ME", callback_data=f"cbguide"
+                        text=" Hᴏᴡ Tᴏ Usᴇ Mᴇ", callback_data=f"cbguide"
                     )
                 ]
             ]
@@ -103,16 +107,16 @@ async def help(client: Client, message: Message):
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋 **Hello {message.from_user.mention} welcome to the help menu !**</b>
+        f"""<b>😇 **Hᴇʟʟᴏ {message.from_user.mention} welcome to the help menu !**</b>
 
 **__In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command__**
 
-💡 Bot by @{OWNER_NAME}""",
+🦄 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "HELP", callback_data="cbguide"
+                        "𝙃𝙀𝙇𝙋", callback_data="cbguide"
                     )
                 ]
             ]

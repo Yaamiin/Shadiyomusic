@@ -531,8 +531,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
+                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
                 ],
             ]
         )
@@ -576,8 +580,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
+                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
                 ],
             ]
         )
@@ -650,8 +658,12 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
+                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
                 ],
             ]
         )
@@ -746,8 +758,12 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
+                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
                 ],
             ]
         )
@@ -891,8 +907,12 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
+                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                ],
+                [
+                    InlineKeyboardButton("𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 🥀", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀", callback_data="closed")
                 ],
             ]
         )
@@ -931,8 +951,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+            caption = f"🏷 **Name:** [{title}]({url})\n⏱ **Duration:** {duration}\n" \
+                    + f"🎧 **Requested By:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")
         return await lel.delete()

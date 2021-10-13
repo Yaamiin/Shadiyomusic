@@ -1,7 +1,3 @@
-# this module i created only for playing music using audio file, idk, because the audio player on play.py module not working
-# so this is the alternative
-# audio play function
-
 from os import path
 
 from pyrogram import Client
@@ -33,10 +29,10 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="ɢʀᴏᴜᴘ",
+                        text="𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
                         url=f"https://t.me/{GROUP_SUPPORT}"),
                     InlineKeyboardButton(
-                        text="ᴄʜᴀɴɴᴇʟ",
+                        text="𝙊𝙒𝙉𝙀𝙍",
                         url=f"https://t.me/{UPDATES_CHANNEL}")
                 ]
             ]
@@ -64,7 +60,7 @@ async def stream(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="https://telegra.ph/file/36343b9d4742efe0b09cd.jpg",
+            photo="https://telegra.ph/file/4b84c720ea40f4e24a5c1.jpg",
             caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
             reply_markup=keyboard,
         )
@@ -72,7 +68,7 @@ async def stream(_, message: Message):
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-            photo="https://telegra.ph/file/224178328de996a82507f.jpg",
+            photo="https://telegra.ph/file/4b84c720ea40f4e24a5c1.jpg",
             caption=f"🏷 **Name:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
                    +f"🎧 **Request by:** {costumer}",
             reply_markup=keyboard,

@@ -29,7 +29,7 @@ async def wibu(client, message):
 @Client.on_message(command(["truth", f"truth@{BOT_USERNAME}"]))
 async def truth(client, message):
     try:
-        resp = requests.get("https://api-tede.herokuapp.com/api/truth").json()
+        resp = requests.get("https://api-tede.herokuapp.com/api/truth-en").json()
         results = f"{resp['message']}"
         return await message.reply_text(results)
     except Exception:
@@ -39,7 +39,7 @@ async def truth(client, message):
 @Client.on_message(command(["dare", f"dare@{BOT_USERNAME}"]))
 async def dare(client, message):
     try:
-        resp = requests.get("https://api-tede.herokuapp.com/api/dare").json()
+        resp = requests.get("https://api-tede.herokuapp.com/api/dare-en").json()
         results = f"{resp['message']}"
         return await message.reply_text(results)
     except Exception:

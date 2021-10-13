@@ -486,15 +486,15 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
-                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} Cannot Join Your Group Because Of The Many Requests Join For Userbot! Make Sure The User Is Not Banned In The Group."
+                        f"\n\nOr Add @{ASSISTANT_NAME} Manually To Your Group And Try Again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
+            f"<i>{user.first_name} Was Banned In This Group, Ask Admin To Unban @{ASSISTANT_NAME} Manually.</i>"
         )
         return
     text_links=None
@@ -862,15 +862,15 @@ async def ytplay(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>Flood Wait Error\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
-                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} Cannot Join Your Group Because Of The Many Requests Join For Userbot! Make Sure The User Is Not Banned In The Group."
+                        f"\n\nOr Add @{ASSISTANT_NAME} Manually To Your Group And Try Again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
+            f"<i>{user.first_name} Was Banned In This Group, Ask Admin To Unban @{ASSISTANT_NAME} Manually.</i>"
         )
         return
     user_id = message.from_user.id

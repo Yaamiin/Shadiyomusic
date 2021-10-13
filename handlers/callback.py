@@ -1,5 +1,3 @@
-# (C) KennedyProject github.com/KennedyProject
-
 from time import time
 from datetime import datetime
 from pyrogram import Client, filters
@@ -35,28 +33,32 @@ async def _human_time_duration(seconds):
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>👋 **Hello {message.from_user.mention}**</b> ❗
-**[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Is a bot designed to play music in your voice chat groups!**
-**To see some commands for using this bot, click » /help**""",
+        f"""<b>👋 𝙃𝙀𝙇𝙇𝙊 𝙏𝙃𝙀𝙍𝙀 {message.from_user.mention}</b> ❗ 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙈𝙔 𝘽𝙊𝙏💞
+
+𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝘽𝙊𝙏 𝘿𝙀𝙎𝙄𝙂𝙉𝙀𝘿 𝙏𝙊 𝙋𝙇𝘼𝙔 𝙈𝙐𝙎𝙄𝘾 𝙄𝙉 𝙔𝙊𝙐𝙍 𝙂𝙍𝙊𝙐𝙋𝙎!
+
+𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝙋𝙍𝙄𝙑𝘼𝙏𝙀 𝙋𝙍𝙊𝙅𝙀𝘾𝙏 𝙊𝙁 [𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆](https://t.me/pratheek06)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
+
+𝙃𝙀𝙍𝙀 𝘼𝙍𝙀 𝙎𝙊𝙈𝙀 𝘾𝙈𝘿𝙎 𝙏𝙊 𝙐𝙎𝙀 𝙏𝙃𝙄𝙎 𝘽𝙊𝙏, 𝘾𝙇𝙄𝘾𝙆 » **/help**""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Sᴜᴍᴍᴏɴ Mᴇ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "ʀᴇᴘᴏ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "​​Oᴡɴᴇʀ 🥀", url="https://t.me/pratheek06"
                     ),
                     InlineKeyboardButton(
-                        "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{GROUP_SUPPORT}")
+                        "Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 👥", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ​ ❓​", callback_data="cbguide"
+                        "❓Hᴏᴡ Tᴏ Usᴇ Mᴇ​ ❓​", callback_data="cbguide"
                     )
                 ]
             ]
         ),
-     disable_web_page_preview=True
+     disable_web_page_preview=False
     )
 
 
@@ -84,15 +86,15 @@ __{bn} licensed under the GNU General Public License v.3.0__
 • Assistant @{ASSISTANT_NAME}
 • Here is my [Owner](https://t.me/{OWNER_NAME})**
 
-❓ Wanna make your own bot music? try click Source button!""",
+💞 𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️ 𝘽𝙔 𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆 !""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "sᴏᴜʀᴄᴇ​​", url="https://github.com/KennedyProject/KennedyXMusic"
+                        "Oᴡɴᴇʀ​​", url="https://t.me/pratheek06"
                     ),
                     InlineKeyboardButton(
-                        "ʙᴀᴄᴋ​", callback_data="cbadvanced"
+                        "Bᴀᴄᴋ​", callback_data="cbadvanced"
                     )
                 ]
             ]
@@ -108,30 +110,30 @@ async def cbhelp(_, query: CallbackQuery):
 
 **In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
-💡 Bot by @{OWNER_NAME}""",
+🦄 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Basic Cmd", callback_data="cbbasic"
+                        " Basic Cmd", callback_data="cbbasic"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📘 Admin Cmd", callback_data="cbadmin"
+                        " Admin Cmd", callback_data="cbadmin"
                     ),
                     InlineKeyboardButton(
-                        "📗 Sudo Cmd", callback_data="cbsudo"
+                        " Sudo Cmd", callback_data="cbsudo"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
+                        " Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbguide"
+                        "Bᴀᴄᴋ", callback_data="cbguide"
                     )
                 ]
             ]
@@ -161,7 +163,7 @@ async def cbbasic(_, query: CallbackQuery):
 /alive - check alive bot
 /start - starting bot
 
-💡 Bot by @{OWNER_NAME}""",
+🦄 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -219,12 +221,12 @@ async def cbadmin(_, query: CallbackQuery):
 /userbotjoin - invite assistant to join the group
 /musicplayer (on / off) - turn on / off the music player in your group
 
-💡 Bot by @{OWNER_NAME}""",
+🦄 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbhelp"
+                        "Bᴀᴄᴋ", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -248,12 +250,12 @@ if using heroku
 /setvar (var) (value) - to update your value variable on heroku
 /delvar (var) - to delete your var on heroku.
 
-💡 Bot by @{OWNER_NAME}**""",
+🦄 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbhelp"
+                        "Bᴀᴄᴋ", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -274,12 +276,12 @@ async def cbfun(_, query: CallbackQuery):
 /q - to make quotes text
 /paste - pasting your text or document to pastebin into photo
 
-💡 Bot by @{OWNER_NAME}**""",
+🦄 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "BACK", callback_data="cbhelp"
+                        "Bᴀᴄᴋ", callback_data="cbhelp"
                     )
                 ]
             ]
@@ -290,24 +292,24 @@ async def cbfun(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**HOW TO USE THIS BOTT :**
+        f"""**HOW TO USE THIS BOT :**
 
 **1.) First, add to your group.
 2.) Then make admin with all permissions except anonymous admin.
 3.) Add @{ASSISTANT_NAME} to your group or type `/userbotjoin` to invite assistant.
 4.) Turn on voice chat first before playing music.
 
-💡 Bot by @{OWNER_NAME}**""",
+🦄 Bot by @{OWNER_NAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Command List", callback_data="cbhelp"
+                        "📘 Command List", callback_data="cbhelp"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 Close", callback_data="close"
+                        "❌ Close", callback_data="close"
                     )
                 ]
             ]

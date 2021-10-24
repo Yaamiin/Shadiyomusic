@@ -543,7 +543,7 @@ async def play(_, message: Message):
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/6225b3f980173c724c38c.png"
+        thumb_name = "https://https://telegra.ph/file/48307ef5cda3c5c4dae4d.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -856,7 +856,7 @@ async def ytplay(_, message: Message):
                         message.chat.id, "🤖: assistant telah bergabung ke grup untuk memutar musik"
                     )
                     await lel.edit(
-                        "<b>💡 Helper userbot joined!\n\n• Jika terjadi masalah, laporkan ke @kenbotsupport</b>",
+                        "<b>💡 Helper userbot joined!\n\n• Jika terjadi masalah, laporkan ke @somalimusicbot</b>",
                     )
 
                 except UserAlreadyParticipant:

@@ -585,8 +585,8 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
-                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/Somalimusicbot"),
                     InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"),
                     InlineKeyboardButton("Gʀᴏᴜᴘ ", url=f"https://t.me/{GROUP_SUPPORT}"),
                 ],

@@ -535,8 +535,8 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
-                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("👥 𝙅𝙊𝙄𝙉 𝘿𝙃𝙀𝙃 ", url=f"https://t.me/Somalimusicbot"),
                 ],
                 [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
@@ -615,7 +615,7 @@ async def play(_, message: Message):
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ ⏱️ **DURATION** - {results[j]['duration']}\n"
                 toxxt += f" ├ 👀 **VIEWS** - {results[j]['views']}\n"
-                toxxt += f" └ 🥀__Powered by Pratheek Public Bot__\n\n"
+                toxxt += f" └ 🥀__Waxa sameyay botkan Somali Developer  Bot__\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [
@@ -636,7 +636,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            # await lel.edit("❌ **couldn't find song**")
+            # await lel.edit("❌ **Ma anan helin😓**")
 
             # print(results)
             try:
@@ -702,7 +702,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+                    + f"🎧 **waxa dalbaday:** {r_by.mention} \n",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -722,9 +722,9 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("⚠️ This Is Not For You !", show_alert=True)
+        await cb.answer("⚠️ Adiga laguma tala galin howshan !", show_alert=True)
         return
-    await cb.message.edit("🔁 **Processing**")
+    await cb.message.edit("🔁 **inyar sug**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -763,8 +763,8 @@ async def lol_cb(b, cb):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
-                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("👥 𝙅𝙊𝙄𝙉 𝘿𝙃𝙀𝙃 ", url=f"https://t.me/Somalimusicbot"),
                 ],
                 [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
@@ -809,7 +809,7 @@ async def lol_cb(b, cb):
         chat_id,
         photo="final.png",
         caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
-                + f"🎧 **Request by:** {r_by.mention} \n",
+                + f"🎧 **waxa dalbaday:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -822,7 +822,7 @@ async def ytplay(_, message: Message):
     if message.chat.id in DISABLED_GROUPS:
         await message.reply("😕 **Musicplayer is Disable!**\n\n» Ask admin for Enable the Musicplayer for this group.")
         return
-    lel = await message.reply("🔎 **Finding song**")
+    lel = await message.reply("🔎 **Wan helay**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -913,8 +913,8 @@ async def ytplay(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
-                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/somalimusicbot"),
                 ],
                 [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]
@@ -955,7 +955,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             caption = f"🏷 **Name:** [{title}]({url})\n⏱ **Duration:** {duration}\n" \
-                    + f"🎧 **Requested By:** {r_by.mention} \n",
+                    + f"🎧 **waxa dalbaday:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")
         return await lel.delete()

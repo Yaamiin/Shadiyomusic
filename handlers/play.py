@@ -153,7 +153,7 @@ def updated_stats(chat, queue, vol=100):
             stats += "🎚️ Volume: {}%\n".format(vol)
             stats += "🎼 Song in queue: `{}`\n".format(len(que))
             stats += "💡 Now playing: **{}**\n".format(queue[0][0])
-            stats += "🎧 Requested by: {}".format(queue[0][1].mention)
+            stats += "🎧 waxa dalbaday: {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -446,7 +446,7 @@ async def play(_, message: Message):
     if message.chat.id in DISABLED_GROUPS:
         await message.reply("😕 **Musicplayer is Disable!**\n\n» Ask admin for Enable the Musicplayer for this group.")
         return
-    lel = await message.reply("🔎 **Finding song**")
+    lel = await message.reply("🔎 **inyar sug**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -585,8 +585,8 @@ async def play(_, message: Message):
                     InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/pratheek06"),
-                    InlineKeyboardButton("👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏 ", url=f"https://t.me/SHIZUKA_VC_SUPPORT"),
+                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("👥 𝙅𝙊𝙄𝙉 𝘿𝙃𝙀𝙃 ", url=f"https://t.me/Somalimusicbot"),
                 ],
                 [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
             ]

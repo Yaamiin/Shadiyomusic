@@ -69,8 +69,8 @@ async def stream(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
             photo="https://telegra.ph/file/4b84c720ea40f4e24a5c1.jpg",
-            caption=f"🏷 **Name:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-                   +f"🎧 **Request by:** {costumer}",
+            caption=f"🏷 **Magaca:** [{title[:40]}](https://t.me/{GROUP_SUPPORT})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+                   +f"🎧 **Waxa dalbaday:** {costumer}",
             reply_markup=keyboard,
         )
         return await lel.delete()

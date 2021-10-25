@@ -438,7 +438,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+                f"❌ Videos kabadan {DURATION_LIMIT} minute(s) aren't allowed to play!"
             )
         keyboard = InlineKeyboardMarkup(
             [
@@ -481,7 +481,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "❌ song not found, please give a valid song name."
+                "❌ Ma helin, Fadlan magaca Saxda qor."
             )
             print(str(e))
             return

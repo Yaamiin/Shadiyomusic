@@ -434,7 +434,7 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("✅ music has stopped")
+            await cb.message.edit("✅ music wala istajiyay")
         else:
             await cb.answer("assistant is not connected to voice chat !", show_alert=True)
 
@@ -470,13 +470,13 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>💡 **To use me, I need to be an Administrator with the permissions:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**</b>",
+                        "<b>💡 **si aad ii isticmasha iga dhig admin ina fur:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**</b>",
                     )
                     return
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "🤖: i'm joined to this group for playing music on voice chat"
+                        message.chat.id, "🤖: botka wuu imaaday"
                     )
                     await lel.edit(
                         "<b>💡 helper userbot joined your chat</b>",
@@ -526,7 +526,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**"
+                f"❌ **Video kabadan** `{DURATION_LIMIT}` **minutes, la ima ogolo inan shido !**"
             )
         keyboard = InlineKeyboardMarkup(
             [
@@ -572,7 +572,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "❌ **couldn't find song**, please provide the correct song name."
+                "❌ **Wan wayay**, Fadlan isii magaca saxda ah."
             )
             print(str(e))
             return
@@ -639,7 +639,7 @@ async def play(_, message: Message):
             return
             # KONTOOOOOLLLLLLLLLLL
         except:
-            # await lel.edit("❌ **Ma anan helin😓**")
+            # await lel.edit("❌ **Wan wayay**, Fadlan isii magaca saxda ah.**")
 
             # print(results)
             try:
@@ -654,7 +654,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song**, please provide the correct song name."
+                    "❌ **Wan wayay**, Fadlan isii magaca saxda ah."
                 )
                 print(str(e))
                 return
@@ -746,7 +746,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**")
+             await cb.message.edit(f"❌ **Video kabadan** `{DURATION_LIMIT}` **la ima ogolan inan shido !**")
              return
     except:
         pass
@@ -790,7 +790,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}",
+        caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **waxa dalbaday:** {r_by.mention}",
         reply_markup=keyboard,
         )
         if path.exists("final.png"):
@@ -886,7 +886,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🔁 **Processing**")
+    await lel.edit("🔁 **inyar sug**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()

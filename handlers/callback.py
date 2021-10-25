@@ -33,18 +33,18 @@ async def _human_time_duration(seconds):
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>👋 𝙃𝙀𝙇𝙇𝙊 𝙏𝙃𝙀𝙍𝙀 {message.from_user.mention}</b> ❗ 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙈𝙔 𝘽𝙊𝙏💞
+        f"""<b>👋 𝙃𝙀𝙇𝙇𝙊 𝙏𝙃𝙀𝙍𝙀 {message.from_user.mention}</b> ❗ 𝐊𝐔𝐒𝐎 𝐃𝐇𝐀𝐖𝐎𝐖 𝐁𝐎𝐓𝐊𝐀 💞
 
-𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝘽𝙊𝙏 𝘿𝙀𝙎𝙄𝙂𝙉𝙀𝘿 𝙏𝙊 𝙋𝙇𝘼𝙔 𝙈𝙐𝙎𝙄𝘾 𝙄𝙉 𝙔𝙊𝙐𝙍 𝙂𝙍𝙊𝙐𝙋𝙎!
+𝐖𝐀𝐗𝐀 𝐋𝐎 𝐃𝐄𝐒𝐈𝐆𝐍 𝐆𝐀𝐑𝐄𝐘𝐀𝐘 𝐁𝐎𝐓𝐊𝐀𝐍 𝐈𝐍𝐔𝐔 𝐊𝐀𝐆𝐀 𝐒𝐇𝐈𝐃𝐎 𝐆𝐑𝐎𝐔𝐏𝐊𝐀𝐃𝐀 𝐖𝐀𝐗𝐀𝐃 𝐊𝐀 𝐃𝐀𝐋𝐁𝐀𝐓𝐎!
 
-𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝙋𝙍𝙄𝙑𝘼𝙏𝙀 𝙋𝙍𝙊𝙅𝙀𝘾𝙏 𝙊𝙁 [𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆](https://t.me/Yaamiin)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
+𝐁𝐎𝐓𝐊𝐀𝐍 𝐖𝐀𝐗𝐀 𝐒𝐈 𝐐𝐀𝐀𝐒𝐀 𝐔𝐋𝐄𝐇 [丹匕匕Ａ匚Ｋ](https://t.me/Yaamiin)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
 
 𝙃𝙀𝙍𝙀 𝘼𝙍𝙀 𝙎𝙊𝙈𝙀 𝘾𝙈𝘿𝙎 𝙏𝙊 𝙐𝙎𝙀 𝙏𝙃𝙄𝙎 𝘽𝙊𝙏, 𝘾𝙇𝙄𝘾𝙆 » **/help**""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ Sᴜᴍᴍᴏɴ Mᴇ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ Kᴜᴅᴀʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
                         "​​Oᴡɴᴇʀ 🥀", url="https://t.me/Yaamiin"

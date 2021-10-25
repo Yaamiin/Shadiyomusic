@@ -37,7 +37,7 @@ async def cbstart(_, query: CallbackQuery):
 
 𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝘽𝙊𝙏 𝘿𝙀𝙎𝙄𝙂𝙉𝙀𝘿 𝙏𝙊 𝙋𝙇𝘼𝙔 𝙈𝙐𝙎𝙄𝘾 𝙄𝙉 𝙔𝙊𝙐𝙍 𝙂𝙍𝙊𝙐𝙋𝙎!
 
-𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝙋𝙍𝙄𝙑𝘼𝙏𝙀 𝙋𝙍𝙊𝙅𝙀𝘾𝙏 𝙊𝙁 [𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆](https://t.me/pratheek06)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
+𝙏𝙃𝙄𝙎 𝙄𝙎 𝘼 𝙋𝙍𝙄𝙑𝘼𝙏𝙀 𝙋𝙍𝙊𝙅𝙀𝘾𝙏 𝙊𝙁 [𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆](https://t.me/Yaamiin)....𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️
 
 𝙃𝙀𝙍𝙀 𝘼𝙍𝙀 𝙎𝙊𝙈𝙀 𝘾𝙈𝘿𝙎 𝙏𝙊 𝙐𝙎𝙀 𝙏𝙃𝙄𝙎 𝘽𝙊𝙏, 𝘾𝙇𝙄𝘾𝙆 » **/help**""",
         reply_markup=InlineKeyboardMarkup(
@@ -47,7 +47,7 @@ async def cbstart(_, query: CallbackQuery):
                         "➕ Sᴜᴍᴍᴏɴ Mᴇ​ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "​​Oᴡɴᴇʀ 🥀", url="https://t.me/pratheek06"
+                        "​​Oᴡɴᴇʀ 🥀", url="https://t.me/Yaamiin"
                     ),
                     InlineKeyboardButton(
                         "Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 👥", url=f"https://t.me/{GROUP_SUPPORT}")
@@ -86,12 +86,12 @@ __{bn} licensed under the GNU General Public License v.3.0__
 • Assistant @{ASSISTANT_NAME}
 • Here is my [Owner](https://t.me/{OWNER_NAME})**
 
-💞 𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️ 𝘽𝙔 𝙋𝙍𝘼𝙏𝙃𝙀𝙀𝙆 !""",
+💞 𝙈𝘼𝘿𝙀 𝙒𝙄𝙏𝙃 ❤️ 𝘽𝙔 𝘼𝙏𝙏𝘼𝘾𝙆 !""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Oᴡɴᴇʀ​​", url="https://t.me/pratheek06"
+                        "Oᴡɴᴇʀ​​", url="https://t.me/Yaamiim"
                     ),
                     InlineKeyboardButton(
                         "Bᴀᴄᴋ​", callback_data="cbadvanced"

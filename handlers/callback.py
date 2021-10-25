@@ -53,7 +53,7 @@ async def cbstart(_, query: CallbackQuery):
                         "Sᴜᴘᴘᴏʀᴛ Cʜᴀᴛ 👥", url=f"https://t.me/{GROUP_SUPPORT}")
                 ],[
                     InlineKeyboardButton(
-                        "❓Hᴏᴡ Tᴏ Usᴇ Mᴇ​ ❓​", callback_data="cbguide"
+                        "❓Sɪᴅᴇᴇ ʟᴏᴏ ɪsᴛɪᴄᴍᴀᴀʟᴏ ❓​", callback_data="cbguide"
                     )
                 ]
             ]
@@ -106,9 +106,9 @@ __{bn} licensed under the GNU General Public License v.3.0__
 @Client.on_callback_query(filters.regex("cbhelp"))
 async def cbhelp(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>{alv} Here is the help menu !</b>
+        f"""<b>{alv} Halkan Wa qeybta  caawinta !</b>
 
-**In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
+**La xiriir @Yaamiin **
 
 🦄 Bot by @{OWNER_NAME}""",
         reply_markup=InlineKeyboardMarkup(

@@ -721,7 +721,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ **couldn't find song**, please provide the correct song name.")
+        await cb.message.edit("❌ **mahelin**, Fadlan magaca saxda ah.")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -811,7 +811,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption = f"🏷 **Name:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
+        caption = f"🏷 **Magaca:** [{title}]({url})\n⏱ **duration:** {duration}\n" \
                 + f"🎧 **waxa dalbaday:** {r_by.mention} \n",
         reply_markup=keyboard,
         )
@@ -850,7 +850,7 @@ async def ytplay(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>💡 **To use me, I need to be an Administrator with the permissions:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**</b>",
+                        "<b>💡 **si aad ii isticmasho, admin iga dhig ina fur:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**</b>",
                     )
                     return
                 try:

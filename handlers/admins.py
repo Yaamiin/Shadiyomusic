@@ -34,7 +34,7 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❌ **Not playing a song!**")
+        await message.reply_text("❌ **wax shidan lamahan!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ **Music paused!**\n\n• To resume music use **command » /resume**")
@@ -48,10 +48,10 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
-        await message.reply_text("❌ **No music is paused!**")
+        await message.reply_text("❌ **wax dansan majiran!**")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ **Music resumed!**\n\n• To pause use **command » /pause**")
+        await message.reply_text("⏸ **dib aya lo bilabay!**\n\n• To pause use **command » /pause**")
 
 
 @Client.on_message(command(["end", f"end@{BOT_USERNAME}"]) & other_filters)
@@ -60,7 +60,7 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❌ **Not playing a song!**")
+        await message.reply_text("❌ **Wax shidan malahan!**")
     else:
         try:
             queues.clear(chat_id)
@@ -78,7 +78,7 @@ async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❌ **Not playing a song!**")
+        await message.reply_text("❌ **Wax shidan malahan!**")
     else:
         queues.task_done(chat_id)
 
@@ -94,4 +94,4 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⏭️ **__You've skipped to the next song__**")
+    await message.reply_text(f"⏭️ **__Videoga Xiga ayaad u gudbisay__**")

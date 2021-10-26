@@ -1,4 +1,4 @@
-<h1 align="centre">Kennedy X Music 🎵
+<h1 align="centre">Somali X Music 🎵
 
 ### Music bot for playing music on telegram voice chat group.
 <p align="center"><a href="https://t.me/kenbotsupport"><img src="https://telegra.ph/file/4b9c339305387d2b40da1.jpg" width="300"></a></p>

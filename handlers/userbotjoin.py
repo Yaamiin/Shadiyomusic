@@ -31,7 +31,7 @@ async def addchannel(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n\n User {user.first_name} couldn't join your group due to heavy join requests for userbot."
+            f"<b>🛑 Cilad 🛑 \n\n User {user.first_name} couldn't join your group due to heavy join requests for userbot."
             "\n\nor manually add assistant to your Group and try again</b>",
         )
         return
@@ -42,7 +42,7 @@ async def addchannel(client, message):
 @authorized_users_only
 async def rem(client, message):
     try:
-        await USER.send_message(message.chat.id, "✅ userbot successfully left group")
+        await USER.send_message(message.chat.id, "✅ Botka wuu kabaxay groupka")
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text("<b>user couldn't leave your group, may be floodwaits.\n\nor manually kick me from your group</b>")

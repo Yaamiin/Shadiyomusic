@@ -304,7 +304,7 @@ async def cbguide(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "📘 Command List", callback_data="cbhelp"
+                        "📘 Qeybta cawinta", callback_data="cbhelp"
                     )
                 ],
                 [

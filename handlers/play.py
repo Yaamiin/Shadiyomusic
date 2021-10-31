@@ -618,7 +618,7 @@ async def play(_, message: Message):
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ ⏱️ **DURATION** - {results[j]['duration']}\n"
                 toxxt += f" ├ 👀 **VIEWS** - {results[j]['views']}\n"
-                toxxt += f" └ 🥀__Waxa sameyay botkan Somali Developer  Bot__\n\n"
+                toxxt += f" └ 🥀__Waxa sameyay botkan Somali Developers __\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [
@@ -725,7 +725,7 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("⚠️ Adiga laguma tala galin howshan !", show_alert=True)
+        await cb.answer("⚠️ Adiga laguma tala galin Qeybtan !", show_alert=True)
         return
     await cb.message.edit("🔁 **inyar sug**")
     x=int(x)
@@ -762,14 +762,14 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
-                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                    InlineKeyboardButton("𝐏𝐋𝐀𝐘𝐋𝐈𝐒𝐓🎧", callback_data="playlist"),
+                    InlineKeyboardButton("𝐌𝐄𝐍𝐔📀 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
-                    InlineKeyboardButton("👥 𝙅𝙊𝙄𝙉 𝘿𝙃𝙀𝙃 ", url=f"https://t.me/Somalimusicbot"),
+                    InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑😈 🥀", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("𝗧𝗔𝗔𝗕𝗢 𝗜𝗗𝗜𝗥𝗜𝗦𝗞𝗔😥 ", url=f"https://t.me/Somalimusicbot"),
                 ],
-                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
+                [InlineKeyboardButton(text="❌𝐊𝐀 𝐁𝐀𝐗❌", callback_data="closed")],
             ]
         )
     requested_by = useer_name

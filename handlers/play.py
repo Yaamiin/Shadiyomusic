@@ -531,14 +531,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 𝙋𝙇𝘼𝙔𝙇𝙄𝙎𝙏", callback_data="playlist"),
-                    InlineKeyboardButton("𝙈𝙀𝙉𝙐 ⏯ ", callback_data="menu"),
+                    InlineKeyboardButton("𝐏𝐋𝐀𝐘𝐋𝐈𝐒𝐓🎧", callback_data="playlist"),
+                    InlineKeyboardButton("𝐌𝐄𝐍𝐔📀 ⏯ ", callback_data="menu"),
                 ],
                 [
-                    InlineKeyboardButton("𝙊𝙒𝙉𝙀𝙍 🥀", url=f"https://t.me/Yaamiin"),
-                    InlineKeyboardButton("👥 𝙅𝙊𝙄𝙉 𝘿𝙃𝙀𝙃 ", url=f"https://t.me/Somalimusicbot"),
+                    InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑😈 ", url=f"https://t.me/Yaamiin"),
+                    InlineKeyboardButton("𝗧𝗔𝗔𝗕𝗢 𝗜𝗗𝗜𝗥𝗜𝗦𝗞𝗔😥", url=f"https://t.me/Somalimusicbot"),
                 ],
-                [InlineKeyboardButton(text="❌ 𝘾𝙇𝙊𝙎𝙀 ❌", callback_data="closed")],
+                [InlineKeyboardButton(text="❌𝐊𝐀 𝐁𝐀𝐗❌", callback_data="closed")],
             ]
         )
         file_name = get_file_name(audio)
